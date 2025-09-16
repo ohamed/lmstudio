@@ -1,5 +1,8 @@
 ## User defined ignores:
 
+#GNU Zip (gzip)
+data/*.gz
+
 #PDF files
 *.pdf
 
