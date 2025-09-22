@@ -2,9 +2,12 @@
 
 #GNU Zip (gzip)
 data/*.gz
+data/*.json
+data/*.zip
 
 #PDF files
-#*.pdf
+data/pdfs/*.pdf
+data/*.pdf
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

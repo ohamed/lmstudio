@@ -1,79 +1,63 @@
-# prep_arxiv_csml_pairs.py
+# prep_csml_pairs.py
 # Usage:
-#   python prep_arxiv_csml_pairs.py /path/to/s2orc_csml_jsonl_or_jsonl.gz out.csv
+#   python prep_csml_pairs.py data/input.jsonl.gz out.csv
 
-import sys, os, gzip, json, csv
+# pip install pandas requests tqdm pymupdf
+import json, re, os, requests, fitz, pandas as pd
+from tqdm import tqdm
 
-IN_PATH = sys.argv[1]
-OUT_CSV = sys.argv[2]
+META = "data/arxiv-metadata-oai-snapshot.json"
+OUT  = "data/arxiv_csml_body_abstract.csv"
+MAX_DOCS = 200  # stop after this many papers (set higher for full run)
 
-def open_any(path):
-    return gzip.open(path, 'rt', encoding='utf-8') if path.endswith('.gz') else open(path, 'r', encoding='utf-8')
+def is_csml(cats):
+    s = (cats or "").lower()
+    return ("cs." in s) or ("stat.ml" in s)
 
-def is_csml(rec):
-    # Accept if clearly CS/ML by arXiv category or field labels (fallback to True if unknown)
-    cat = (rec.get('arxiv_id') or '')
-    fields = [f.lower() for f in rec.get('mag_field_of_study') or []]
-    if cat.startswith('cs.') or cat.startswith('stat.ml'):
-        return True
-    if any('computer' in f or 'machine' in f or 'artificial intelligence' in f for f in fields):
-        return True
-    return False if (cat or fields) else True
+def pdf_to_text(fp):
+    try:
+        doc = fitz.open(fp)
+        txt = "\n".join(page.get_text() for page in doc)
+        doc.close()
+        return re.sub(r"\s+", " ", txt).strip()
+    except:
+        return ""
 
-def join_body(rec):
-    body = rec.get('body_text') or []
-    if isinstance(body, list):
-        texts = []
-        for x in body:
-            t = x.get('text') if isinstance(x, dict) else str(x)
-            if t: texts.append(t.strip())
-        return '\n\n'.join(texts).strip()
-    # some variants store as string
-    if isinstance(body, str):
-        return body.strip()
-    return ''
+os.makedirs("data/pdfs", exist_ok=True)
+rows = []
 
-def clean(s):
-    return ' '.join((s or '').split())
-
-def stream_records(path):
-    with open_any(path) as f:
-        for line in f:
-            line = line.strip()
-            if not line:
+with open(META, "r", encoding="utf-8") as f:
+    for line in tqdm(f, desc="Scanning metadata"):
+        rec = json.loads(line)
+        cats = rec.get("categories","")
+        if not is_csml(cats):
+            continue
+        arxiv_id = rec.get("id","").strip()
+        title = (rec.get("title") or "").strip()
+        abstract = re.sub(r"\s+"," ", (rec.get("abstract") or "").strip())
+        if len(abstract) < 50:
+            continue
+        
+        pdf_url = f"https://arxiv.org/pdf/{arxiv_id}.pdf"
+        pdf_fp = f"data/pdfs/{arxiv_id.replace('/','_')}.pdf"
+        if not os.path.exists(pdf_fp):
+            r = requests.get(pdf_url, timeout=60)
+            if r.status_code == 200:
+                with open(pdf_fp,"wb") as w: w.write(r.content)
+            else:
                 continue
-            try:
-                rec = json.loads(line)
-            except json.JSONDecodeError:
-                continue
-            if isinstance(rec, list):
-                # yield each element if list contains dicts
-                for item in rec:
-                    if isinstance(item, dict):
-                        yield item
-            elif isinstance(rec, dict):
-                yield rec
+        
+        body = pdf_to_text(pdf_fp)
+        if len(body) < 500:
+            continue
 
-def main():
-    sample_count = 0
-    with open_any(IN_PATH) as f:
-        for line in f:
-            try:
-                rec = json.loads(line)
-            except json.JSONDecodeError:
-                continue
-            if isinstance(rec, list):
-                for item in rec:
-                    if isinstance(item, dict):
-                        print(json.dumps(item, indent=2)[:500])  # preview first record
-                        sample_count += 1
-                        if sample_count >= 3:
-                            return
-            elif isinstance(rec, dict):
-                print(json.dumps(rec, indent=2)[:500])
-                sample_count += 1
-                if sample_count >= 3:
-                    return
+        rows.append((arxiv_id, title, abstract, body))
+        if len(rows) >= MAX_DOCS:
+            break
+
+df = pd.DataFrame(rows, columns=["paper_id","title","abstract","body"])
+df.to_csv(OUT, index=False, encoding="utf-8")
+print(f"Saved {len(df)} rows -> {OUT}")
 
 if __name__ == '__main__':
     if len(sys.argv) < 3:
