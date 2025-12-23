@@ -1,6 +1,7 @@
 # Main loop for Qwen 3 8B Instruct
 # Usage:
-#   python run_qwen.py --in data/arxiv_csml_body_abstract.csv --out Abstracts_Qwen3_8B_Instruct.csv
+#   python run_qwen.py --in data/arxiv_csml_body_abstract.csv --out output/Abstracts_Qwen3_8B_Instruct.csv
+
 import argparse
 import os
 from lm_client import create_client, gen_abstract
@@ -12,7 +13,8 @@ def main():
     ap.add_argument("--in", dest="in_csv", required=True)
     ap.add_argument("--out", dest="out_csv", default="Abstracts_Qwen3_8B_Instruct.csv")
     ap.add_argument("--base_url", default="http://localhost:1234/v1")
-    ap.add_argument("--model", default="qwen3-8b-instruct")
+    #ap.add_argument("--model", default="qwen3-8b-instruct")
+    ap.add_argument("--model", default="qwen3-vl-8b-instruct")
     ap.add_argument("--max_input_tokens", type=int, default=2500)
     ap.add_argument("--limit", type=int, default=0)
     args = ap.parse_args()
