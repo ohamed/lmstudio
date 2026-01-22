@@ -7,6 +7,7 @@ import os
 from lm_client import create_client, gen_abstract
 from data_io import read_input, write_output, make_run_logger
 from summarizer import map_reduce
+import time
 
 def main():
     ap = argparse.ArgumentParser()
@@ -50,4 +51,12 @@ def main():
     print(f"Saved {len(rows)} rows -> {args.out_csv}")
 
 if __name__ == "__main__":
+    
+    # Measure total processing time
+    start_time = time.perf_counter()
+    
     main()
+    
+    end_time = time.perf_counter()
+    elapsed_sec = end_time - start_time
+    print(f"\nTotal processing time: {elapsed_sec:.2f} seconds")
