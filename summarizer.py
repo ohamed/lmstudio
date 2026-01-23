@@ -13,10 +13,25 @@ except Exception:
         # fallback estimate
         return max(1, len((text or "").split()) // 0.75)
 
+"""
 GEN_PROMPT = (
     "Write a formal academic abstract (~200 words) as one paragraph. "
     "Cover motivation, method, and key results clearly.\n\n{}"
 )
+
+GEN_PROMPT = (
+    "Write a formal academic abstract of about 120–130 words as one paragraph. "
+    "Cover background, methods, main results, and conclusions clearly.\n\n{}"
+)
+"""
+
+GEN_PROMPT = (
+    "Write ONLY a new formal academic abstract of exactly 120-130 words in one continuous paragraph. "
+    "Strictly cover: 1) background/motivation, 2) methods/approach, 3) main results, 4) conclusions/implications. "
+    "Do NOT include feedback, suggestions, critiques, numbered lists, or references to 'your abstract.' "
+    "Base it solely on this paper content: \n\n{} \n\nWord count: "
+)
+
 
 def chunk_text(text: str, max_input_tokens: int = 2500, overlap_tokens: int = 200):
     # leave room for prompt and output in a 4k context model
@@ -61,7 +76,7 @@ def map_reduce(client, model: str, body: str, gen_fn, max_input_tokens=2500):
         for i in range(0, len(reduced), 6):
             batch = "\n\n".join(reduced[i:i+6])
             prompt = (
-                "Combine the following partial abstracts into one coherent paragraph (~200 words). "
+                "Combine the following partial abstracts into one coherent paragraph (~120–150 words). "
                 "Focus on motivation, methods, and main results. Avoid bullets.\n\n" + batch
             )
             out = gen_fn(client, model, prompt)
