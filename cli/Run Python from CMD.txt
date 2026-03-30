@@ -1,0 +1,71 @@
+python compute_abstract_length.py
+
+::=====
+:: *** REM-REM ***:: Generate Abstract using Qwen3-VL-8B-Instruct !!!
+
+:: 6811.13/ 6811,13 seconds
+python run_qwen.py --in data/arxiv_csml_body_abstract.csv --out output/Gen_Abstracts_Qwen3_8B_Instruct.csv
+
+python run_qwen.py --in data/arxiv_csml_body_abstract.csv --out output/Gen_Abstracts_Qwen3_8B_Instruct.csv --limit 50
+
+:: 1683.36/ 1683,36 seconds
+python run_qwen.py --in data/arxiv_csml_body_abstract_S2.csv --out output/Gen_Abstracts_Qwen3_8B_Instruct_S2.csv
+
+:: 1887.33/ 1887,33seconds
+python run_qwen.py --in data/arxiv_csml_body_abstract_S3.csv --out output/Gen_Abstracts_Qwen3_8B_Instruct_S3.csv
+
+::=====
+:: *** REM-REM *** :: Generate Abstract using META-LLAMA-3.1-8B-INSTRUCT-GGUF !!!
+python run_llama.py --in data/arxiv_csml_body_abstract.csv --out output/Gen_Abstracts_LLaMA3_8B_Instruct.csv
+
+python run_llama.py --in data/arxiv_csml_body_abstract.csv --out output/Gen_Abstracts_LLaMA3_8B_Instruct_b50.csv --limit 50
+
+:: 1472.22/ 1472,22 seconds
+python run_llama.py --in data/arxiv_csml_body_abstract_S2.csv --out output/Gen_Abstracts_LLaMA3_8B_Instruct_S2.csv
+
+::  1498.33/ 1498,33 seconds
+python run_llama.py --in data/arxiv_csml_body_abstract_S3.csv --out output/Gen_Abstracts_LLaMA3_8B_Instruct_S3.csv
+
+:: 5897.08/5897,08 seconds
+python run_llama.py --in data/arxiv_csml_body_abstract.csv --out output/Gen_Abstracts_LLaMA3_8B_Instruct.csv
+
+::=====
+:: *** REM-REM *** :: Generate Abstract using Mixtral_Instruct_7b -->Total processing time: 1893.10 seconds 31.55 Min
+
+10842.33 seconds/10842,33 seconds
+python run_mixtral.py --in data/arxiv_csml_body_abstract.csv --out output/Gen_Abstracts_Mixtral_Instruct_7B.csv
+
+python run_mixtral.py --in data/arxiv_csml_body_abstract.csv --out output/Gen_Abstracts_Mixtral_Instruct_7B_b50.csv --limit 50
+
+1893.10 seconds 31.55 Min
+python run_mixtral.py --in data/arxiv_csml_body_abstract_S1.csv --out output/Gen_Abstracts_Mixtral_Instruct_7B_S1.csv
+
+:: 2745.58/2745,58 seconds
+python run_mixtral.py --in data/arxiv_csml_body_abstract_S2.csv --out output/Gen_Abstracts_Mixtral_Instruct_7B_S2.csv
+
+:: / seconds
+python run_mixtral.py --in data/arxiv_csml_body_abstract_S3.csv --out output/Gen_Abstracts_Mixtral_Instruct_7B_S3.csv
+
+::=====
+:: *** REM-REM *** :: THE EVALUATION METRICS !!!
+python evaluate_abstracts.py --gen output/gen/Gen_Abstracts_Qwen3_8B_Instruct_b50.csv --gold data/arxiv_csml_body_abstract.csv
+
+:: Sample of 50 with Qwen3-VL-8B
+python evaluate_abstracts.py --gen output/gen/Gen_Abstracts_Qwen3_8B_Instruct_S2.csv --gold data/arxiv_csml_body_abstract_S2.csv
+python evaluate_abstracts.py --gen output/gen/Gen_Abstracts_Qwen3_8B_Instruct_S3.csv --gold data/arxiv_csml_body_abstract_S3.csv
+
+:: Sample of 50 with Meta-Llama-3.1-8B
+python evaluate_abstracts.py --gen output/gen/Gen_Abstracts_LLaMA3_8B_Instruct_S2.csv --gold data/arxiv_csml_body_abstract_S2.csv
+
+python evaluate_abstracts.py --gen output/gen/Gen_Abstracts_LLaMA3_8B_Instruct_S3.csv --gold data/arxiv_csml_body_abstract_S3.csv
+
+:: Sample of 50 with Mixtral_Instruct_7b
+python evaluate_abstracts.py --gen output/gen/Gen_Abstracts_Mixtral_Instruct_7B_S1.csv --gold data/arxiv_csml_body_abstract_S1.csv
+python evaluate_abstracts.py --gen output/gen/Gen_Abstracts_Mixtral_Instruct_7B_S2.csv --gold data/arxiv_csml_body_abstract_S2.csv
+
+:: All with Meta-Llama-3.1-8B
+python evaluate_abstracts.py --gen output/gen/Gen_Abstracts_LLaMA3_8B_Instruct.csv --gold data/arxiv_csml_body_abstract.csv
+
+
+
+
