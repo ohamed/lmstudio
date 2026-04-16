@@ -1,0 +1,1162 @@
+%  LaTeX support: latex@mdpi.com 
+%  For support, please attach all files needed for compiling as well as the log file, and specify your operating system, LaTeX version, and LaTeX editor.
+
+%=================================================================
+\documentclass[journal,article,submit,pdftex,moreauthors]{Definitions/mdpi} 
+%\documentclass[preprints,article,submit,pdftex,moreauthors]{Definitions/mdpi} 
+% For posting an early version of this manuscript as a preprint, you may use "preprints" as the journal. Changing "submit" to "accept" before posting will remove line numbers.
+
+% Below journals will use APA reference format:
+% admsci, aieduc, behavsci, businesses, econometrics, economies, education, ejihpe, famsci, games, humans, ijcs, ijfs, journalmedia, jrfm, languages, psycholint, publications, tourismhosp, youth
+
+% Below journals will use Chicago reference format:
+% arts, genealogy, histories, humanities, jintelligence, laws, literature, religions, risks, socsci
+
+%--------------------
+% Class Options:
+%--------------------
+%----------
+% journal
+%----------
+% Choose between the following MDPI journals:
+% accountaudit, acoustics, actuators, addictions, adhesives, admsci, adolescents, aerobiology, aerospace, agriculture, agriengineering, agrochemicals, agronomy, ai, air, algorithms, allergies, alloys, amh, analytica, analytics, anatomia, anesthres, animals, antibiotics, antibodies, antioxidants, applbiosci, appliedchem, appliedmath, appliedphys, applmech, applmicrobiol, applnano, applsci, aquacj, architecture, arm, arthropoda, arts, asc, asi, astronomy, atmosphere, atoms, audiolres, automation, axioms, bacteria, batteries, bdcc, behavsci, beverages, biochem, bioengineering, biologics, biology, biomass, biomechanics, biomed, biomedicines, biomedinformatics, biomimetics, biomolecules, biophysica, biosensors, biosphere, biotech, birds, blockchains, bloods, blsf, brainsci, breath, buildings, businesses, cancers, carbon, cardiogenetics, catalysts, cells, ceramics, challenges, chemengineering, chemistry, chemosensors, chemproc, children, chips, cimb, civileng, cleantechnol, climate, clinbioenerg, clinpract, clockssleep, cmd, cmtr, coasts, coatings, colloids, colorants, commodities, complications, compounds, computation, computers, condensedmatter, conservation, constrmater, cosmetics, covid, crops, cryo, cryptography, crystals, csmf, ctn, curroncol, cyber, dairy, data, ddc, dentistry, dermato, dermatopathology, designs, devices, diabetology, diagnostics, dietetics, digital, disabilities, diseases, diversity, dna, drones, dynamics, earth, ebj, ecm, ecologies, econometrics, economies, education, eesp, ejihpe, electricity, electrochem, electronicmat, electronics, encyclopedia, endocrines, energies, eng, engproc, ent, entomology, entropy, environments, epidemiologia, epigenomes, esa, est, famsci, fermentation, fibers, fintech, fire, fishes, fluids, foods, forecasting, forensicsci, forests, fossstud, foundations, fractalfract, fuels, future, futureinternet, futureparasites, futurepharmacol, futurephys, futuretransp, galaxies, games, gases, gastroent, gastrointestdisord, gastronomy, gels, genealogy, genes, geographies, geohazards, geomatics, geometry, geosciences, geotechnics, geriatrics, glacies, grasses, greenhealth, gucdd, hardware, hazardousmatters, healthcare, hearts, hemato, hematolrep, heritage, higheredu, highthroughput, histories, horticulturae, hospitals, humanities, humans, hydrobiology, hydrogen, hydrology, hygiene, idr, iic, ijerph, ijfs, ijgi, ijmd, ijms, ijns, ijpb, ijt, ijtm, ijtpp, ime, immuno, informatics, information, infrastructures, inorganics, insects, instruments, inventions, iot, j, jal, jcdd, jcm, jcp, jcs, jcto, jdad, jdb, jeta, jfb, jfmk, jimaging, jintelligence, jlpea, jmahp, jmmp, jmms, jmp, jmse, jne, jnt, jof, joitmc, joma, jop, jor, journalmedia, jox, jpbi, jpm, jrfm, jsan, jtaer, jvd, jzbg, kidney, kidneydial, kinasesphosphatases, knowledge, labmed, laboratories, land, languages, laws, life, lights, limnolrev, lipidology, liquids, literature, livers, logics, logistics, lubricants, lymphatics, machines, macromol, magnetism, magnetochemistry, make, marinedrugs, materials, materproc, mathematics, mca, measurements, medicina, medicines, medsci, membranes, merits, metabolites, metals, meteorology, methane, metrics, metrology, micro, microarrays, microbiolres, microelectronics, micromachines, microorganisms, microplastics, microwave, minerals, mining, mmphys, modelling, molbank, molecules, mps, msf, mti, multimedia, muscles, nanoenergyadv, nanomanufacturing, nanomaterials, ncrna, ndt, network, neuroglia, neurolint, neurosci, nitrogen, notspecified, nursrep, nutraceuticals, nutrients, obesities, oceans, ohbm, onco, oncopathology, optics, oral, organics, organoids, osteology, oxygen, parasites, parasitologia, particles, pathogens, pathophysiology, pediatrrep, pets, pharmaceuticals, pharmaceutics, pharmacoepidemiology, pharmacy, philosophies, photochem, photonics, phycology, physchem, physics, physiologia, plants, plasma, platforms, pollutants, polymers, polysaccharides, populations, poultry, powders, preprints, proceedings, processes, prosthesis, proteomes, psf, psych, psychiatryint, psychoactives, psycholint, publications, purification, quantumrep, quaternary, qubs, radiation, reactions, realestate, receptors, recycling, regeneration, religions, remotesensing, reports, reprodmed, resources, rheumato, risks, robotics, rsee, ruminants, safety, sci, scipharm, sclerosis, seeds, sensors, separations, sexes, signals, sinusitis, siuj, skins, smartcities, sna, societies, socsci, software, soilsystems, solar, solids, spectroscj, sports, standards, stats, std, stresses, surfaces, surgeries, suschem, sustainability, symmetry, synbio, systems, tae, targets, taxonomy, technologies, telecom, test, textiles, thalassrep, therapeutics, thermo, timespace, tomography, tourismhosp, toxics, toxins, transplantology, transportation, traumacare, traumas, tropicalmed, universe, urbansci, uro, vaccines, vehicles, venereology, vetsci, vibration, virtualworlds, viruses, vision, waste, water, wem, wevj, wild, wind, women, world, youth, zoonoticdis
+
+%---------
+% article
+%---------
+% The default type of manuscript is "article", but can be replaced by: 
+% abstract, addendum, article, benchmark, book, bookreview, briefcommunication, briefreport, casereport, changes, clinicopathologicalchallenge, comment, commentary, communication, conceptpaper, conferenceproceedings, correction, conferencereport, creative, datadescriptor, discussion, entry, expressionofconcern, extendedabstract, editorial, essay, erratum, fieldguide, hypothesis, interestingimages, letter, meetingreport, monograph, newbookreceived, obituary, opinion, proceedingpaper, projectreport, reply, retraction, review, perspective, protocol, shortnote, studyprotocol, supfile, systematicreview, technicalnote, viewpoint, guidelines, registeredreport, tutorial,  giantsinurology, urologyaroundtheworld
+% supfile = supplementary materials
+
+%----------
+% submit
+%----------
+% The class option "submit" will be changed to "accept" by the Editorial Office when the paper is accepted. This will only make changes to the frontpage (e.g., the logo of the journal will get visible), the headings, and the copyright information. Also, line numbering will be removed. Journal info and pagination for accepted papers will also be assigned by the Editorial Office.
+
+%------------------
+% moreauthors
+%------------------
+% If there is only one author the class option oneauthor should be used. Otherwise use the class option moreauthors.
+
+%---------
+% pdftex
+%---------
+% The option pdftex is for use with pdfLaTeX. Remove "pdftex" for (1) compiling with LaTeX & dvi2pdf (if eps figures are used) or for (2) compiling with XeLaTeX.
+
+%=================================================================
+% MDPI internal commands - do not modify
+\firstpage{1} 
+\makeatletter 
+\setcounter{page}{\@firstpage} 
+\makeatother
+\pubvolume{1}
+\issuenum{1}
+\articlenumber{0}
+\pubyear{2025}
+\copyrightyear{2025}
+%\externaleditor{Firstname Lastname} % More than 1 editor, please add `` and '' before the last editor name
+\datereceived{ } 
+\daterevised{ } % Comment out if no revised date
+\dateaccepted{ } 
+\datepublished{ } 
+%\datecorrected{} % For corrected papers: "Corrected: XXX" date in the original paper.
+%\dateretracted{} % For retracted papers: "Retracted: XXX" date in the original paper.
+\hreflink{https://doi.org/} % If needed use \linebreak
+%\doinum{}
+%\pdfoutput=1 % Uncommented for upload to arXiv.org
+%\CorrStatement{yes}  % For updates
+%\longauthorlist{yes} % For many authors that exceed the left citation part
+%\IsAssociation{yes} % For association journals
+
+%=================================================================
+% Add packages and commands here. The following packages are loaded in our class file: fontenc, inputenc, calc, indentfirst, fancyhdr, graphicx, epstopdf, lastpage, ifthen, float, amsmath, amssymb, lineno, setspace, enumitem, mathpazo, booktabs, titlesec, etoolbox, tabto, xcolor, colortbl, soul, multirow, microtype, tikz, totcount, changepage, attrib, upgreek, array, tabularx, pbox, ragged2e, tocloft, marginnote, marginfix, enotez, amsthm, natbib, hyperref, cleveref, scrextend, url, geometry, newfloat, caption, draftwatermark, seqsplit
+% cleveref: load \crefname definitions after \begin{document}
+
+%%% ===== Enable the red color for comments (Remove before submission) =====
+\usepackage{xcolor}
+\usepackage{comment}
+% Command for red comments
+\newcommand{\commentred}[1]{\textcolor{red}{#1}}
+%=================================================================
+% Please use the following mathematics environments: Theorem, Lemma, Corollary, Proposition, Characterization, Property, Problem, Example, ExamplesandDefinitions, Hypothesis, Remark, Definition, Notation, Assumption
+%% For proofs, please use the proof environment (the amsthm package is loaded by the MDPI class).
+
+%=================================================================
+% Full title of the paper (Capitalized)
+\Title{Benchmarking Local LLMs with LM Studio for Research Abstract Generation}
+
+% MDPI internal command: Title for citation in the left column
+\TitleCitation{Benchmarking Local LLMs with LM Studio for Research Abstract Generation}
+
+% Author Orchid ID: enter ID or remove command
+\newcommand{\orcidauthorA}{0000-0000-0000-000X} % Add \orcidA{} behind the author's name
+%\newcommand{\orcidauthorB}{0000-0000-0000-000X} % Add \orcidB{} behind the author's name
+
+% Authors, for the paper (add full first names)
+%\Author{Osama Hamed $^{1,}$*\orcidA{}, Firstname Lastname $^{2}$ and Ghaleb Natour $^{2,}$*}
+
+%\longauthorlist{yes}
+
+% MDPI internal command: Authors, for metadata in PDF
+\AuthorNames{Osama Hamed, Firstname Lastname and Firstname Lastname}
+
+% MDPI internal command: Authors, for citation in the left column, only choose below one of them according to the journal style
+% If this is a Chicago style journal 
+% (arts, genealogy, histories, humanities, jintelligence, laws, literature, religions, risks, socsci): 
+% Lastname, Firstname, Firstname Lastname, and Firstname Lastname.
+
+% If this is a APA style journal 
+% (admsci, behavsci, businesses, econometrics, economies, education, ejihpe, games, humans, ijfs, journalmedia, jrfm, languages, psycholint, publications, tourismhosp, youth): 
+% Lastname, F., Lastname, F., \& Lastname, F.
+
+% If this is a ACS style journal (Except for the above Chicago and APA journals, all others are in the ACS format): 
+% Lastname, F.; Lastname, F.; Lastname, F.
+\isAPAStyle{%
+       \AuthorCitation{Lastname, F., Lastname, F., \& Lastname, F.}
+         }{%
+        \isChicagoStyle{%
+        \AuthorCitation{Lastname, Firstname, Firstname Lastname, and Firstname Lastname.}
+        }{
+        \AuthorCitation{Hamed, O.; Lastname, F.; Lastname, F.}
+        }
+}
+
+% Affiliations / Addresses (Add [1] after \address if there is only one affiliation.)
+\address{%
+$^{1}$ \quad Affiliation 1; e-mail@e-mail.com\\
+$^{2}$ \quad Affiliation 2; e-mail@e-mail.com}
+
+% Contact information of the corresponding author
+\corres{Correspondence: e-mail@e-mail.com; Tel.: (optional; include country code; if there are multiple corresponding authors, add author initials) +xx-xxxx-xxx-xxxx (F.L.)}
+
+% Current address and/or shared authorship
+%\firstnote{Current address: Affiliation.}  
+% Current address should not be the same as any items in the Affiliation section.
+
+%\secondnote{These authors contributed equally to this work.}
+% The commands \thirdnote{} till \eighthnote{} are available for further notes.
+
+%\simplesumm{} % Simple summary
+
+%\conference{} % An extended version of a conference paper
+
+% Abstract (Do not insert blank lines, i.e. \\) 
+\abstract{Abstracts should give a pertinent overview of the work. We strongly encourage authors to use the following style of structured abstracts, but without headings: (1) Background: place the question addressed in a broad context and highlight the purpose of the study; (2) Methods: describe briefly the main methods or treatments applied; (3) Results: summarize the article's main findings; (4) Conclusions: indicate the main conclusions or interpretations.}
+
+%\abstract{This study evaluates locally deployed Large Language Models (LLMs) for generating research abstracts using LM Studio, an offline framework for running open-source models. We address the need for privacy-preserving and cost-effective text generation in academic research environments. We developed a benchmarking pipeline to evaluate three instruction-tuned models—Qwen 3 8B, LLaMA-3.1 8B, and Mixtral 8×7B—using 200 Computer Science and Machine Learning papers from arXiv. Using LM Studio's OpenAI-compatible API, we generated abstracts locally and assessed their quality against gold-standard abstracts using BLEU, ROUGE, and BERTScore metrics. Results show that all models produce coherent and contextually relevant summaries, with Qwen 3 8B achieving the best balance between conciseness and semantic fidelity. Our experiments confirm that local LLMs can match the performance of cloud-based systems while maintaining data security and hardware control. These findings demonstrate that LM Studio provides a practical platform for reproducible text generation research and enables comparative studies on model efficiency and output quality in academic applications.}
+
+% Keywords
+\keyword{Large Language Models (LLMs); Local LLMs; Text Generation; Text Summarization; Evaluation Metrics; BLEU; ROUGE-L; BERTScore} 
+
+% The fields PACS, MSC, and JEL may be left empty or commented out if not applicable
+%\PACS{J0101}
+%\MSC{}
+%\JEL{}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Only for the journal Diversity
+%\LSID{\url{http://}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Only for the journal Applied Sciences
+%\featuredapplication{Authors are encouraged to provide a concise description of the specific application or a potential application of the work. This section is not mandatory.}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Only for the journal Data
+%\dataset{DOI number or link to the deposited dataset if the dataset is published separately. If the dataset shall be published as a supplement to this paper, this field will be filled by the journal editors. In this case, please submit the dataset as a supplement.}
+%\datasetlicense{License under which the dataset is made available (CC0, CC-BY, CC-BY-SA, CC-BY-NC, etc.)}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Only for the journal BioTech, Fishes, Neuroimaging and Toxins
+%\keycontribution{The breakthroughs or highlights of the manuscript. Authors can write one or two sentences to describe the most important part of the paper.}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Only for the journal Encyclopedia
+%\encyclopediadef{For entry manuscripts only: please provide a brief overview of the entry title instead of an abstract.}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Different journals have different requirements. Please check the specific journal guidelines in the "Instructions for Authors" on the journal's official website.
+%\addhighlights{yes}
+%\renewcommand{\addhighlights}{%
+%
+%\noindent The goal is to increase the discoverability and readability of the article via search engines and other scholars. Highlights should not be a copy of the abstract, but a simple text allowing the reader to quickly and simplified find out what the article is about and what can be cited from it. Each of these parts should be devoted up to 2~bullet points.\vspace{3pt}\\
+%\textbf{What are the main findings?}
+% \begin{itemize}[labelsep=2.5mm,topsep=-3pt]
+% \item First bullet.
+% \item Second bullet.
+% \end{itemize}\vspace{3pt}
+%\textbf{What is the implication of the main finding?}
+% \begin{itemize}[labelsep=2.5mm,topsep=-3pt]
+% \item First bullet.
+% \item Second bullet.
+% \end{itemize}
+%}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \setcounter{section}{-1} %% Remove this when starting to work on the template.
+% \section{Using this Template}
+% Note that the order and names of article sections may differ from the requirements of the journal (e.g., the positioning of the Materials and Methods section). Please check the instructions on the authors' page of the journal to verify the correct order and names. 
+%%For any questions, please contact the editorial office of the journal or support@mdpi.com. For LaTeX-related questions please contact latex@mdpi.com.
+%%\endnote{This is an endnote.} % To use endnotes, please un-comment \printendnotes below (before References). Only journal Laws uses \footnote.
+
+\section{Introduction}
+
+\commentred{\textbf{Note:} As we progress, the MDPI text will be discarded!} The introduction should briefly place the study in a broad context and highlight why it is important. It should define the purpose of the work and its significance. The current state of the research field should be reviewed carefully and key publications cited. Please highlight controversial and diverging hypotheses when necessary. Finally, briefly mention the main aim of the work and highlight the principal conclusions. As far as possible, please keep the introduction comprehensible to scientists outside your particular field of research. Citing a journal paper, book reference or other reference types is done using the command \commentred{citep}.
+
+At the Institute of Technology and Engineering (ITE), at Forschungszentrum Jülich (Eng.: Jülich Research Center). We participate in, oversee, and manage long-term research projects. \commentred{OH: complete the opening paragraph} As a result, in some cases, we have project's folder containing few thousands of files in various formats. This equates to a large number of files in total (approx. 219k in PDF format only), but without any search criteria applied. Consequently, this makes the search for documents from past projects like searching a needle in a haystack. To fix this issue, we are not interested in solutions that alleviate the problem like the ones base on Relational Database Management Systems (DBMS). We are rather interested in creating solution based on the emerging Artificial Intelligence (AI) techniques, such as Retrieval-Augmented Generation (RAG) and  Vector databases (VDB).
+
+Our proposed solution is to build a knowledge base (KB) with a search criteria that enables text similarity, a feature of VDB. We thus want to employ a VDB to store the embeddings of the abstracts or the summary of each paper, and to provide a search function that filters the documents based on their similarity with the typed text. In other words, as a first-stage, we want to enable finding the relevant document(s) using the high-level summary or the abstract. After having a look at the project folders, it can be clearly seen that a huge portion of the documents lacks to a summary or abstract. This raises the question, "How to generate an abstract/ or a summary for all papers that have no abstract, and without employing any staff?". Shall we use classical machine learning (ML) algorithms, deep learning, or pre-trained large language models (LLMs)?. As inspired by \citet{munzir2025large}, who reported that LLMs outperform ML and DL, our proposed solution for the abstracts generation relies solely on LLMs. The LLMs fall into two categories: cloud LLMs and local or on-device LLMs \citep{qu2025mobileedgeintelligencelarge}. From these, we want to choose among local LLMs because they don't disclose our documents. More precisely, we want to adopt a few LLMs that belong to local or small LLMs family and evaluate them using industry standards for abstracts generation.
+
+According to \citet{brousseau2025llms}, ``when evaluating a model, you need two things: a metric and a dataset.'' In this paper, 
+
+\commentred{The first draft should be adjusted based on the actual results.}
+Following this principle, in this paper we evaluate local large language models (LLMs) for automatic abstract generation using \commentred{a carefully curated dataset of project documents} that lack summaries. We apply standard evaluation metrics to assess the quality of the generated abstracts and their effectiveness in enabling semantic search within a vector database–based knowledge management system. By embedding the summaries in a vector database, we create a Retrieval-Augmented Generation (RAG)–enabled knowledge base that allows users to find relevant documents based on textual similarity. This study thus demonstrates a practical application of the evaluation framework suggested by Brousseau and Sharp \citet{brousseau2025llms}, linking model performance to measurable outcomes in a real-world institutional repository.
+
+The findings show that locally deployed LLMs can generate coherent and informative summaries that significantly improve semantic search performance compared to traditional keyword-based approaches. The use of automatically generated abstracts enables faster and more accurate retrieval of relevant project documents, highlighting the potential of local LLMs for privacy-preserving knowledge management.
+
+Nevertheless, some limitations remain. The evaluation was performed on documents from a single institutional context, limiting generalizability. The computational cost of running local LLMs may affect scalability for very large datasets. Additionally, while the generated summaries are generally accurate, some domain-specific details may be missing, suggesting a need for further refinement or human-in-the-loop validation.
+
+The remainder of this paper is structured as follows: Section~\ref{sec:related_work} reviews related studies; Section~\ref{sec:methodology} outlines the dataset, methodology, evaluation metrics, and experimental setup; Section~\ref{sec:results} presents and discusses the results; and finally Section~\ref{sec:conclusion} draws conclusions and suggestions for future research directions.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \section{Background}
+% \textbf{NZ: Add your text here!}
+\begin{comment}
+\section{Related Work}
+\label{sec:related_work}
+
+Automatic text summarization has a long history, with early work dating to \citep{luhn1958automatic} that introduced term frequency-based statistical methods for sentence selection. Today’s text summarization has fully adopted neural and transformer-based methods for generation. The introduction of large language models (LLMs) like GPT-3 and LLaMA have greatly improved summarization. Unlike previous models that generated either extractive or abstractive summaries, LLMs can do both and produce accurate, integrated summaries from little input. BART and T5 are examples of encoder-decoder models which work well for summarization because their architecture allows for effective use of structured external knowledge sources \citep{daraghmi2025comparative}.
+
+The connection between the quality of the summarization and the performance of the retrieval system is already established. \citep{bramer2018searching} showed the impact of keyword coverage in the document abstracts and its effect on search recall in MEDLINE, stating that the quality of the summary is not the most important aspect of its summary, because it has an effect on the retrieval of the documents. \citep{ketcham2010editors} pointed out that good abstracts are the best entry points for indexing and retrieval.These findings are directly relevant to our work, where generated abstracts serve not only as summaries but as the semantic representations that drive retrieval within a vector database.
+
+The use of vector databases (VDBs) for semantic document retrieval has gained significant traction in recent years. Retrieval-Augmented Generation (RAG), introduced by Lewis et al.~\cite{lewis2020retrieval}, combines pre-trained parametric memory (i.e., large language models) with non-parametric external knowledge stored in a dense vector index, enabling dynamic access to domain-specific information at query time. As a result, RAG has emerged as a predominant architecture for grounding language model outputs in organizational and domain-specific document collections~\cite{lewis2020retrieval}. Within this framework, documents, or their corresponding summaries, are encoded as dense vector embeddings and stored in a VDB, which is queried using similarity measures such as cosine similarity or dot-product similarity to retrieve the most relevant contextual information for a given input. Consequently, the quality of generated abstracts becomes a critical factor, as semantically weak or imprecise summaries yield poor embeddings, thereby degrading downstream retrieval performance across the entire knowledge base. Motivated by this dependency, this work approaches abstract generation not merely as a standalone text generation task, but as a foundational component that directly influences the effectiveness of document retrieval in RAG-enabled institutional knowledge systems.
+
+An early and influential study on LLM-based abstract generation is \citep{gao2023comparing}, who evaluated ChatGPT’s ability to produce scientific abstracts for medical journal papers, comparing them against human-written originals using AI detectors and blinded expert reviewers. Their finding that generated abstracts were largely indistinguishable from real ones — with human reviewers correctly identifying only 68\% of generated abstracts — established the viability of LLM-based abstract generation as a serious research direction. However, their study used a cloud-based LLM (GPT-3), generated abstracts for existing papers that already had reference summaries, and was not concerned with downstream retrieval.  
+
+ A recent study \citep{bektacs2025academic} conducted a benchmark analysis to evaluate how effectively different large language models (LLMs) can generate abstracts of academic articles. The authors examined nine models, including large proprietary systems such as Gemini-2.0-Flash and Mistral-Large-2411, as well as smaller open-source models such as LLaMA-3.1-8B, DeepSeek-R1-8B, Qwen2.5 and Gemma-2. Using a dataset of 1,500 English papers collected from the ACL Anthology, the models were prompted in a zero-shot setting to generate abstracts as expert scientific writers. The generated outputs were evaluated using several automatic metrics, including ROUGE, BERTScore, cosine-based sentence embedding similarity, UniEval, and G-Eval. The results showed that larger models generally produced abstracts that were semantically closer to the original ones, while semantic metrics provided more reliable comparisons than simple word-overlap measures. However, the study relied solely on prompt engineering and publicly available data, without grounding generation in domain-specific or private document collections, a limitation addressed in our RAG-based approach.
+
+The most closely related previous study is \citep{kim2025exploring}, which systematically evaluated LLM-generated abstracts for academic papers from the ASIS\&T 2024 conference, measuring semantic similarity using BERT-based cosine similarity and collecting expert judgments. Their finding that domain experts preferred AI-generated abstracts when semantic discrepancies existed with author-written ones provides important empirical grounding for using LLM-generated summaries in real-world settings. However, their study focused on cloud-based LLMs and academic publications. Our work differs by applying local, quantized open-source LM Studio to institutional project documents that lack summaries, and by directly evaluating the retrieval effectiveness of generated abstracts within an RAG-enabled knowledge base.
+
+
+\begin{table}[H]
+\centering
+\caption{Comparison with Recent Generation and Deployment Studies}
+\label{tab:comparison_recent}
+\renewcommand{\arraystretch}{1.2}
+\setlength{\tabcolsep}{4pt}
+\footnotesize
+
+\begin{tabular}{p{2cm} p{3.6cm} p{2.6cm} p{4 cm} p{1.2cm}}
+\toprule
+\textbf{Study} & \textbf{Task / Setting} & \textbf{Model} & \textbf{RAG + Evaluation} & \textbf{Privacy} \\
+\midrule
+
+\citep{kim2025exploring} 
+& Academic abstract generation 
+& GPT 
+& No RAG; Cosine similarity, expert evaluation 
+& No \\
+
+\citep{gao2023comparing}
+& Medical abstract generation 
+& GPT-3 (ChatGPT) 
+& No RAG; AI detector and human evaluation 
+& No \\
+
+\citep{bektacs2025academic} 
+& Academic abstract generation with multi-model benchmarking 
+& Gemini, Mistral, LLaMA, DeepSeek, Qwen 
+& No RAG; ROUGE, BERTScore, UniEval, G-Eval 
+& No \\
+
+This Study 
+& Abstract generation with RAG over local documents 
+& LLaMA, Mistral
+&RAG; BLEU, ROUGE, BERTScore 
+& Yes \\
+
+\bottomrule
+\end{tabular}
+
+\end{table}
+\end{comment}
+\section{Related Work}
+\label{sec:related_work}
+
+The rapid growth of institutional document repositories has created
+a pressing need for automated methods that can make large, unstructured
+file collections searchable without manual curation.
+In knowledge-intensive organizations, project archives can grow to
+hundreds of thousands of documents in various formats, the majority
+of which lack structured summaries or metadata that would allow
+semantic search~\citep{munzir2025large}.
+Classical keyword-based retrieval systems address this problem only
+partially, as they depend on the presence of well-formed index terms,
+which are absent when documents have no abstracts.
+Retrieval-Augmented Generation (RAG), introduced
+by~\citet{lewis2020retrieval}, offers a more promising solution: by
+encoding document representations as dense vector embeddings and
+storing them in a vector database (VDB), RAG systems enable
+similarity-based retrieval that is robust to vocabulary mismatch
+and generalises across document types without re-training.
+However, the effectiveness of such systems is fundamentally
+constrained by the quality of the stored embeddings—if a document
+lacks an abstract, it cannot be meaningfully represented in the
+vector space, and retrieval will fail regardless of query quality.
+This creates a direct dependency between \emph{abstract generation
+quality} and \emph{retrieval performance}, which constitutes the
+central problem addressed in this paper.
+
+Automatic text summarization has a long history, with foundational
+work by~\citet{luhn1958automatic} introducing term frequency-based
+statistical methods for extractive sentence selection.
+Modern approaches rely on neural and transformer-based
+architectures; encoder--decoder models such as BART and T5 are
+well-suited to summarization due to their sequence-to-sequence
+pre-training objectives, which allow them to map long input
+documents to concise summaries~\citep{daraghmi2025comparative}.
+The emergence of large language models (LLMs), such as GPT-3 and
+LLaMA, has further extended these capabilities. Unlike earlier
+models optimized for either extractive \emph{or} abstractive output,
+LLMs can generate fluent, coherent summaries from minimal instruction
+without task-specific fine-tuning, making them practical candidates
+for large-scale abstract generation.
+However, deploying LLMs in environments handling sensitive or
+proprietary documents introduces a critical limitation: transmitting
+documents to external cloud APIs raises significant data privacy
+concerns~\citep{qu2025mobileedgeintelligencelarge}.
+Local LLM deployment—running quantized, open-source models entirely
+on-premises via platforms such as LM~Studio—directly addresses this
+constraint, yet it has received limited systematic evaluation in the
+context of abstract generation for institutional knowledge management.
+A closely related study by~\citet{krutli2025augmenting} developed a
+privacy-preserving RAG system for facility management using
+Mixtral~8x7B and a local Milvus vector database, demonstrating that
+on-premises configurations with open-source models are viable for
+institutional document retrieval; however, that work focused on
+question answering rather than abstract generation or NLG evaluation.
+
+The relationship between abstract quality and document retrieval
+performance is well established in the information retrieval
+literature.
+\citet{bramer2018searching} demonstrated that keyword coverage in
+document abstracts directly affects search recall in MEDLINE,
+showing that the \emph{semantic coverage} of an abstract's
+vocabulary—rather than its stylistic quality—is the key factor
+determining successful retrieval.
+Similarly, \citet{ketcham2010editors} argued that a well-structured
+abstract serves as the primary entry point for indexing systems and,
+by extension, for downstream retrieval pipelines.
+These findings confirm that semantically weak or incomplete summaries
+produce poor vector representations, degrading retrieval performance
+across queries. Consequently, high-quality abstract generation is a
+critical upstream component in any RAG-based system.
+
+The viability of LLM-based abstract generation as a substitute for
+human-written summaries was demonstrated by~\citet{gao2023comparing},
+who used ChatGPT (based on GPT-3) to generate scientific abstracts
+for fifty medical papers from high-impact journals
+(\textit{Nature Medicine}, \textit{JAMA}, \textit{NEJM},
+\textit{BMJ}, and \textit{Lancet}).
+The generated abstracts were evaluated using an AI output detector
+and blinded expert reviewers.
+While the GPT-2 Output Detector achieved an AUROC of~0.94, human
+reviewers correctly identified only 68\% of generated abstracts and
+misclassified 14\% of genuine abstracts as AI-generated.
+This near-indistinguishability supports the use of LLM-generated
+abstracts as valid semantic representations.
+However, the study relied on cloud-based models and evaluated only
+documents that already contained reference abstracts, without
+considering downstream retrieval performance.
+
+Building on this, \citet{bektacs2025academic} conducted a large-scale
+benchmark of nine LLMs for abstract generation on 1{,}500 ACL
+Anthology papers using zero-shot prompting.
+Models included proprietary systems (Gemini-2.0-Flash,
+Mistral-Large-2411) and open-source alternatives (LLaMA-3.1-8B,
+DeepSeek-R1-8B, Qwen2.5, Gemma-2).
+Evaluation metrics included ROUGE, BERTScore, cosine similarity,
+UniEval, and G-Eval.
+Two findings are particularly relevant:
+(\emph{i}) larger models generally produced semantically stronger
+abstracts, and
+(\emph{ii}) semantic similarity metrics consistently outperformed
+surface-level measures such as ROUGE.
+This motivates the inclusion of BERTScore alongside BLEU and ROUGE
+in Section~\ref{sec:metrics}.
+As with prior work, this study relied on cloud APIs and evaluated
+only documents with existing summaries.
+
+The most closely related study is~\citet{kim2025exploring}, which
+evaluated ChatGPT (GPT-4o) for generating abstracts of 120 papers
+from the ASIS\&T~2024 conference using six prompt-engineering
+strategies.
+Semantic similarity was assessed using BERTScore and TF-IDF cosine
+similarity, alongside blinded expert evaluation.
+Results showed minimal differences between prompting strategies
+(BERTScore 0.87--0.88), indicating that modern LLMs perform near
+their upper limit even with simple prompts~\citep{zhang-etal-2024-benchmarking}.
+Notably, when differences occurred, 87.5\% of experts preferred the
+AI-generated abstracts, rating them higher in clarity, structure,
+and overall comprehension.
+Despite these strong results, the study used cloud-based models and
+focused exclusively on documents with pre-existing abstracts.
+
+Across the literature, three key limitations emerge.
+First, all prior work relies on \emph{cloud-hosted} models, which are
+unsuitable for privacy-sensitive institutional settings.
+Second, all studies assume the existence of human-written abstracts,
+avoiding the more challenging task of generating summaries for
+documents without any prior metadata.
+Third, none integrates abstract generation into a downstream
+retrieval pipeline to evaluate its impact on search performance.
+
+The present study addresses these limitations by deploying three
+quantized open-source LLMs—LLaMA-3.1-8B, Qwen3-VL-8B, and
+Mixtral-8x7B—entirely \emph{locally} via LM~Studio.
+Experiments are conducted on 200 CS/ML papers from the arXiv
+dataset Section~\ref{sec:dataset}, ensuring full data privacy without
+external APIs.
+Because arXiv papers include ground-truth abstracts, generation
+quality is evaluated using BLEU, ROUGE-1, ROUGE-L, and BERTScore,
+while also demonstrating a RAG-based vector knowledge base for
+practical retrieval.
+Table~\ref{tab:comparison_recent} summarises the key differences
+between this study and prior work.
+
+\begin{table}[H]
+\centering
+\caption{Comparison of the present study with related work on
+LLM-based abstract generation and local RAG deployment.}
+\label{tab:comparison_recent}
+\renewcommand{\arraystretch}{1.3}
+\setlength{\tabcolsep}{4pt}
+\footnotesize
+\begin{tabular}{p{2.1cm} p{3.2cm} p{2.6cm} p{3.1cm} p{1.1cm}}
+\toprule
+\textbf{Study} & \textbf{Task / Setting} & \textbf{Model(s)} &
+\textbf{Evaluation} & \textbf{Local} \\
+\midrule
+
+\citet{gao2023comparing}
+  & Medical abstract generation \newline
+    (50 papers; existing abstracts)
+  & ChatGPT / GPT-3 (cloud)
+  & AI detector (AUROC~0.94); blinded human review; no RAG
+  & No \\[4pt]
+
+\citet{bektacs2025academic}
+  & Academic abstract generation \newline
+    (1{,}500 ACL papers; existing abstracts)
+  & Gemini, Mistral, LLaMA, DeepSeek, Qwen (cloud)
+  & ROUGE, BERTScore, UniEval, G-Eval; no RAG
+  & No \\[4pt]
+
+\citet{kim2025exploring}
+  & Academic abstract generation \newline
+    (120 ASIS\&T papers; existing abstracts)
+  & GPT-4o (cloud)
+  & BERTScore, TF-IDF cosine; expert evaluation; no RAG
+  & No \\[4pt]
+
+\citet{krutli2025augmenting}
+  & RAG system for facility management \newline
+    (institutional documents)
+  & Mixtral-8x7B (local)
+  & Qualitative Q\&A evaluation; no NLG metrics
+  & Yes \\[4pt]
+
+\textbf{This study}
+  & \textbf{Abstract generation for CS/ML papers; RAG-enabled KB}
+  & \textbf{LLaMA-3.1-8B, Qwen3-VL-8B, Mixtral-8x7B (local)}
+  & \textbf{BLEU, ROUGE-1, ROUGE-L, BERTScore; RAG VDB}
+  & \textbf{Yes} \\
+
+\bottomrule
+\end{tabular}
+\end{table}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Materials and Methods}
+\label{sec:methodology}
+\commentred{\textbf{Note:} As we progress, the MDPI text will be discarded!} Materials and Methods should be described with sufficient details to allow others to replicate and build on published results.  Please disclose at the submission stage any restrictions on the availability of materials or information.
+
+\subsection{GenAI Usage} \commentred{Make it as last subsection later!}
+In this section, where applicable, authors are required to disclose details of how gen-erative artificial intelligence (GenAI) has been used in this paper (e.g., to generate text, data, or graphics, or to assist in study design, data collection, analysis, or interpretation).
+%The use of GenAI for superficial text editing (e.g., grammar, spelling, punctuation, and formatting) does not need to be declared.
+
+\subsection{Dataset}
+This study utilizes the arXiv Dataset \citep{arxivdataset2024}, publicly available on Kaggle\footnote{https://www.kaggle.com/datasets/Cornell-University/arxiv}. The arXiv Dataset is a repository of more than 1.7 million articles. The dataset, which is updated periodically, consists primarily of a large JSON metadata file (approximately 5 GB) containing key paper details with relevant features such as article titles, authors, categories, abstracts, full-text PDFs, and more. 
+
+%\paragraph{Data Preprocessing and Preparation}
+\subsubsection{Data Preprocessing and Preparation}
+For the experiments conducted in this paper, we are not going to use all of the data. Instead, we are only going to experiment with a subset of arXiv Dataset, which suits the locally acquired computational power. We have implemented a data pipeline that reads the JSON line by line, and filters the papers based on a specific criterion. The whole process is depicted in Figure~\ref{fig:Prep-prep}. We picked up a reasonable Subset of 200 paper that include the full-paper text – focused on computer science (CS) and machine learning (ML) papers. We stored the matching papers in a CSV file with four columns that correspond the following header: \textbf{[\text{paper\_id}, title, abstract, body]}.
+
+
+\begin{figure*}[ht]
+\centering
+\includegraphics[width=0.98\textwidth, height=0.32\textheight]{img/napkin.png}
+\caption{Data preprocessing workflow (from JSON to CSV).}
+\label{fig:Prep-prep}
+\end{figure*}
+
+\subsection{Methodology}
+We generated the abstracts using small, locally deployed, and pretrained LLMs. The LLMs are utilized as embedded models within the LM Studio~\footnote{The LM Studio command is typically used to start a local inference server for loaded models, e.g., \textbf{lmstudio serve --port 1234}}, an open-source platform for running AI LLMs locally. Next, we present the LM Studio and the used local LLMs.
+
+\subsubsection{LM Studio}
+%\paragraph{- LM Studio} 
+LM Studio is a robust cross-platform desktop application compatible with macOS, Linux, and Windows. It’s engineered to enable local execution of LLMs, providing developers and researchers with direct access to advanced model capabilities without depending on remote servers.
+
+At its core, LM Studio functions as an integrated environment for downloading, managing, and running open-source LLMs such as Llama 3.1, Phi-3, and Gemma 2. It supports model quantization, custom inference configurations, and performance optimization for different hardware setups.
+
+%% Em dash: Parenthetical break!
+By bridging the gap between local and cloud-based AI workflows, LM Studio allows users to experiment with, benchmark, and deploy models efficiently—all while maintaining full control over data, performance, and privacy.
+
+Our experiments were carried out using LM Studio \textit{Version 0.3.31}, which was downloaded from the official LM Studio website~\footnote{https://lmstudio.ai/download} and installed on a Windows machine.
+
+\subsubsection{Local LLMs}
+We ran several NLP pipelines that call the LM Studio API and use the following families/series of local LLMs to automatically generate abstracts. All of these local LLMs are summarized in Table~\ref{tab:local_LLMs} for quick reference. \commentred{\textbf{Note:} Modify the Table 1, make it similar to that one in LLMs in Action!} 
+
+\begin{itemize}
+\item	Mixtral-8x7B-Instruct: This model belongs to Mixtral 8×7B family. It is a 7-B parameters model and treated as a baseline.
+\item	Qwen3-VL-8B-Instruct: This model belongs to Qwen3-VL family. An 8-B parameters model.
+\item	Meta-Llama-3.1-8B-Instruct-GGUF: This model belongs to LLaMA-3.1 family. An 8-B parameters model. 
+\end{itemize}
+
+%
+Our NLP pipelines are written in Python and are intended to run on Windows with Python \textit{version 3.11.9}. All of these pipelines use zero-shot prompting, which proves that text summarization can be effectively handled via simple prompts and no training examples \cite{zhang-etal-2024-benchmarking}. However, the first NLP pipeline, i.e. for the \textbf{Mixtral-8x7B-Instruct} model is utilizing the long-prompt. The remaining pipelines are utilizing the same short-prompt, see Table~\ref{tab:prompt}, which instruct the local LLMs to generate abstract of specific word length. In our case, we opted for an abstract of 120 - 130 word, as inspired by the computed average word length of 125 words. Here in and after, the \textit{average word length} is denoted as ( \textbf{Avg. W. Len}). All the generated abstracts are persisted to CSV files (having the header: \textbf{ [\text{paper\_id},  \text{gen\_abstract}]}) for later reference. This include, among others, evaluating the LLMs using the adopted evaluation metrics (see Subsection~\ref{subsec:eval}). 
+
+\begin{table}[H]
+\caption{Prompts used for abstract generation across all evaluated local LLMs.\label{tab:prompt}}
+\begin{tabularx}{\textwidth}{lX}
+\toprule
+\textbf{Prompt Type}& \textbf{Prompt Text} \\
+\midrule
+Long & Write ONLY a new formal academic abstract of exactly 120--130 words in one continuous paragraph.
+Strictly cover: (1) background or motivation, (2) methods or approach,
+(3) main results, (4) conclusions or implications.
+Do NOT include feedback, suggestions, critiques, numbered lists, or references to ``your abstract''.
+Base the abstract solely on the provided paper content. \\
+\midrule
+Short & Write a formal academic abstract of about 120--130 words as one paragraph.
+Cover background, methods, main results, and conclusions clearly. \\%% Like P4
+\bottomrule
+\end{tabularx}
+% \noindent{\footnotesize{\textsuperscript{1} Short prompts keep the benchmark fair and reproducible across models.}}
+\end{table}
+
+% \paragraph{- Qwen3-VL-8B-Instruct  Qwen 3 8B} qwen3-vl-8b-instruct
+% \paragraph{- LLaMA-3.1 8B}
+% \paragraph{- Mixtral 8×7B}
+
+
+\begin{table}[H]
+\centering
+\caption{Overview of the local large language models (LLMs) used in this study.}
+\label{tab:local_LLMs}
+\renewcommand{\arraystretch}{1.2}
+\begin{tabularx}{\textwidth}{llXcc}
+\toprule
+\textbf{Model} & \textbf{Format} & \textbf{Training Data} & \textbf{Model Size} & \textbf{Text Coverage} \\
+\midrule
+Mixtral-8x7B-Instruct & GGUF*
+& -- 
+& 8 B 
+& -- \\
+\midrule
+Qwen3-VL-8B-Instruct & GGUF
+& -- 
+& 8 B 
+& -- \\
+\midrule
+Meta-Llama-3.1-8B-Instruct & GGUF
+& -- 
+& 7 B 
+& -- \\
+% \midrule
+% SaudiBERT 
+% & Saudi forums and Twitter data 
+% & 26.3 GB 
+% & Saudi DA \\
+% \midrule
+% AraELECTRA 
+% & Mixed-domain Arabic corpus (OSCAR, Wikipedia, news) 
+% & 77 GB 
+% & MSA + broad Arabic \\
+\bottomrule
+\end{tabularx}
+\noindent{\footnotesize{\textsuperscript{1} It stands for GPT-Generated Unified Format.}}
+\end{table}
+\subsubsection{Evaluation Metrics}\label{sec:metrics}
+
+To assess the quality of the generated outputs, we must select the appropriate evaluation metrics. To do so, we need to determine the brand category of abstract generation in the filed of NLP. In NLP, automatic abstract generation is typically modeled as a specialized text summarization task, and text summarization itself is widely categorized under natural language generation (text generation) within NLG/NLG-style sequence‑to‑sequence models \citep{becker2024textgenerationsystematicliterature}. Thus, we employ several widely used automatic evaluation metrics in NLG, including BLEU, ROUGE, and BERTScore. These metrics provide complementary perspectives by evaluating both lexical overlap and semantic similarity between the generated text and the reference texts.
+
+\textbf{BLEU (Bilingual Evaluation Understudy)}.
+BLEU measures the n-gram overlap between the generated text and the reference text, providing an estimate of lexical similarity and generation fluency. It is widely used for evaluating machine translation and other text generation tasks ~\cite{papineni2002bleu}
+
+\textbf{ROUGE.}
+We report ROUGE-1 (aka ROUGE-1-F1) and ROUGE-L (aka ROUGE-L-F1), which are commonly used for evaluating summarization and text generation systems. ROUGE-1 measures unigram overlap between the generated and reference texts, while ROUGE-L captures sequence similarity based on the longest common subsequence, reflecting structural alignment between sentences ~\cite{lin2004rouge}. For ROUGE, we report the F1 score, which balances precision and recall.
+
+\textbf{BERTScore.}
+To complement lexical overlap metrics, we also employ BERTScore, which evaluates semantic similarity using contextual embeddings derived from pretrained transformer models. This metric compares token embeddings between generated and reference texts to capture deeper semantic relationships. Following prior work, we report the F1 score as the main evaluation measure \cite{zhang2020bertscore}.
+\subsection{Experimental Setup}
+
+This section describes the software and hardware combinations used to run our experiments, as well as the configurations used for LM Studio.
+
+\subsubsection{Software} The necessary software for starting this experimental setup falls into three categories.
+
+\begin{itemize}
+\item	Software Packages: The LM Studio \textit{Version 0.3.31} or higher must be installed on hardware with sufficient computational power.
+
+\item	Local LLMs:
+
+\item	Python Libraries: Creating a virtual environment using the Python built-in \textbf{venv} module is a prerequisite for this part. Being done with that, the needed Python libraries can be installed using the Python PIP, which is a package manager for installing the Python libraries. The following libraries were installed in the created virtual environment: 
+
+\end{itemize}
+
+\subsubsection{Hardware}
+The experiments were carried out on a Windows machine (MS Windows 11 installed) equipped with an NVIDIA RTX PRO 3000 Blackwell Generation laptop GPU.
+
+\subsubsection{Configurations}
+
+\subsection{Model Evaluation and Preprocessing}
+\label{subsec:eval}
+%In the filed of NLP, generating abstracts is treated as a case of text summarization, and the later is treated as a case text generation.
+
+%%To choose the right evaluation metrics, we need to determine the brand category of abstracts generation in the filed of NLP. In NLP, automatic abstract generation is typically modeled as a specialized text summarization task, and text summarization itself is widely categorized under natural language generation (text generation) within NLG/NLG-style sequence‑to‑sequence models \citep{becker2024textgenerationsystematicliterature}. 
+
+Now, we want to evaluate the different LLMs and report our findings as part of Section~\ref{sec:results} using the aforementioned evaluation metrics. To do so, the rows in the generated abstract column (or \textbf{[\text{gen\_abstract}]}) will/need to be evaluated in comparison to their corresponding ground truth abstracts, i.e. the ones found under the \textbf{[abstract]} column. Before stepping into the evaluation of the local LLMs using the following three metrics. We noticed that a high-level preprocessing is necessary for the abstracts generated by the Llama model. For instance, the LLaMA3\_8B model, as affected by the prompt, provides long responses that start with a sentence like ``Here is a new formal academic abstract of exactly 120-130 words in one continuous paragraph:'', this was simply replaced with empty string.
+
+% \begin{itemize}
+% \item Bilingual Evaluation Understudy (BLEU):
+% \item Recall-Oriented Understudy for Gisting Evaluation (ROUGE):
+% \item BERTScore: This metric was calculated with \textit{rescale\_with\_baseline} set to False.
+% \end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Results}
+\label{sec:results}
+
+\commentred{Provide a concise and precise description of the experimental results, their interpretation as well as the experimental conclusions that can be drawn.}
+
+In this section, we report the quantitative evaluations of the local 
+LLMs on the CS-ML dataset using the BLEU, ROUGE and BERTScore metrics. Our evaluation considers both long and short prompting strategies. \commentred{It additionally shows the raw average length and the cleaned average length.} We divided this into two dimensions: (i) comparative study, and (ii) ablation study.
+
+\subsection{Comparative Study}
+First, we evaluated a random subset of 50 articles in three iterations to validate the pipeline. Then, we reported the final results on the full 200-article corpus. Both steps were carried out using the default settings of LM Studio (see Figure~\ref{fig:lmstudio}). 
+
+The results from the first step (i.e., using 50 articles) are shown in Table~\ref{tab:samresults}, which compares the performance of the three local LLMs as calculated using the aforementioned evaluation metrics. Whereas the remaining results from step two (i.e., using 200 articles) are shown in Table~\ref{tab:allresults}. \commentred{Interpret the results in Table 4 and Table 5!}
+%On the other side, the results in Table~\ref{tab:allresults} shows the 
+
+% \begin{figure}[H]
+% %\isPreprints{\centering}{} % Only used for preprints
+% \includegraphics[width=6.0 cm]{img/lmstudio}
+% \caption{The default settings for LM Studio.\label{fig:lmstudio}}
+% \end{figure}
+
+\begin{figure}[H]
+\centering
+\begin{minipage}{0.45\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{img/LM-StudioBasicSetting.png}
+\end{minipage}
+\hfill
+\begin{minipage}{0.45\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{img/lmstudio} % second image
+\end{minipage}
+\caption{The default settings for LM Studio apply to all LLMs in the comparative study.}
+\label{fig:lmstudio}
+\end{figure}
+
+
+% \unskip
+% \begin{table}[H] 
+% %\small % Change table font size
+% \caption{This is a table caption. Tables should be placed in the main text near to the first time they are~cited.\label{tab:allresults}}
+% %\isPreprints{\centering}{} % Only used for preprints
+% \begin{tabularx}{\textwidth}{CCC}
+% \toprule
+% \textbf{Title 1}	& \textbf{Title 2}	& \textbf{Title 3}\\
+% \midrule
+% Entry 1		& Data			& Data\\
+% Entry 2		& Data			& Data \textsuperscript{1}\\
+% \bottomrule
+% \end{tabularx}
+% \noindent{\footnotesize{\textsuperscript{1} Tables may have a footer.}}
+% \end{table}
+
+The text continues here (Figure~\ref{fig2} and Table~\ref{tab:allresults}). \commentred{\textbf{Note:} To show the "world-cloud" for the ground truth and other models!}
+
+% Example of a figure that spans the whole page width and with subfigures. The same concept works for tables, too.
+\begin{figure}[H]
+%\isPreprints{}{% This command is only used for ``preprints''.
+\begin{adjustwidth}{-\extralength}{0cm}
+\centering
+%} % If the paper is ``preprints'', please uncomment this parenthesis.
+\subfloat[\centering]{\includegraphics[width=7.0cm]{Definitions/logo-mdpi}}
+%\hfill
+\subfloat[\centering]{\includegraphics[width=7.0cm]{Definitions/logo-mdpi}}\\
+%%22-12-2025 OH:
+%\subfloat[\centering]{\includegraphics[width=7.0cm]{Definitions/logo-mdpi}}
+%\hfill
+%%22-12-2025 OH:
+%\subfloat[\centering]{\includegraphics[width=7.0cm]{Definitions/logo-mdpi}}
+%\isPreprints{}{% This command is only used for ``preprints''.
+\end{adjustwidth}
+%} % If the paper is ``preprints'', please uncomment this parenthesis.
+\caption{This is a wide figure. Schemes follow the same formatting. If there are multiple panels, they should be listed as: (\textbf{a}) Description of what is contained in the first panel. (\textbf{b}) Description of what is contained in the second panel. (\textbf{c}) Description of what is contained in the third panel. (\textbf{d}) Description of what is contained in the fourth panel. Figures should be placed in the main text near to the first time they are cited. A caption on a single line should be centered.\label{fig2}}
+\end{figure} 
+
+\begin{table}[H]
+\caption{Performance comparison of article summarization using small LLMs across prompts and iterations. Each iteration is evaluated using a subset of 50 articles..\label{tab:samresults}}
+%\isPreprints{\centering}{% This command is only used for ``preprints''.
+	\begin{adjustwidth}{-\extralength}{0cm}
+%} % If the paper is ``preprints'', please uncomment this parenthesis.
+%\isPreprints{\begin{tabularx}{\textwidth}{CCCC}}{% This command is only used for ``preprints''.
+		\begin{tabularx}{\fulllength}{XCCrrrrr}
+%} % If the paper is ``preprints'', please uncomment this parenthesis.
+			\toprule
+			\textbf{Model}	& \textbf{Prompt}	& \textbf{Iter.\textsuperscript{*}}	& \textbf{Avg. W. Len}     & \textbf{BLEU} & \textbf{ROUGE-1} & \textbf{ROUGE-L} & \textbf{BERTScore}\\
+
+\midrule
+\multirow{3}{*}{Mixtral-8x7B} &
+\multirow{3}{*}{Long} &
+    1* & 230 & 6.74   & 0.31   & 0.18   & 0.83   \\
+& & 2 & 226  & 4.94   & 0.30   & 0.18   & 0.83   \\
+& & 3 & --  & --   & --   & --   & --   \\
+
+\midrule
+\multirow{3}{*}{Qwen3-VL-8B} &
+\multirow{3}{*}{Short} &
+    1* & 159 & 4.75 & 0.35 & 0.19 & 0.85 \\
+& & 2 & 171     & 4.10   & 0.34   & 0.17   & 0.85   \\
+& & 3 & 162     & 4.26   & 0.33   & 0.17   & 0.85   \\
+
+\midrule
+\multirow{3}{*}{Llama-3.1-8B} &
+\multirow{3}{*}{Short} &
+    1* & 160 & 10.66   & 0.42   & 0.24   & 0.86   \\
+& & 2 & 149  & 12.18   & 0.44   & 0.25   & 0.87   \\
+& & 3 & 147  & 14.10   & 0.45   & 0.26   & 0.87   \\
+
+                               
+			\bottomrule
+		\end{tabularx}
+%		\isPreprints{}{% This command is only used for ``preprints''.
+	\end{adjustwidth}
+%} % If the paper is ``preprints'', please uncomment this parenthesis.
+	\noindent{\footnotesize{* \textbf{Iter.} is an abbreviation for Iteration.}}
+\end{table}
+
+%\begin{listing}[H]
+%\caption{Title of the listing}
+%\rule{\columnwidth}{1pt}
+%\raggedright Text of the listing. In font size footnotesize, small, or normalsize. Preferred format: left aligned and single spaced. Preferred border format: top border line and bottom border line.
+%\rule{\columnwidth}{1pt}
+%\end{listing}
+
+\begin{table}[H] 
+%\small % Change table font size
+\caption{The overall performance of article summarization using small LLMs, evaluated on the full dataset of 200 articles.\label{tab:allresults}}
+%\isPreprints{\centering}{} % Only used for preprints
+%\begin{tabularx}{\textwidth}{CCCccc}
+\begin{tabularx}{\textwidth}{lrrrrr}
+\toprule
+\textbf{Model}	& \textbf{Avg. W. Len}     & \textbf{BLEU} & \textbf{ROUGE-1} & \textbf{ROUGE-L} & \textbf{BERTScore}\\
+\midrule
+Mixtral-8x7B		& 230			& 5.12 & 0.30 & 0.18 & 0.83 \\
+Qwen3-VL-8B		& 169			& 3.66 & 0.35 & 0.17 & 0.85 \\
+Llama-3.1-8B		& 147			& 12.96 & 0.45 & .26 & 0.87 \\%\textsuperscript{1}
+\bottomrule
+\end{tabularx}
+%\noindent{\footnotesize{\textsuperscript{1} Tables may have a footer.}}
+\end{table}
+
+%% 22-12-2025 OH:
+% \subsection{Formatting of Mathematical Components}
+% \begin{linenomath}
+% \begin{equation}
+% a = 1,
+% \end{equation}
+% \end{linenomath}
+% the text following an equation need not be a new paragraph. Please punctuate equations as regular text.
+
+%% If the documentclass option "submit" is chosen, please insert a blank line before and after any math environment (equation and eqnarray environments). This ensures correct linenumbering. The blank line should be removed when the documentclass option is changed to "accept" because the text following an equation should not be a new paragraph.
+
+%% Example of a page in landscape format (with table and table footnote).
+%\startlandscape
+%\begin{table}[H] %% Table in wide page
+%%\isPreprints{\centering}{} % This command is only used for ``preprints''.
+%\caption{This is a very wide table.\label{tab3}}
+%	\begin{tabularx}{\textwidth}{CCCC}
+%		\toprule
+%		\textbf{Title 1}	& \textbf{Title 2}	& \textbf{Title 3}	& \textbf{Title 4}\\
+%		\midrule
+%		Entry 1		& Data			& Data			& This cell has some longer content that runs over two lines.\\
+%		Entry 2		& Data			& Data			& Data\textsuperscript{1}\\
+%		\bottomrule
+%	\end{tabularx}
+%%\isPreprints{}{% This command is only used for ``preprints''.
+%	\begin{adjustwidth}{+\extralength}{0cm}
+%%} % If the paper is ``preprints'', please uncomment this parenthesis.
+%		\noindent\footnotesize{\textsuperscript{1} This is a table footnote.}
+%%\isPreprints{}{% This command is only used for ``preprints''.
+%	\end{adjustwidth}
+%%} % If the paper is ``preprints'', please uncomment this parenthesis.
+%\end{table}
+%\finishlandscape
+
+%% 22-12-2025 OH:
+% Please punctuate equations as regular text. Theorem-type environments (including propositions, lemmas, corollaries etc.) can be formatted as follows:
+% %% Example of a theorem:
+% \begin{Theorem}
+% Example text of a theorem.
+% \end{Theorem}
+
+%% 22-12-2025 OH:
+%% Example of a proof:
+% \begin{proof}[Proof of Theorem 1]
+% Text of the proof. Note that the phrase ``of Theorem 1'' is optional if it is clear which theorem is being referred to.
+% \end{proof}
+
+\subsection{Ablation Study}
+
+\commentred{Note: Show a table containing the results of the best model!} We have carried out several standards evaluation experiments so far. Based on that, it can be concluded that \textit{Llama-3.1-8B} outperformed the other two LLMs. Now is the time to conduct an ablation study. Such study involves systematically removing or altering individual parameters of the LLM. For the scope of this paper, we change the prompt design, and tune the decoding or sampling parameters of the \textit{Llama-3.1-8B} model in two separate experiments. In our settings, we start by studying the effect of prompt design, and then focus on decoding parameters.
+
+\subsubsection{Prompt Design}
+As inspired by \citet{zhang-etal-2024-benchmarking}, our experimental settings are based on the zero-shot prompting. However, we changed the prompt design in terms of prompt structure and constraints. Table~\ref{tab:prompts-design}, in \textit{Appendix A}, summarizes the prompt designs used for abstract generation in  Llama-3.1-8B LLM. 
+
+%%\begin{adjustwidth}{-\extralength}{0cm}
+%Overfull \hbox (15.63217pt too wide) in paragraph at lines 838--850
+
+
+\begin{table}[H]
+\centering
+\caption{Ablation study on prompt design: evaluation summary for the abstract generation using Llama-3.1-8B, tested using 50 and 100 articles.}
+\label{tab:prompt_ablation}
+\resizebox{\textwidth}{!}{
+
+\begin{tabular}{lllrrrrrrrr}
+\toprule
+\textbf{ID} & \textbf{Structure} & \textbf{Constraints} 
+& \multicolumn{2}{c}{\textbf{BLEU}} 
+& \multicolumn{2}{c}{\textbf{ROUGE-1}} 
+& \multicolumn{2}{c}{\textbf{ROUGE-L}} 
+& \multicolumn{2}{c}{\textbf{BERTScore}} \\
+\cmidrule(lr){4-5} \cmidrule(lr){6-7} \cmidrule(lr){8-9} \cmidrule(lr){10-11}
+ &  &  
+& \textbf{50} & \textbf{100} 
+& \textbf{50} & \textbf{100} 
+& \textbf{50} & \textbf{100} 
+& \textbf{50} & \textbf{100} \\
+\midrule
+P1 & Plain & None                        & 11.92 & 11.43 & 0.44 & 0.43 & 0.26 & 0.25 & 0.87 & 0.86 \\
+P2 & Semi-struct. & Paragraph format     & 15.70 & 14.97 & 0.48 & 0.46 & 0.28 & 0.28 & 0.87 & 0.87 \\
+P3 & Semi-struct. & Length (120--130 W.) & 13.70 & 13.24 & 0.45 & 0.45 & 0.26 & 0.26 & 0.87 & 0.87 \\
+P4 & Structured & Length + Content       & 12.88 & 12.87 & 0.45 & 0.45 & 0.26 & 0.25 & 0.87 & 0.87 \\
+P5 & Fully struct. & LSCSR               & 13.76 & 12.31 & 0.45 & 0.44 & 0.26 & 0.26 & 0.87 & 0.87 \\
+\bottomrule
+\end{tabular}
+
+}
+\noindent{\footnotesize{\textbf{*LSCSR}: Length + Style + Content + Strict Rules.}}
+\end{table}
+
+\subsubsection{Decoding Parameters}
+We consider three decoding parameters, particularly temperature (denoted as temp), \text{top-p} (aka nucleus sampling), and \text{top-k} sampling. \commentred{What is the relation between temperature and generated text quality? + Add a def and a ref!}. The following text describes these parameters in LLMs context based on the work provided by ~\citet{nguyen2025turningheatminpsampling,chang2023kldivergenceguidedtemperaturesampling}.
+
+\begin{itemize}
+    \item Temperature or temp: This setting controls the level of randomness with which a model selects words during text generation. In our case, it refers to the creation of caption text. Thus, it determines the degree of freedom that the model has when selecting the next word in a sequence of words that represent the image caption.
+    \item Top-p or top\_p (aka nucleus sampling): This setting determines how many possible words the model considers before making a selection. Thus, it filters the potential word pool based on a cumulative probability threshold.
+    \item Top-k or top\_k sampling: This setting represents another sampling parameter that used to control word selection. While top-p selects a dynamic number of words based on a cumulative probability threshold, the top-k limits the model to a fixed number of the most probable subsequent words.
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \section{Discussion}
+% \label{sec:discussion}
+
+% Authors should discuss the results and how they can be interpreted from the perspective of previous studies and of the working hypotheses. The findings and their implications should be discussed in the broadest context possible. Future research directions may also be highlighted.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Conclusion}
+\label{sec:conclusion}
+\commentred{Following IMRaD structure, the Conclusions can be merged with the Discussion!}
+Small locally deployed LLMs can support text summarization and abstracts generation for institutional archives when prompts and decoding settings are carefully controlled.
+
+This section is not mandatory, but can be added to the manuscript if the discussion is unusually long or complex.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Further Details}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\vspace{6pt} 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% optional
+%\supplementary{The following supporting information can be downloaded at:  \linksupplementary{s1}, Figure S1: title; Table S1: title; Video S1: title.}
+
+% Only for journal Methods and Protocols:
+% If you wish to submit a video article, please do so with any other supplementary material.
+% \supplementary{The following supporting information can be downloaded at: \linksupplementary{s1}, Figure S1: title; Table S1: title; Video S1: title. A supporting video article is available at doi: link.}
+
+% Only used for preprtints:
+% \supplementary{The following supporting information can be downloaded at the website of this paper posted on \href{https://www.preprints.org/}{Preprints.org}.}
+
+% Only for journal Hardware:
+% If you wish to submit a video article, please do so with any other supplementary material.
+% \supplementary{The following supporting information can be downloaded at: \linksupplementary{s1}, Figure S1: title; Table S1: title; Video S1: title.\vspace{6pt}\\
+%\begin{tabularx}{\textwidth}{lll}
+%\toprule
+%\textbf{Name} & \textbf{Type} & \textbf{Description} \\
+%\midrule
+%S1 & Python script (.py) & Script of python source code used in XX \\
+%S2 & Text (.txt) & Script of modelling code used to make Figure X \\
+%S3 & Text (.txt) & Raw data from experiment X \\
+%S4 & Video (.mp4) & Video demonstrating the hardware in use \\
+%... & ... & ... \\
+%\bottomrule
+%\end{tabularx}
+%}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\authorcontributions{For research articles with several authors, a short paragraph specifying their individual contributions must be provided. The following statements should be used ``Conceptualization, X.X. and Y.Y.; methodology, X.X.; software, X.X.; validation, X.X., Y.Y. and Z.Z.; formal analysis, X.X.; investigation, X.X.; resources, X.X.; data curation, X.X.; writing---original draft preparation, X.X.; writing---review and editing, X.X.; visualization, X.X.; supervision, X.X.; project administration, X.X.; funding acquisition, Y.Y. All authors have read and agreed to the published version of the manuscript.'', please turn to the  \href{http://img.mdpi.org/data/contributor-role-instruction.pdf}{CRediT taxonomy} for the term explanation. Authorship must be limited to those who have contributed substantially to the work~reported. All authors have read and agreed to the submitted version of the manuscript.}
+%published
+
+\funding{This research is funded by the Institute of Technology and Engineering (ITE), Forschungszentrum Jülich, Germany.
+%``The APC was funded by XXX''. Check carefully that the details given are accurate and use the standard spelling of funding agency names at \url{https://search.crossref.org/funding}, any errors may affect your future funding.
+}
+
+% \institutionalreview{In this section, you should add the Institutional Review Board Statement and approval number, if relevant to your study. You might choose to exclude this statement if the study did not require ethical approval. Please note that the Editorial Office might ask you for further information. Please add “The study was conducted in accordance with the Declaration of Helsinki, and approved by the Institutional Review Board (or Ethics Committee) of NAME OF INSTITUTE (protocol code XXX and date of approval).” for studies involving humans. OR “The animal study protocol was approved by the Institutional Review Board (or Ethics Committee) of NAME OF INSTITUTE (protocol code XXX and date of approval).” for studies involving animals. OR “Ethical review and approval were waived for this study due to REASON (please provide a detailed justification).” OR “Not applicable” for studies not involving humans or animals.}
+
+%\informedconsent{Any research article describing a study involving humans should contain this statement. Please add ``Informed consent was obtained from all subjects involved in the study.'' OR ``Patient consent was waived due to REASON (please provide a detailed justification).'' OR ``Not applicable'' for studies not involving humans. You might also choose to exclude this statement if the study did not involve humans.}
+
+\dataavailability{The data presented in this study is a subset of the arXiv dataset. It is  available upon request from the
+corresponding author. 
+%Suggested Data Availability Statements are available in section ``MDPI Research Data Policies'' at \url{https://www.mdpi.com/ethics}.
+} 
+
+% Only for journal Drones
+%\durcstatement{Current research is limited to the [please insert a specific academic field, e.g., XXX], which is beneficial [share benefits and/or primary use] and does not pose a threat to public health or national security. Authors acknowledge the dual-use potential of the research involving xxx and confirm that all necessary precautions have been taken to prevent potential misuse. As an ethical responsibility, authors strictly adhere to relevant national and international laws about DURC. Authors advocate for responsible deployment, ethical considerations, regulatory compliance, and transparent reporting to mitigate misuse risks and foster beneficial outcomes.}
+
+% Only for journal Nursing Reports
+%\publicinvolvement{Please describe how the public (patients, consumers, carers) were involved in the research. Consider reporting against the GRIPP2 (Guidance for Reporting Involvement of Patients and the Public) checklist. If the public were not involved in any aspect of the research add: ``No public involvement in any aspect of this research''.}
+%
+%% Only for journal Nursing Reports
+%\guidelinesstandards{Please add a statement indicating which reporting guideline was used when drafting the report. For example, ``This manuscript was drafted against the XXX (the full name of reporting guidelines and citation) for XXX (type of research) research''. A complete list of reporting guidelines can be accessed via the equator network: \url{https://www.equator-network.org/}.}
+%
+%% Only for journal Nursing Reports
+%\useofartificialintelligence{Please describe in detail any and all uses of artificial intelligence (AI) or AI-assisted tools used in the preparation of the manuscript. This may include, but is not limited to, language translation, language editing and grammar, or generating text. Alternatively, please state that “AI or AI-assisted tools were not used in drafting any aspect of this manuscript”.}
+
+\acknowledgments{In this section you can acknowledge any support given which is not covered by the author contribution or funding sections. This may include administrative and technical support, or donations in kind (e.g., materials used for experiments). Where GenAI has been used for purposes such as generating text, data, or graphics, or for study design, data collection, analysis, or interpretation of data, please add “During the preparation of this manuscript/study, the author(s) used [tool name, version information] for the purposes of [description of use]. The authors have reviewed and edited the output and take full responsibility for the content of this publication.”}
+
+\conflictsofinterest{The authors declare no conflicts of interest. 
+%Authors must identify and declare any personal circumstances or interest that may be perceived as inappropriately influencing the representation or interpretation of reported research results. Any role of the funders in the design of the study; in the collection, analyses or interpretation of data; in the writing of the manuscript; or in the decision to publish the results must be declared in this section. If there is no role, please state ``The funders had no role in the design of the study; in the collection, analyses, or interpretation of data; in the writing of the manuscript; or in the decision to publish the results''.
+} 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Optional
+
+%% Only for journal Encyclopedia
+%\entrylink{The Link to this entry published on the encyclopedia platform.}
+
+\abbreviations{Abbreviations}{
+The following abbreviations are used in this manuscript:
+\\
+
+\noindent 
+\begin{tabular}{@{}ll}
+MDPI & Multidisciplinary Digital Publishing Institute\\
+%DOAJ & Directory of open access journals\\
+%TLA & Three letter acronym\\
+%LD & Linear dichroism \\
+LLMs & Large Language Models
+\end{tabular}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Optional
+\appendixtitles{no} % Leave argument "no" if all appendix headings stay EMPTY (then no dot is printed after "Appendix A"). If the appendix sections contain a heading then change the argument to "yes".
+\appendixstart
+\appendix
+\section[\appendixname~\thesection]{}
+\subsection[\appendixname~\thesubsection]{}
+
+This appendix is meant to provide further details that are crucial to understanding, and reproducing the research shown in this paper.
+
+\begin{table}[H] 
+\caption{The prompt designs used for the ablation  study in LLM.\label{tab:prompts-design}}
+%\newcolumntype{C}{>{\centering\arraybackslash}X}
+\begin{tabularx}{\textwidth}{lllX}
+\toprule
+\textbf{ID}	& \textbf{Prompt Type} & \textbf{Length}	& \textbf{Prompt Text}\\
+\midrule
+P1		& Zero-shot&			& Write a formal academic abstract based on the following paper content:
+
+\{\}\\
+\midrule
+P2		& Zero-shot&			& Write a formal academic abstract in one continuous paragraph based on the following paper content:
+
+\{\}
+
+Word count:\\
+\midrule
+P3		& Zero-shot&			& Write a formal academic abstract of 120-130 words in one continuous paragraph based on the following paper content:
+
+\{\}
+
+Word count:\\
+\midrule
+P4		& Zero-shot&			& Write a formal academic abstract of 120-130 words in one continuous paragraph. Cover the background, methods, main results, and conclusions. Base it on the following paper content:
+
+\{\}
+
+Word count:\\
+\midrule
+P5		& Instruction-based (Zero-shot)&			& Write ONLY a new formal academic abstract of exactly 120--130 words in one continuous paragraph.
+Strictly cover: (1) background or motivation, (2) methods or approach,
+(3) main results, (4) conclusions or implications.
+Do NOT include feedback, suggestions, critiques, numbered lists, or references to ``your abstract''.
+Base the abstract solely on the provided paper content.\\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+% \section[\appendixname~\thesection]{}
+% All appendix sections must be cited in the main text. In the appendices, Figures, Tables, etc. should be labeled, starting with ``A''---e.g., Figure A1, Figure A2, etc.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\isPreprints{}{% This command is only used for ``preprints''.
+\begin{adjustwidth}{-\extralength}{0cm}
+%} % If the paper is ``preprints'', please uncomment this parenthesis.
+%\printendnotes[custom] % Un-comment to print a list of endnotes
+
+\reftitle{References}
+
+% Please provide either the correct journal abbreviation (e.g. according to the “List of Title Word Abbreviations” http://www.issn.org/services/online-services/access-to-the-ltwa/) or the full name of the journal.
+% Citations and References in Supplementary files are permitted provided that they also appear in the reference list here. 
+
+%=====================================
+% References, variant A: external bibliography
+%=====================================
+\bibliography{references}
+
+%=====================================
+% References, variant B: internal bibliography the "ACS format".
+% Not In Use (Commented Out)!
+%=====================================
+
+% ACS format
+% \isAPAandChicago{}{%
+% \begin{thebibliography}{999}
+% % Reference 1
+% \bibitem[Author1(year)]{ref-journal}
+% Author~1, T. The title of the cited article. {\em Journal Abbreviation} {\bf 2008}, {\em 10}, 142--149.
+% % Reference 2
+% \bibitem[Author2(year)]{ref-book1}
+% Author~2, L. The title of the cited contribution. In {\em The Book Title}; Editor 1, F., Editor 2, A., Eds.; Publishing House: City, Country, 2007; pp. 32--58.
+% % Reference 3
+% \bibitem[Author1 and Author2 (year)]{ref-book2}
+% Author 1, A.; Author 2, B. \textit{Book Title}, 3rd ed.; Publisher: Publisher Location, Country, 2008; pp. 154--196.
+% % Reference 4
+% \bibitem[Author4(year)]{ref-unpublish}
+% Author 1, A.B.; Author 2, C. Title of Unpublished Work. \textit{Abbreviated Journal Name} year, \textit{phrase indicating stage of publication (submitted; accepted; in press)}.
+% % Reference 5
+% \bibitem[Author8(year)]{ref-url}
+% Title of Site. Available online: URL (accessed on Day Month Year).
+% % Reference 6
+% \bibitem[Author6(year)]{ref-proceeding}
+% Author 1, A.B.; Author 2, C.D.; Author 3, E.F. Title of presentation. In Proceedings of the Name of the Conference, Location of Conference, Country, Date of Conference (Day Month Year); Abstract Number (optional), Pagination (optional).
+% % Reference 7
+% \bibitem[Author7(year)]{ref-thesis}
+% Author 1, A.B. Title of Thesis. Level of Thesis, Degree-Granting University, Location of University, Date of Completion.
+% \end{thebibliography}
+% }
+
+% Chicago format (Used for journal: arts, genealogy, histories, humanities, jintelligence, laws, literature, religions, risks, socsci)
+\isChicagoStyle{%
+\begin{thebibliography}{999}
+% Reference 1
+\bibitem[Aranceta-Bartrina(1999a)]{ref-journal}
+Aranceta-Bartrina, Javier. 1999a. Title of the cited article. \textit{Journal Title} 6: 100--10.
+% Reference 2
+\bibitem[Aranceta-Bartrina(1999b)]{ref-book1}
+Aranceta-Bartrina, Javier. 1999b. Title of the chapter. In \textit{Book Title}, 2nd ed. Edited by Editor 1 and Editor 2. Publication place: Publisher, vol. 3, pp. 54–96.
+% Reference 3
+\bibitem[Baranwal and Munteanu {[1921]}(1955)]{ref-book2}
+Baranwal, Ajay K., and Costea Munteanu. 1955. \textit{Book Title}. Publication place: Publisher, pp. 154--96. First published 1921 (op-tional).
+% Reference 4
+\bibitem[Berry and Smith(1999)]{ref-thesis}
+Berry, Evan, and Amy M. Smith. 1999. Title of Thesis. Level of Thesis, Degree-Granting University, City, Country. Identifi-cation information (if available).
+% Reference 5
+\bibitem[Cojocaru et al.(1999)]{ref-unpublish}
+Cojocaru, Ludmila, Dragos Constatin Sanda, and Eun Kyeong Yun. 1999. Title of Unpublished Work. \textit{Journal Title}, phrase indicating stage of publication.
+% Reference 6
+\bibitem[Driver et al.(2000)]{ref-proceeding}
+Driver, John P., Steffen Rohrs, and Sean Meighoo. 2000. Title of Presentation. In \textit{Title of the Collected Work} (if available). Paper presented at Name of the Conference, Location of Conference, Date of Conference.
+% Reference 7
+\bibitem[Harwood(2008)]{ref-url}
+Harwood, John. 2008. Title of the cited article. Available online: URL (accessed on Day Month Year).
+\end{thebibliography}
+}{}
+
+% APA format (Used for journal: admsci, behavsci, businesses, econometrics, economies, education, ejihpe, games, humans, ijfs, journalmedia, jrfm, languages, psycholint, publications, tourismhosp, youth)
+\isAPAStyle{%
+\begin{thebibliography}{999}
+% Reference 1
+\bibitem[\protect\citeauthoryear{Azikiwe \BBA\ Bello}{{2020a}}]{ref-journal}
+Azikiwe, H., \& Bello, A. (2020a). Title of the cited article. \textit{Journal Title}, \textit{Volume}(Issue), 
+Firstpage--Lastpage/Article Number.
+% Reference 2
+\bibitem[\protect\citeauthoryear{Azikiwe \BBA\ Bello}{{2020b}}]{ref-book1}
+Azikiwe, H., \& Bello, A. (2020b). \textit{Book title}. Publisher Name.
+% Reference 3
+\bibitem[Davison(1623/2019)]{ref-book2}
+Davison, T. E. (2019). Title of the book chapter. In A. A. Editor (Ed.), \textit{Title of the book: Subtitle} 
+(pp. Firstpage--Lastpage). Publisher Name. (Original work published 1623) (Optional).
+% Reference 4
+\bibitem[Fistek et al.(2017)]{ref-proceeding}
+Fistek, A., Jester, E., \& Sonnenberg, K. (2017, Month Day). Title of contribution [Type of contribution]. Conference Name, Conference City, Conference Country.
+% Reference 5
+\bibitem[Hutcheson(2012)]{ref-thesis}
+Hutcheson, V. H. (2012). \textit{Title of the thesis} [XX Thesis, Name of Institution Awarding the Degree].
+% Reference 6
+\bibitem[Lippincott \& Poindexter(2019)]{ref-unpublish}
+Lippincott, T., \& Poindexter, E. K. (2019). \textit{Title of the unpublished manuscript} [Unpublished manuscript/Manuscript in prepara-tion/Manuscript submitted for publication]. Department Name, Institution Name.
+% Reference 7
+\bibitem[Harwood(2008)]{ref-url}
+Harwood, J. (2008). \textit{Title of the cited article}. Available online: URL (accessed on Day Month Year).
+\end{thebibliography}
+}{}
+
+% If authors have biography, please use the format below
+%\section*{Short Biography of Authors}
+%\bio
+%{\raisebox{-0.35cm}{\includegraphics[width=3.5cm,height=5.3cm,clip,keepaspectratio]{Definitions/author1.pdf}}}
+%{\textbf{Firstname Lastname} Biography of first author}
+%
+%\bio
+%{\raisebox{-0.35cm}{\includegraphics[width=3.5cm,height=5.3cm,clip,keepaspectratio]{Definitions/author2.jpg}}}
+%{\textbf{Firstname Lastname} Biography of second author}
+
+% For the MDPI journals use author-date citation, please follow the formatting guidelines on http://www.mdpi.com/authors/references
+% To cite two works by the same author: \citeauthor{ref-journal-1a} (\citeyear{ref-journal-1a}, \citeyear{ref-journal-1b}). This produces: Whittaker (1967, 1975)
+% To cite two works by the same author with specific pages: \citeauthor{ref-journal-3a} (\citeyear{ref-journal-3a}, p. 328; \citeyear{ref-journal-3b}, p.475). This produces: Wong (1999, p. 328; 2000, p. 475)
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% for journal Sci
+%\reviewreports{\\
+%Reviewer 1 comments and authors’ response\\
+%Reviewer 2 comments and authors’ response\\
+%Reviewer 3 comments and authors’ response
+%}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\PublishersNote{}
+%\isPreprints{}{% This command is only used for ``preprints''.
+\end{adjustwidth}
+%} % If the paper is ``preprints'', please uncomment this parenthesis.
+\end{document}
+
