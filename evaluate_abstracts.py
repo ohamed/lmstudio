@@ -106,7 +106,8 @@ def compute_rouge_f1(cands: List[str], refs: List[str], use_stemmer: bool = True
     if n == 0:
         return 0.0, 0.0
 
-    return r1_sum / n, rl_sum / n
+    # To normalize the score, i.e., convert to percentage.
+    return (r1_sum / n)*100, (rl_sum / n)*100
 
 
 def compute_bertscore_f1(
@@ -129,7 +130,8 @@ def compute_bertscore_f1(
         verbose=False,
         rescale_with_baseline=False, #True
     )
-    return float(f1.mean().item())
+    # Normalize the score, i.e., convert to percentage.
+    return float(f1.mean().item())*100.0
 
 
 def evaluate(
@@ -232,9 +234,9 @@ def main() -> None:
     print("")
     print("Scores")
     print(f"BLEU           {summary.bleu:.4f}")
-    print(f"ROUGE-1 F1     {summary.rouge1_f1:.6f}")
-    print(f"ROUGE-L F1     {summary.rougel_f1:.6f}")
-    print(f"BERTScore F1   {summary.bertscore_f1:.6f}")
+    print(f"ROUGE-1 F1     {summary.rouge1_f1:.4f}")
+    print(f"ROUGE-L F1     {summary.rougel_f1:.4f}")
+    print(f"BERTScore F1   {summary.bertscore_f1:.4f}")
 
     if args.json_out:
         payload = {
