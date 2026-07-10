@@ -8,8 +8,10 @@ from run_qwen import main as run_main
 if __name__ == "__main__":
     # allow overriding via CLI, but default to llama
     import sys
-    #sys.argv += ["--model", "meta-llama-3.1-8b-instruct"]#
-    sys.argv += ["--model", "meta-llama-3.1-8b-instruct-gguf"]
+    
+    ## This is the exact model name
+    sys.argv += ["--model", "meta-llama-3.1-8b-instruct"]
+    #sys.argv += ["--model", "meta-llama-3.1-8b-instruct-gguf"]
     
     # Measure total processing time
     start_time = time.perf_counter()
