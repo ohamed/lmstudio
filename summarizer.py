@@ -23,7 +23,7 @@ GEN_PROMPT = (
     "Write a formal academic abstract of about 120–130 words as one paragraph. "
     "Cover background, methods, main results, and conclusions clearly.\n\n{}"
 )
-"""
+
 
 GEN_PROMPT = (
     "Write ONLY a new formal academic abstract of exactly 120-130 words in one continuous paragraph. "
@@ -31,7 +31,46 @@ GEN_PROMPT = (
     "Do NOT include feedback, suggestions, critiques, numbered lists, or references to 'your abstract.' "
     "Base it solely on this paper content: \n\n{} \n\nWord count: "
 )
+"""
 
+PROMPTS = {
+    "P1": (
+        "Write a formal academic abstract based on the following paper content:\n\n"
+        "{}"
+    ),
+
+    "P2": (
+        "Write a formal academic abstract in one continuous paragraph based on the following paper content:\n\n"
+        "{}\n\n"
+        "Word count:"
+    ),
+
+    "P3": (
+        "Write a formal academic abstract of 120-130 words in one continuous paragraph based on the following paper content:\n\n"
+        "{}\n\n"
+        "Word count:"
+    ),
+
+    "P4": (
+        "Write a formal academic abstract of 120-130 words in one continuous paragraph. "
+        "Cover the background, methods, main results, and conclusions. "
+        "Base it on the following paper content:\n\n"
+        "{}\n\n"
+        "Word count:"
+    ),
+
+    "P5": (
+        "Write ONLY a new formal academic abstract of exactly 120-130 words in one continuous paragraph.\n"
+        "Strictly cover: (1) background or motivation, (2) methods or approach, "
+        "(3) main results, (4) conclusions or implications.\n"
+        "Do NOT include feedback, suggestions, critiques, numbered lists, or references to \"your abstract\".\n"
+        "Base the abstract solely on the provided paper content:\n\n"
+        "{}"
+    ),
+}
+
+GEN_PROMPT = PROMPTS["P5"]
+print(GEN_PROMPT)
 
 def chunk_text(text: str, max_input_tokens: int = 2500, overlap_tokens: int = 200):
     # leave room for prompt and output in a 4k context model
