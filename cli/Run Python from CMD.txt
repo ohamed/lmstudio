@@ -1,4 +1,10 @@
+::# Stats for gold-standard abstracts
 python compute_abstract_length.py
+
+::# Stats for generated abstracts
+python gen_abstract_stats.py output/gen/Gen_Abstracts_Mixtral_Instruct_7B_S3.csv
+
+python gen_abstract_stats.py output/gen/Gen_Abstracts_LLaMA3_8B_Instruct_50_C1.csv
 
 ::=====
 :: ******::****** Generate Abstract using Qwen3-VL-8B-Instruct !!! ******::******
@@ -51,7 +57,7 @@ python run_mixtral.py --in data/arxiv_csml_body_abstract_S2.csv --out output/Gen
 python run_mixtral.py --in data/arxiv_csml_body_abstract_S3.csv --out output/Gen_Abstracts_Mixtral_Instruct_7B_S3.csv
 
 ::=====
-:: ******::****** THE EVALUATION METRICS !!!
+:: ******::****** THE EVALUATION METRICS for Comparative Study !!!
 ::=====
 
 python evaluate_abstracts.py --gen output/gen/Gen_Abstracts_Qwen3_8B_Instruct_b50.csv --gold data/arxiv_csml_body_abstract.csv
