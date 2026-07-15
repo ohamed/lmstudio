@@ -1,5 +1,5 @@
 """
-
+## Usage examples:
 python avg_word_length.py --csv data/arxiv_csml_body_abstract.csv --column abstract
 
 python avg_word_length.py --csv output/gen/Gen_Abstracts_Qwen3_8B_Instruct_b50_S1.csv --column gen_abstract
@@ -14,6 +14,19 @@ python avg_word_length.py --csv output/gen/Gen_Abstracts_Mixtral_Instruct_7B_S1.
 
 python avg_word_length.py --csv output/gen/Gen_Abstracts_LLaMA3_8B_Instruct.csv --column gen_abstract
 
+"""
+
+"""
+Compute descriptive statistics for the word lengths of text entries in a CSV file.
+
+This script provides a command-line interface for analyzing the length
+distribution of textual data stored in a specified CSV column. It loads the
+input dataset, performs minimal text preprocessing by removing a predefined
+boilerplate prefix when present, ignores missing entries, and computes the
+average, median, minimum, and maximum number of words per text instance.
+The utility can be applied to different datasets and text columns, making it
+useful for dataset profiling, quality assessment, and comparison of reference
+and generated text collections in NLP experiments.
 """
 
 import argparse
