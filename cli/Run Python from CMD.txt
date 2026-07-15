@@ -1,10 +1,15 @@
-::# Stats for gold-standard abstracts
-python compute_abstract_length.py
+::=====
+::# Stats for gold-standard and generated abstracts
+::=====
 
-::# Stats for generated abstracts
-python gen_abstract_stats.py output/gen/Gen_Abstracts_Mixtral_Instruct_7B_S3.csv
+### Prompt design (100 atrticles: P1 to P5)
+python avg_word_length.py --csv output/gen/Gen_Abstracts_LLaMA3_8B_Instruct_100_P1.csv --column gen_abstract
 
-python gen_abstract_stats.py output/gen/Gen_Abstracts_LLaMA3_8B_Instruct_50_C1.csv
+### Prompt design (100 to 50 atrticles)
+python avg_word_length.py --csv output/gen/Gen_Abstracts_LLaMA3_8B_Instruct_S3_P1.csv --column gen_abstract
+
+### Decoding parameters (C1 to C5)
+python avg_word_length.py --csv output/gen/Gen_Abstracts_LLaMA3_8B_Instruct_50_C1.csv --column gen_abstract
 
 ::=====
 :: ******::****** Generate Abstract using Qwen3-VL-8B-Instruct !!! ******::******
