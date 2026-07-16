@@ -232,7 +232,7 @@ The findings show that locally deployed LLMs can generate coherent and informati
  
 \item Develop an automated abstract generation pipeline that makes use of three locally deployed LMMs: Mixtral-8x7B-Instruct, Qwen3-VL-8B-Instruct, and Meta-Llama-3.1-8B-Instruct (Llama-3.1-8B). For which no API key is required. We established a comparative study to evaluate the three models were under the same settings. We used three evaluation metrics: BLEU, ROUGE and BERTScore, and found that Meta's Llama-3.1 model outperforms the other models.
 
-\item Conduct an ablation study to examine the effect of prompt design on Meta's Llama-3.1 model. We tested the model using 50 and 100 articles and report our results using the same evaluation metrics provided in the comparative study. We found that the \commentred{long/short} prompt .
+\item Conduct an ablation study to examine the effect of prompt design on Meta's Llama-3.1 model. We tested the model using 50 and 100 articles and report our results using the same evaluation metrics provided in the comparative study. Our results show that the fully structured, instruction-based (zero-shot) prompt works the best.
 
 \item Use VDB and RAG techniques to create a KB system that brings external knowledge to LLMs. This approach enables semantic search and retrieves the most relevant documents.
 
