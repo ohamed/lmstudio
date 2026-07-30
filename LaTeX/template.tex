@@ -95,7 +95,7 @@
 
 % Authors, for the paper (add full first names)
 %\Author{Osama Hamed $^{1,}$*\orcidA{}, Nadeem Zaidkilani $^{2}$, Firstname Lastname $^{3}$ and Ghaleb Natour $^{1,}$*}
-\Author{Osama Hamed $^{1,\dagger,}$*, Nadeem Zaidkilani $^{2}$, Tasneem Duridi $^{3}$ and Ghaleb Natour $^{1}$}
+\Author{Osama Hamed $^{1,2,}$*, Nadeem Zaidkilani $^{3}$, Tasneem Duridi $^{4}$ and Ghaleb Natour $^{5}$}
 
 %\longauthorlist{yes}
 
@@ -125,15 +125,16 @@
 
 % Affiliations / Addresses (Add [1] after \address if there is only one affiliation.)
 \address{%
-$^{1}$ \quad Institute of Technology and Engineering, Forschungszentrum Jülich; o.hamed@fz-juelich.de\\
-$^{2}$ \quad Department of Computer Science, Alzaytona University of Science and Technology; nadeem.kilani@zust.edu.ps\\
-$^{3}$ \quad Department of Computer Science, Palestine Technical University - Kadoorie; tasneem.duridi@ptuk.edu.ps\\
-$^{4}$ \quad Institute of Technology and Engineering, Forschungszentrum Jülich; g.natour@fz-juelich.de
+$^{1}$ \quad Institute of Technology and Engineering, Forschungszentrum Jülich, Germany; o.hamed@fz-juelich.de\\
+$^{2}$ \quad Computer Systems Engineering Department, Palestine Technical University - Kadoorie, Palestine; osama.hamed@ptuk.edu.ps \\
+$^{3}$ \quad Department of Computer Science, Alzaytona University of Science and Technology; nadeem.kilani@zust.edu.ps\\
+$^{4}$ \quad Department of Computer Science, Palestine Technical University - Kadoorie; tasneem.duridi@ptuk.edu.ps\\
+$^{5}$ \quad Institute of Technology and Engineering, Forschungszentrum Jülich, Germany; g.natour@fz-juelich.de
 }
 
 % Contact information of the corresponding author
-\firstnote{Corresponding address: Computer Systems Engineering Department, Palestine Technical University - Kadoorie, Palestine.}
-\corres{Correspondence: o.hamed@fz-juelich.de; Tel.: (optional; include country code; if there are multiple corresponding authors, add author initials) +xx-xxxx-xxx-xxxx (F.L.)}
+%\firstnote{Corresponding address: Computer Systems Engineering Department, Palestine Technical University - Kadoorie, Palestine.}
+\corres{Correspondence: o.hamed@fz-juelich.de}
 
 % Current address and/or shared authorship
 %\firstnote{Current address: Affiliation.}  
@@ -210,23 +211,28 @@ $^{4}$ \quad Institute of Technology and Engineering, Forschungszentrum Jülich;
 % \section{Using this Template}
 % Note that the order and names of article sections may differ from the requirements of the journal (e.g., the positioning of the Materials and Methods section). Please check the instructions on the authors' page of the journal to verify the correct order and names. 
 %%For any questions, please contact the editorial office of the journal or support@mdpi.com. For LaTeX-related questions please contact latex@mdpi.com.
-%%\endnote{This is an endnote.} % To use endnotes, please un-comment \printendnotes below (before References). Only journal Laws uses \footnote.
+%%\endnote{This is an endnote.} % To use endnotes, please un-comment \printendnotes below (before References).
 
 \section{Introduction}
 
 %\commentred{Guidelines:} The introduction should briefly place the study in a broad context \commentred{Done: P1} and highlight why it is important \commentred{Done: P2}. It should define the purpose of the work and its significance.  The current state of the research field should be reviewed carefully and key publications cited. Finally, briefly mention the main aim of the work and highlight the principal conclusions. As far as possible, please keep the introduction comprehensible to scientists outside your particular field of research.
 
 LLMs have been described in the text by \citet{brousseau2025llms}  as "the most promising technology to come along since, well, the printing press." However, they have some limitations, such as knowledge cutoffs or outdated information, hallucinations, and a lack of access to private institutional data \cite{bratanic2025essential}. LLMs fall into two main categories: (i) closed-source LLMs, which are hosted on the cloud; and (ii)
-open-source LLMs, which are hosted on local machines. Although cloud-based LLMs dominate today, but they disclose our private documentation. Recently, several trends have emerged to make local inference possible. LM Studio and Ollama are parts of this trend. This paper investigates the use of lightweight and locally deployed LLMs to create a RAG-based knowledge base (KB) system from academic institutional archives. \commentred{One more supporting sentence!} We split this further into two steps: abstract generation, and RAG-based KB system.
+open-source LLMs, which are hosted on local machines. Although cloud-based LLMs dominate today, but they disclose our private documentation. Recently, several trends have emerged to make local inference possible. LM Studio and Ollama are parts of this trend. This paper investigates the use of lightweight and locally deployed LLMs to create a RAG-based knowledge base (KB) system from academic institutional archives. %\commentred{One more supporting sentence!} We split this further into two steps: abstract generation, and RAG-based KB system.
 
-At the Institute of Technology and Engineering (ITE), at Forschungszentrum Jülich (Eng.: Jülich Research Center). We participate in, oversee, and manage long-term research projects. As a result, in some cases, we have project's folder containing few thousands of files in various formats. This equates to a large number of files in total (approx. 219k in PDF format only), but without any search criteria applied. Furthermore, most of the files do not have a documentation summary (or abstract), which hinders methods like abstract-first retrieval \cite{aytar2024retrieval}. Consequently, this makes the search for documents from past projects like searching a needle in a haystack. To fix this issue, we are not interested in solutions that alleviate the problem like the ones base on Relational Database Management Systems (DBMS). We are rather interested in creating solution based on the emerging Artificial Intelligence (AI) techniques, in particular RAG and  vector databases (VDB). This paper proposes a RAG-based solution to address the different perspectives of this issue.
+At the Institute of Technology and Engineering (ITE), at Forschungszentrum Jülich (Eng.: Jülich Research Center). We participate in, oversee, and manage long-term research projects. As a result, in some cases, we have project's folder containing few thousands of files in various formats. This equates to a large number of files in total (approx. 219k in PDF format only), but without any search criteria applied. Furthermore, most of the files do not have a documentation summary (or abstract), which hinders methods like abstract-first retrieval \cite{aytar2024retrieval}. Consequently, this makes the search for documents from past projects like searching a needle in a haystack. To fix this issue, we are not interested in solutions that alleviate the problem like the ones base on Relational Database Management Systems (DBMS). We are rather interested in creating solution based on the emerging Artificial Intelligence (AI) techniques, in particular RAG and  vector databases (VDB). This paper simulates this case and proposes a RAG-based solution to address the different perspectives of this issue. We split this further into two steps: abstract generation, and RAG-based KB system.
 
-Due to their importance in the abstract-first retrieval method. This paper begins by investigating the use of lightweight and locally deployed LLMs to automate the generation of abstracts from extensive institutional archives. This step plays a vital role in the vector similarity search for institutional documentation in a secure setting. Our proposed solution is to build a knowledge base (KB) with a search criteria that enables text similarity, a feature of VDB. We thus want to employ a VDB to store the embeddings of the abstracts or the summary of each paper, and to provide a RAG-based search function that filters the documents based on their similarity with the typed text. In other words, as a first-stage, we want to enable finding the relevant document(s) using the high-level summary or the abstract. After having a look at the project folders, it can be clearly seen that a huge portion of the documents lacks to a summary or abstract. This raises the question, "How to generate an abstract/ or a summary for all papers that have no abstract, and without employing a human factor?". Shall we use classical machine learning (ML) algorithms, deep learning, or pre-trained LLMs? \commentred{As inspired by \citet{munzir2025large}, who reported that LLMs outperform ML and DL, our proposed solution for the abstracts generation relies solely on LLMs}. The LLMs fall into two categories: cloud LLMs and local or on-device LLMs \citep{qu2025mobileedgeintelligencelarge}. From these, we want to choose among local LLMs because they don't disclose our documents. More precisely, we want to adopt a few LLMs that belong to local or small LLMs family and evaluate them using industry standards for abstracts generation.
+%Due to their importance in the abstract-first retrieval method. 
+This paper begins by investigating the use of lightweight and locally deployed LLMs to automate the generation of abstracts from extensive institutional archives. This step plays a vital role in creating a VDB, and considered as a prerequisite for enabling the similarity searches of institutional documentation in a secure setting. 
+%Our proposed solution is to build a knowledge base (KB) with a search criteria that enables text similarity, a feature of VDB. 
+%We thus want to employ a VDB to store the embeddings of the abstracts or the summary of each paper, and to provide a RAG-based search function that filters the documents based on their similarity with the typed text. 
+%In other words, as a first-stage, we want to enable finding the relevant document(s) using the high-level summary or the abstract. 
+%After having a look at the project folders, it can be clearly seen that a huge portion of the documents lacks to a summary or abstract. 
+Addressing abstract generation raises the question, "How to generate an abstract/ or a summary for all papers that have no abstract, and without employing a human factor?". Shall we use classical machine learning (ML) algorithms, deep learning, or pre-trained LLMs? As inspired by \citet{munzir2025large}, who reported that LLMs outperform ML and DL, our proposed solution for the abstracts generation relies solely on LLMs. Moreover, the LLMs fall into two categories: cloud LLMs and local or on-device LLMs \citep{qu2025mobileedgeintelligencelarge}. From these, we want to choose among local LLMs because they don't disclose our documents. More precisely, we want to adopt a few LLMs that belong to local or small LLMs family and evaluate them using industry standards for abstracts generation. Having that done, we use LangChain \cite{chase2022langchain} to implement a RAG-based KB showcase that adopts abstract-first retrieval method. 
 
-%\commentred{The first draft should be adjusted based on the actual results.}
-According to \citet{brousseau2025llms}, ``when evaluating a model, you need two things: a metric and a dataset.'' Following this principle, in this paper we evaluate local LLMs for automatic abstract generation using \commentred{a carefully selected sub-dataset of the arXiv Dataset} \citep{arxivdataset2024}. We apply standard evaluation metrics to assess the quality of the generated abstracts and their effectiveness in enabling semantic search within a vector database–based knowledge base system. By embedding the summaries in a vector database, we create a RAG–based knowledge base that allows users to find relevant documents based on textual similarity. This study thus demonstrates a practical application of the evaluation framework suggested by  \citet{brousseau2025llms}, linking model performance to measurable outcomes in a real-world institutional repository.
+To evaluate our work, we follow the principle provided by \citet{brousseau2025llms}, who said that ``when evaluating a model, you need two things: a metric and a dataset.'' Following this principle, in this paper we evaluate local LLMs for automatic abstract generation using \commentred{a carefully selected sub-dataset of the arXiv Dataset} \citep{arxivdataset2024}. We apply standard evaluation metrics to assess the quality of the generated abstracts and their effectiveness in enabling semantic search within a VDB. By embedding the summaries in a vector database, we create a RAG–based KB that allows users to find relevant documents based on textual similarity. %This study thus demonstrates a practical application of the evaluation framework suggested by  \citet{brousseau2025llms}, linking model performance to measurable outcomes in a real-world institutional repository.
 
-The findings show that locally deployed LLMs can generate coherent and informative summaries that significantly improve semantic search performance compared to traditional keyword-based approaches. The use of automatically generated abstracts enables faster and more accurate retrieval of relevant project documents, highlighting the potential of local LLMs for privacy-preserving knowledge management. The key findings of this paper can be summarized as follows:
+Overall, this study demonstrates a practical application of the evaluation framework presented in \cite{brousseau2025llms}. This has the advantage of linking model performance to measurable outcomes in a real-world institutional repository. The findings show that locally deployed LLMs can generate coherent and informative summaries that significantly improve semantic search performance compared to traditional keyword-based approaches. As inspired by \citet{aytar2024retrieval}, the use of automatically generated abstracts enables faster and more accurate retrieval of relevant project documents. It also demonstrates the potential of local LLMs for privacy-preserving knowledge management. The key findings of this paper can be summarized as follows:
 
 \begin{itemize}[labelsep=2.5mm,topsep=-3pt]
  
@@ -234,9 +240,9 @@ The findings show that locally deployed LLMs can generate coherent and informati
 
 \item Conduct an ablation study to examine the effect of prompt design on Meta's Llama-3.1 model. We tested the model using 50 and 100 articles and report our results using the same evaluation metrics provided in the comparative study. Our results show that the fully structured, instruction-based (zero-shot) prompt works the best.
 
-\item Use VDB and RAG techniques to create a KB system that brings external knowledge to LLMs. This approach enables semantic search and retrieves the most relevant documents.
+\item Use VDB and RAG techniques to create a KB system that brings external knowledge to LLMs. This approach enables semantic search and retrieves the most relevant documents without leaving institutional repositories.
 
-\item Furthermore, create a labeled dataset for abstract generation consisting of 200 papers focusing on computer science (CS) and machine learning (ML) papers. This dataset was extracted from the arXiv Dataset and was used as the ground truth to evaluate the local LLMs in this study.
+\item Furthermore, create a labeled dataset for abstract generation consisting of 200 papers focusing on technical topics, like computer science (CS) and machine learning (ML). This dataset was extracted from the arXiv Dataset and was used as the ground truth to evaluate the local LLMs in this study.
 
 \end{itemize}\vspace{3pt}
 
@@ -523,7 +529,7 @@ This section describes the software and hardware combinations used to run our ex
 The experiments were carried out on a Windows machine (MS Windows 11 installed) equipped with an NVIDIA RTX PRO 3000 Blackwell Generation laptop GPU.
 
 \subsubsection{Configurations}
-To be written \commentred{Preset}!
+To make repeating the experiments easier, all the LM Studio configurations were saved as "Presets". In LM Studio, a Preset refers to the way to bundle together a system prompt and other parameters into a single configuration.
 
 \subsection{Model Evaluation and Preprocessing}
 \label{subsec:eval}
@@ -590,29 +596,6 @@ This part was established using the default settings of LM Studio (see Figure~\r
 % \noindent{\footnotesize{\textsuperscript{1} Tables may have a footer.}}
 % \end{table}
 
-%% TODO:
-The text continues here (Figure~\ref{fig:WordCloud} and Table~\ref{tab:allresults}). \commentred{\textbf{Suggestion:} To show the "world-cloud" for the ground truth and other models!}.
-
-% Example of a figure that spans the whole page width and with subfigures. The same concept works for tables, too.
-\begin{figure}[H]
-%\isPreprints{}{% This command is only used for ``preprints''.
-\begin{adjustwidth}{-\extralength}{0cm}
-\centering
-%} % If the paper is ``preprints'', please uncomment this parenthesis.
-\subfloat[\centering]{\includegraphics[width=7.0cm]{Definitions/logo-mdpi}}
-%\hfill
-\subfloat[\centering]{\includegraphics[width=7.0cm]{Definitions/logo-mdpi}}\\
-%%22-12-2025 OH:
-%\subfloat[\centering]{\includegraphics[width=7.0cm]{Definitions/logo-mdpi}}
-%\hfill
-%%22-12-2025 OH:
-%\subfloat[\centering]{\includegraphics[width=7.0cm]{Definitions/logo-mdpi}}
-%\isPreprints{}{% This command is only used for ``preprints''.
-\end{adjustwidth}
-%} % If the paper is ``preprints'', please uncomment this parenthesis.
-\caption{This is a wide figure. Schemes follow the same formatting. If there are multiple panels, they should be listed as: (\textbf{a}) Description of what is contained in the first panel. (\textbf{b}) Description of what is contained in the second panel. (\textbf{c}) Description of what is contained in the third panel. (\textbf{d}) Description of what is contained in the fourth panel. Figures should be placed in the main text near to the first time they are cited. A caption on a single line should be centered.\label{fig:WordCloud}}
-\end{figure} 
-
 \begin{table}[H]
 \caption{Performance comparison of article summarization using small LLMs across prompts and iterations. Each iteration is evaluated using a subset of 50 articles..\label{tab:Iter-Results}}
 %\isPreprints{\centering}{% This command is only used for ``preprints''.
@@ -677,23 +660,50 @@ Similar to Table~\ref{tab:Iter-Results}, Table~\ref{tab:allresults} compares the
 \toprule
 \textbf{Model}	& \textbf{Avg. W. Len}     & \textbf{BLEU} & \textbf{ROUGE-1} & \textbf{ROUGE-L} & \textbf{BERTScore}\\
 \midrule
-Mixtral-8x7B		& 230		& 5.12  & 30.00 & 18.00 & 83.00 \\
-Qwen3-VL-8B		& 169			& 3.66  & 35.00 & 17.00 & 85.00 \\
-Llama-3.1-8B		& 147		& 12.96 & 45.00 & 26.00 & 87.00 \\%\textsuperscript{1}
+Mixtral-8x7B		& 230		& 5.12  & 30.14 & 17.62 & 82.85 \\
+Qwen3-VL-8B		& 169			& 3.66  & 34.51 & 17.10 & 84.77 \\
+Llama-3.1-8B		& 147		& 12.96 & 45.14 & 26.17 & 86.82 \\%\textsuperscript{1}
 \bottomrule
 \end{tabularx}
 %\noindent{\footnotesize{\textsuperscript{1} Tables may have a footer.}}
 \end{table}
 
-%% 22-12-2025 OH:
-% \subsection{Formatting of Mathematical Components}
-% \begin{linenomath}
-% \begin{equation}
-% a = 1,
-% \end{equation}
-% \end{linenomath}
-% the text following an equation need not be a new paragraph. Please punctuate equations as regular text.
+Furthermore, our comparison went beyond comparing the reported metrics to include: (i) world-cloud visualization, and (ii) BERTopic visualization. Figure~\ref{fig:WordCloud} shows the world-cloud representation of the ground truth (gold standard) abstracts and the generated abstracts using Llama-3.1-8B model. Some domain-specific technical terms can be observed  in the ground truth, such as: "network”, "problem", "time", "field", "equation", "algorithm" ... etc. In the AI-generated, some terms do overlap such as "network", "time", "field", "system". However, it shifts towards more generic usage of terms rather than technical such as "implications", "understanding", "investigate" ... etc. Overall, the AI-generated content is good for academic, but lacks a bit of information density for that specific domain.
 
+% Example of a figure that spans the whole page width and with subfigures. The same concept works for tables, too.
+\begin{figure}[H]
+%\isPreprints{}{% This command is only used for ``preprints''.
+\begin{adjustwidth}{-\extralength}{0cm}
+\centering
+%} % If the paper is ``preprints'', please uncomment this parenthesis.
+\subfloat[\centering]{\includegraphics[width=8.5cm]{img/arxiv_abstracts_wc.png}}
+\hfill
+\subfloat[\centering]{\includegraphics[width=8.5cm]{img/llama3_abstracts_wc.png}}\\
+
+%%22-17-2026 OH:
+% \subfloat[\centering]{\includegraphics[width=8.70cm]{img/nltk_arxiv_word_freq}}
+% \hfill
+%%22-12-2025 OH:
+% \subfloat[\centering]{\includegraphics[width=8.70cm]{img/nltk_llama_word_freq}}
+%\isPreprints{}{% This command is only used for ``preprints''.
+\end{adjustwidth}
+%} % If the paper is ``preprints'', please uncomment this parenthesis.
+\caption{(\textbf{a}) The world-cloud of the 200 gold standard abstracts. (\textbf{b}) The world-cloud of the 200 generated abstracts using Llama-3.1-8B model. \label{fig:WordCloud}}
+\end{figure} 
+
+
+Figure~\ref{fig:BERTopic} shows bar charts that compare the top 20 word clusters identified by the NLTK library in the gold standard dataset with the Llama-3.1-8b generated abstracts. 
+%The horizontal bar chart demonstrates the implementation of NLTK library for comparison of the two datasets. 
+The data has been lemmatized, and standard English stop-words have been removed. If observed, we see that gold standard dataset uses more of the nouns such as "network”, "model", "time", "algorithm" ... etc. On the other hand, in AI-generated abstracts, there are common words to the gold standard dataset, but the use of verbs is more dominant such as "approach", "using", "study", etc. Hence AI-generated words are more generic as compared to gold standard dataset.
+
+\begin{figure*}[ht]
+\centering
+\includegraphics[width=0.95\textwidth, height=0.27\textheight]{img/nltk_word_freq.png}
+\caption{The top word embedded clusters found by BERTopic.}
+\label{fig:BERTopic}
+\end{figure*}
+
+%TODO, 2026-07-31 OH:
 %% If the documentclass option "submit" is chosen, please insert a blank line before and after any math environment (equation and eqnarray environments). This ensures correct linenumbering. The blank line should be removed when the documentclass option is changed to "accept" because the text following an equation should not be a new paragraph.
 
 %% Example of a page in landscape format (with table and table footnote).
@@ -774,11 +784,13 @@ Table~\ref{tab:prompt_ablation} reports the results of evaluating the different 
 & \textbf{50} & \textbf{100}
 & \textbf{50} & \textbf{100} \\
 \midrule
-P1 & Plain         & None                        & 204 & 199 & 11.92 & 11.43 & 44.00 & 43.00 & 26.00 & 25.00 & 87.00 & 86.00 \\
-P2 & Semi-struct.  & Paragraph format            & 161 & 171 & 15.70 & 14.97 & 48.00 & 46.00 & 28.00 & 28.00 & 87.00 & 87.00 \\
-P3 & Semi-struct.  & Length (120--130 W.)        & 156 & 154 & 13.70 & 13.24 & 45.00 & 45.00 & 26.00 & 26.00 & 87.00 & 87.00 \\
-P4 & Structured    & Length + Content            & 161 & 155 & 12.88 & 12.87 & 45.00 & 45.00 & 26.00 & 25.00 & 87.00 & 87.00 \\
-P5 & Fully struct. & LSCSR                       & 154 & 150 & 13.76 & 12.31 & 45.00 & 44.00 & 26.00 & 26.00 & 87.00 & 87.00 \\
+%P1 & Plain         & Non                  & 204 & 199 & 11.92 & 11.43 & Xx.Xx & --.-- &  Xx.Xx & --.-- & Xx.Xx & --.-- \\
+P1 & Plain         & None                  & 204 & 199 & 11.92 & 11.43 & 44.32 & 43.28 & 25.79 & 24.87 & 86.72 & 86.37 \\
+P2 & Semi-struct.  & Paragraph format      & 161 & 171 & 15.70 & 14.97 & 48.01 & 46.13 & 28.39 & 27.84 & 87.21 & 86.98 \\
+P3 & Semi-struct.  & Length (120--130 W.)  & 156 & 154 & 13.70 & 13.24 & 45.00 & 44.84 & 26.20 & 26.03 & 86.69 & 86.61 \\
+P4 & Structured    & Length + Content      & 161 & 155 & 12.88 & 12.87 & 45.37 & 44.65 & 26.04 & 25.29 & 86.65 & 86.64 \\
+
+P5 & Fully struct. & LSCSR                 & 154 & 150 & 13.76 & 12.31 & 44.93 & 44.13 & 26.32 & 25.58 & 86.74 & 86.53 \\
 \bottomrule
 \end{tabular}
 
@@ -796,22 +808,22 @@ Following the work by \citet{Hamed2026IC}, we consider three decoding parameters
     \item Top-k or top\_k sampling: This setting represents another sampling parameter that used to control word selection. While top-p selects a dynamic number of words based on a cumulative probability threshold, the top-k limits the model to a fixed number of the most probable subsequent words.
 \end{itemize}
 
-As per the "Prompt Design" experiments, we noticed that the number of random articles has a minimal effect on the reported metrics for 50 and 100 articles. Consequently, we ran the "Decoding Parameters" experiments on the same 50 articles as in Subsection~\ref{sub:prompt_design}, using the prompt design with the ID\#~P5 and the configurations (aka Preset\footnote{In LM Studio,  the Preset refers to the way to bundle together a system prompt and other parameters into a single configuration.}) shown in Table~\ref{tab:decodingresults}. These configurations are much stronger because they isolates a single decoding parameter in each experiment. Table~\ref{tab:decodingresults} summarizes the results obtained from this joint setting.
+As per the "Prompt Design" experiments, we noticed that the number of random articles has a minimal effect on the reported metrics for 50 and 100 articles. Consequently, we ran the "Decoding Parameters" experiments on the same 50 articles as in Subsection~\ref{sub:prompt_design}. We did that using the prompt design with the ID\#~P5 as well as the LM Studio configurations (aka Preset) listed in Table~\ref{tab:decodingresults}. These configurations are much stronger because they isolates a single decoding parameter in each experiment. Table~\ref{tab:decodingresults} summarizes the results obtained from this joint setting.
 
 \begin{table}[H] 
 %\small % Change table font size
 \caption{The effect of decoding parameters on article summarization performance using Llama-3.1-8B, assessed using 50 random articles.\label{tab:decodingresults}}
 \resizebox{\textwidth}{!}{
 %\begin{tabularx}{\textwidth}{lrrrrr}
-\begin{tabular}{lrrrrr}
+\begin{tabular}{llrrrrr}
 \toprule
-\textbf{Configuration}	& \textbf{Avg. W. Len}     & \textbf{BLEU} & \textbf{ROUGE-1} & \textbf{ROUGE-L} & \textbf{BERTScore}\\
+\textbf{ID} & \textbf{Configuration}	& \textbf{Avg. W. Len}     & \textbf{BLEU} & \textbf{ROUGE-1} & \textbf{ROUGE-L} & \textbf{BERTScore}\\
 \midrule
-Temp=0.30, \text{top\_p}=0.85, \text{top\_k}=30             & 147 & 12.01 & 44.25 & 25.46 & 86.58 \\
-Temp=0.65, \text{top\_p}=0.80, \text{top\_k}=30	            & 141 & 13.12 & 44.98 & 25.90 & 86.76 \\
-Temp=0.65, \text{top\_p}=0.85, \text{top\_k}=30	(reference) & 151 & 12.76 & 44.55 & 26.39 & 86.80 \\%\textsuperscript{1}
-Temp=0.65, \text{top\_p}=0.90, \text{top\_k}=30		        & 155 & 12.63 & 44.71 & 26.13 & 86.65 \\
-Temp=1.00, \text{top\_p}=0.85, \text{top\_k}=30		        & 152 & 12.47 & 45.88 & 25.64 & 86.81 \\
+C1 & Temp=0.30, \text{top\_p}=0.85, \text{top\_k}=30             & 147 & 12.01 & 44.25 & 25.46 & 86.58 \\
+C2 & Temp=0.65, \text{top\_p}=0.80, \text{top\_k}=30	            & 141 & 13.12 & 44.98 & 25.90 & 86.76 \\
+C3 & Temp=0.65, \text{top\_p}=0.85, \text{top\_k}=30	(reference) & 151 & 12.76 & 44.55 & 26.39 & 86.80 \\%\textsuperscript{1}
+C4 & Temp=0.65, \text{top\_p}=0.90, \text{top\_k}=30		        & 155 & 12.63 & 44.71 & 26.13 & 86.65 \\
+C5 & Temp=1.00, \text{top\_p}=0.85, \text{top\_k}=30		        & 152 & 12.47 & 45.88 & 25.64 & 86.81 \\
 \bottomrule
 \end{tabular}
 }
@@ -830,7 +842,10 @@ All configurations produce comparable results across the evaluation metrics. Thu
 \section{RAG-based Knowledge Base System}
 \label{sec:KB}
 
-As a proof of concept, we developed a RAG-based KB system (RAG-KBS) where we index the documents using only their abstracts. This  is a very common approach to making our search system (i.e., KB) faster and accurate. Developing this RAG-KBS involves two main steps: (i) an RAG pipeline, which involves indexing and knowledge preparation (offline), and (ii) retrieval and generation (online), when end users search for the relevant papers in the VDB from the web interface.
+As a proof of concept, we developed a RAG-based KB system (RAG-KBS) where we index the documents using only their abstracts. This  is a very common approach \citet{aytar2024retrieval} to making our search system (i.e., KB) faster and accurate. 
+
+\subsection{System Description}
+Developing this RAG-KBS involves two main steps: (i) an RAG pipeline, which involves indexing and knowledge preparation (offline), and (ii) retrieval and generation (online), when end users search for the relevant papers in the VDB from the web interface.
 
 %\subsection{RAG Pipeline} \subsection{Retrieval and Generation}
 We utilized the LangChain \cite{chase2022langchain} Python library to implement a typical RAG pipeline comprising  the following sub-steps. Figure~\ref{fig:RAG} depicts these sub-steps.
@@ -842,7 +857,7 @@ We utilized the LangChain \cite{chase2022langchain} Python library to implement 
 
     \item Embed the Chunks: After splitting the abstracts into smaller chunks, the system must convert each chunk into a format that the LLM can understand mathematically.
    
-    \item Store in a Vector Database: Unlike an RDBMS which operates search using keywords matching. An LLM needs to employ semantic search  (search by meaning).  That's why we use a VDB.
+    \item Store in a Vector Database: As defined in \cite{brousseau2025llms}, vector databases are a special type of database designed specifically for storing vectors and the metadata that describes them. This makes them highly effective for storing embeddings. Thus, they are unlike an RDBMS that operates search using keywords matching. An LLM needs the VDBs to employ semantic search (search by meaning). Furthermore, "they make RAG so much easier to implement" \cite{brousseau2025llms}.  That's why we need to use a VDB with the RAG-KBS.
     
     \item Embed the User Query: This should be done using the same embedding model in the previous sub-step. Thus, when an end user asks a question or searches for a document, the system must also convert the query into a vector embedding with the same formatting.
     
@@ -860,14 +875,25 @@ We utilized the LangChain \cite{chase2022langchain} Python library to implement 
 \label{fig:RAG}
 \end{figure*}
 
+\subsection{System Evaluation}
+Being done with the system description and implementation details. It is the time to validate the effectiveness of our RAG-KBS. For this purpose, we utilize the Retrieval
+Augmented Generation for Academic Search (RAGAS) framework \cite{es2024ragas}. The RAGAS metrics comprise two subsets: generation and retrieval metrics.
 
+\begin{itemize}
+    \item Generation Metrics: Those metrics include faithfulness and answer relevancy. Faithfulness refers to how factually accurate is the generated response. Whereas answer relevancy refers to how relevant is the generated response to the raised question.
+    
+    \item Retrieval Metrics: Those metrics include context relevancy (aka context precision) and context recall. Context relevancy refers to the signal to noise ration of retrieved context. Whereas context recall is meant to answer weather the LLM question can retrieve all 
+\end{itemize}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Conclusion}
 \label{sec:conclusion}
-\commentred{Following IMRaD structure, the Conclusions can be merged with the Discussion!}
-Small locally deployed LLMs can support text summarization and abstracts generation for institutional archives when prompts and decoding settings are carefully controlled.
+%\commentred{Following IMRaD structure, the Conclusions can be merged with the Discussion!}
+This study examined the implementation of a secure, RAG framework for institutional knowledge management using locally deployed LLMs. This research aimed at automating the generation of abstracts to enable semantic search within large, unstructured document repositories while maintaining data privacy. We utilized the LM Studio platform to evaluate three small models: Mixtral-8x7B, Qwen3-VL-8B, and Meta-Llama-3.1-8B on a subset of 200 technical papers from the arXiv dataset. Our methodology involved two-steps: (i) a comparative evaluation of model performance, and (ii) the development of a KB system employing Ollama, Chroma VDB and an abstract-first retrieval approach.
 
+Our experimental findings showed that Meta-Llama-3.1-8B consistently outperformed the other small LLMs across standard lexical and semantic metrics, including BLEU, ROUGE, and BERTScore. Furthermore, our ablation studies revealed that decoding parameters, such as temperature and sampling thresholds had a limited impact on the quality of the generated abstracts. However, fully structured, instruction-based zero-shot prompts are essential for generating coherent and concise summaries. Overall, these results indicate that small, quantized models deployed on local hardware offer robust, privacy-preserving solution for managing technical documentation. \commentred{Modify this for ITE: Future research should explore the scalability of this framework across diverse academic domains beyond computer science. Additionally, validating the system with larger datasets could further refine the relationship between automated abstract quality and downstream retrieval accuracy in real-world institutional settings.}
+
+%Small locally deployed LLMs can support text summarization and abstracts generation for institutional archives when prompts and decoding settings are carefully controlled.
 %This section is not mandatory, but can be added to the manuscript if the discussion is unusually long or complex.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Further Details}
@@ -906,11 +932,8 @@ Small locally deployed LLMs can support text summarization and abstracts generat
 \authorcontributions{For research articles with several authors, a short paragraph specifying their individual contributions must be provided. The following statements should be used ``Conceptualization, X.X. and Y.Y.; methodology, X.X.; software, X.X.; validation, X.X., Y.Y. and Z.Z.; formal analysis, X.X.; investigation, X.X.; resources, X.X.; data curation, X.X.; writing---original draft preparation, X.X.; writing---review and editing, X.X.; visualization, X.X.; supervision, X.X.; project administration, X.X.; funding acquisition, Y.Y. All authors have read and agreed to the published version of the manuscript.'', please turn to the  \href{http://img.mdpi.org/data/contributor-role-instruction.pdf}{CRediT taxonomy} for the term explanation. Authorship must be limited to those who have contributed substantially to the work~reported. All authors have read and agreed to the submitted version of the manuscript.}
 %published
 
-\funding{This research is funded by the Institute of Technology and Engineering (ITE), Forschungszentrum Jülich, Germany.
+\funding{This research is funded by Forschungszentrum Jülich, Germany.
 }
-
-\noindent\textbf{Generative AI Usage Disclosure.}
-During the preparation of this manuscript, the authors used some generative artificial intelligence (GenAI) tools for limited and non-substantive purposes. ChatGPT was used to assist English language editing and grammar refinement in Section~\ref{sec:related_work}. Napkin AI was used to create the data pre-processing workflow diagram shown in Figure~\ref{fig:Prep-prep}. Furthermore, Nano Banana was used to create the diagrams in Figure~\ref{fig:system_architecture} and Figure~\ref{fig:RAG}. In addition, ChatGPT and Perplexity AI were consulted to assist in outlining aspects of the experimental design related to the ablation studies.
 
 % \institutionalreview{In this section, you should add the Institutional Review Board Statement and approval number, if relevant to your study. You might choose to exclude this statement if the study did not require ethical approval. Please note that the Editorial Office might ask you for further information. Please add “The study was conducted in accordance with the Declaration of Helsinki, and approved by the Institutional Review Board (or Ethics Committee) of NAME OF INSTITUTE (protocol code XXX and date of approval).” for studies involving humans. OR “The animal study protocol was approved by the Institutional Review Board (or Ethics Committee) of NAME OF INSTITUTE (protocol code XXX and date of approval).” for studies involving animals. OR “Ethical review and approval were waived for this study due to REASON (please provide a detailed justification).” OR “Not applicable” for studies not involving humans or animals.}
 
@@ -933,7 +956,11 @@ corresponding author.
 %% Only for journal Nursing Reports
 %\useofartificialintelligence{Please describe in detail any and all uses of artificial intelligence (AI) or AI-assisted tools used in the preparation of the manuscript. This may include, but is not limited to, language translation, language editing and grammar, or generating text. Alternatively, please state that “AI or AI-assisted tools were not used in drafting any aspect of this manuscript”.}
 
-\acknowledgments{In this section you can acknowledge any support given which is not covered by the author contribution or funding sections. This may include administrative and technical support, or donations in kind (e.g., materials used for experiments). Where GenAI has been used for purposes such as generating text, data, or graphics, or for study design, data collection, analysis, or interpretation of data, please add “During the preparation of this manuscript/study, the author(s) used [tool name, version information] for the purposes of [description of use]. The authors have reviewed and edited the output and take full responsibility for the content of this publication.”}
+\acknowledgments{The authors confirm that all scientific content, methodology, analysis, and conclusions are their own and take full responsibility for the integrity of the work.}
+
+\noindent\textbf{Generative AI Usage Disclosure.}
+During the preparation of this manuscript, the authors used some generative artificial intelligence (GenAI) tools for limited and non-substantive purposes.  ChatGPT were used to assist English language editing and grammar refinement in Section~\ref{sec:related_work}. Napkin AI was used to create the data pre-processing workflow diagram shown in Figure~\ref{fig:Prep-prep}. Furthermore, Nano Banana was used to create the diagrams in Figure~\ref{fig:system_architecture} and Figure~\ref{fig:RAG}. In addition, ChatGPT and Perplexity AI were consulted to assist in outlining aspects of the experimental design related to the ablation studies.
+%DeepL was used to help restructure the English in different sections.
 
 \conflictsofinterest{The authors declare no conflicts of interest. 
 %Authors must identify and declare any personal circumstances or interest that may be perceived as inappropriately influencing the representation or interpretation of reported research results. Any role of the funders in the design of the study; in the collection, analyses or interpretation of data; in the writing of the manuscript; or in the decision to publish the results must be declared in this section. If there is no role, please state ``The funders had no role in the design of the study; in the collection, analyses, or interpretation of data; in the writing of the manuscript; or in the decision to publish the results''.
@@ -971,33 +998,33 @@ This appendix is meant to provide further details that are crucial to understand
 \begin{table}[H] 
 \caption{The prompt designs used for the ablation  study in LLM.\label{tab:prompts-design}}
 %\newcolumntype{C}{>{\centering\arraybackslash}X}
-\begin{tabularx}{\textwidth}{lllX}
+\begin{tabularx}{\textwidth}{llX}
 \toprule
-\textbf{ID}	& \textbf{Prompt Type} & \textbf{Length}	& \textbf{Prompt Text}\\
+\textbf{ID}	& \textbf{Prompt Type}	& \textbf{Prompt Text}\\
 \midrule
-P1		& Zero-shot&			& Write a formal academic abstract based on the following paper content:
+P1		& Zero-shot	& Write a formal academic abstract based on the following paper content:
 
 \{\}\\
 \midrule
-P2		& Zero-shot&			& Write a formal academic abstract in one continuous paragraph based on the following paper content:
+P2		& Zero-shot	& Write a formal academic abstract in one continuous paragraph based on the following paper content:
 
 \{\}
 
 Word count:\\
 \midrule
-P3		& Zero-shot&			& Write a formal academic abstract of 120-130 words in one continuous paragraph based on the following paper content:
+P3		& Zero-shot	& Write a formal academic abstract of 120-130 words in one continuous paragraph based on the following paper content:
 
 \{\}
 
 Word count:\\
 \midrule
-P4		& Zero-shot&			& Write a formal academic abstract of 120-130 words in one continuous paragraph. Cover the background, methods, main results, and conclusions. Base it on the following paper content:
+P4		& Zero-shot	& Write a formal academic abstract of 120-130 words in one continuous paragraph. Cover the background, methods, main results, and conclusions. Base it on the following paper content:
 
 \{\}
 
 Word count:\\
 \midrule
-P5		& Instruction-based (Zero-shot)&			& Write ONLY a new formal academic abstract of exactly 120--130 words in one continuous paragraph.
+P5		& Instruction-based (Zero-shot)	& Write ONLY a new formal academic abstract of exactly 120--130 words in one continuous paragraph.
 Strictly cover: (1) background or motivation, (2) methods or approach,
 (3) main results, (4) conclusions or implications.
 Do NOT include feedback, suggestions, critiques, numbered lists, or references to ``your abstract''.
