@@ -62,16 +62,22 @@ python run_mixtral.py --in data/arxiv_csml_body_abstract_S2.csv --out output/Gen
 python run_mixtral.py --in data/arxiv_csml_body_abstract_S3.csv --out output/Gen_Abstracts_Mixtral_Instruct_7B_S3.csv
 
 ::=====
-:: ******::****** THE EVALUATION METRICS for Comparative Study !!!
+:: ******::****** THE EVALUATION METRICS for Comparative Study (Table 4) !!!
 ::=====
 
+:: *** Note at this, it works even if the gold is bigger than the generated (based on paper ID). ****
 python evaluate_abstracts.py --gen output/gen/Gen_Abstracts_Qwen3_8B_Instruct_b50.csv --gold data/arxiv_csml_body_abstract.csv
 
 :: Sample of 50 with Qwen3-VL-8B
+python evaluate_abstracts.py --gen output/gen/Gen_Abstracts_Qwen3_8B_Instruct_b50_S1.csv --gold data/arxiv_csml_body_abstract_50.csv
+
 python evaluate_abstracts.py --gen output/gen/Gen_Abstracts_Qwen3_8B_Instruct_S2.csv --gold data/arxiv_csml_body_abstract_S2.csv
+
 python evaluate_abstracts.py --gen output/gen/Gen_Abstracts_Qwen3_8B_Instruct_S3.csv --gold data/arxiv_csml_body_abstract_S3.csv
 
 :: Sample of 50 with Meta-Llama-3.1-8B
+python evaluate_abstracts.py --gen output/gen/Gen_Abstracts_LLaMA3_8B_Instruct_b50.csv --gold data/arxiv_csml_body_abstract.csv
+
 python evaluate_abstracts.py --gen output/gen/Gen_Abstracts_LLaMA3_8B_Instruct_S2.csv --gold data/arxiv_csml_body_abstract_S2.csv
 
 python evaluate_abstracts.py --gen output/gen/Gen_Abstracts_LLaMA3_8B_Instruct_S3.csv --gold data/arxiv_csml_body_abstract_S3.csv
@@ -149,7 +155,7 @@ python run_llama.py --in data/arxiv_csml_body_abstract.csv --out output/Gen_Abst
 :: ************************* :: THE  EVALUATION !!! *************************
 ::=====
 
-:: Smaple of 50 with Meta-Llama-3.1-8B
+:: Smaple of <<50>> articles with Meta-Llama-3.1-8B
 python evaluate_abstracts.py --gen output/gen/Gen_Abstracts_LLaMA3_8B_Instruct_S3_P1.csv --gold data/arxiv_csml_body_abstract_S3.csv
 
 python evaluate_abstracts.py --gen output/gen/Gen_Abstracts_LLaMA3_8B_Instruct_S3_P2.csv --gold data/arxiv_csml_body_abstract_S3.csv
@@ -161,7 +167,7 @@ python evaluate_abstracts.py --gen output/gen/Gen_Abstracts_LLaMA3_8B_Instruct_S
 ::The same as
 python evaluate_abstracts.py --gen output/gen/Gen_Abstracts_LLaMA3_8B_Instruct_S3_P5.csv --gold data/arxiv_csml_body_abstract_S3.csv
 
-:: Smaple of 100 with Meta-Llama-3.1-8B
+:: Smaple of <<100>> with Meta-Llama-3.1-8B
 python evaluate_abstracts.py --gen output/gen/Gen_Abstracts_LLaMA3_8B_Instruct_100_P1.csv --gold data/arxiv_csml_body_abstract_100.csv
 
 python evaluate_abstracts.py --gen output/gen/Gen_Abstracts_LLaMA3_8B_Instruct_100_P2.csv --gold data/arxiv_csml_body_abstract_100.csv
@@ -182,6 +188,14 @@ python evaluate_abstracts.py --gen output/gen/Gen_Abstracts_LLaMA3_8B_Instruct_5
 python evaluate_abstracts.py --gen output/gen/Gen_Abstracts_LLaMA3_8B_Instruct_50_C4.csv --gold data/arxiv_csml_body_abstract_50.csv
 
 python evaluate_abstracts.py --gen output/gen/Gen_Abstracts_LLaMA3_8B_Instruct_50_C5.csv --gold data/arxiv_csml_body_abstract_50.csv
+
+###
+python evaluate_abstracts.py --gen output/gen/Gen_Abstracts_Mixtral_Instruct_7B.csv --gold data/arxiv_csml_body_abstract.csv
+
+python evaluate_abstracts.py --gen output/gen/Gen_Abstracts_Qwen3_8B_Instruct.csv --gold data/arxiv_csml_body_abstract.csv
+
+python evaluate_abstracts.py --gen output/gen/Gen_Abstracts_LLaMA3_8B_Instruct.csv --gold data/arxiv_csml_body_abstract.csv
+
 
 
 
