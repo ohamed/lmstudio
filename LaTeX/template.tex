@@ -2,7 +2,7 @@
 %  For support, please attach all files needed for compiling as well as the log file, and specify your operating system, LaTeX version, and LaTeX editor.
 
 %=================================================================
-\documentclass[journal,article,submit,pdftex,moreauthors]{Definitions/mdpi} 
+\documentclass[bdcc,article,submit,pdftex,moreauthors]{Definitions/mdpi} 
 %\documentclass[preprints,article,submit,pdftex,moreauthors]{Definitions/mdpi} 
 % For posting an early version of this manuscript as a preprint, you may use "preprints" as the journal. Changing "submit" to "accept" before posting will remove line numbers.
 
@@ -69,14 +69,25 @@
 %\IsAssociation{yes} % For association journals
 
 %=================================================================
-% Add packages and commands here. The following packages are loaded in our class file: fontenc, inputenc, calc, indentfirst, fancyhdr, graphicx, epstopdf, lastpage, ifthen, float, amsmath, amssymb, lineno, setspace, enumitem, mathpazo, booktabs, titlesec, etoolbox, tabto, xcolor, colortbl, soul, multirow, microtype, tikz, totcount, changepage, attrib, upgreek, array, tabularx, pbox, ragged2e, tocloft, marginnote, marginfix, enotez, amsthm, natbib, hyperref, cleveref, scrextend, url, geometry, newfloat, caption, draftwatermark, seqsplit
+% Add packages and commands here. The following packages are loaded in our class file: fontenc, inputenc, calc, indentfirst, fancyhdr, graphicx, epstopdf, lastpage, ifthen, float, amsmath, amssymb, lineno, setspace, enumitem, mathpazo, booktabs, titlesec, etoolbox, tabto, xcolor, colortbl, soul, multirow, microtype, tikz, totcount, changepage, attrib, upgreek, array, tabularx, pbox, ragged2e, tocloft, marginnote, marginfix, enotez, amsthm, natbib, hyperref, cleveref, scrextend, url, geometry, newfloat, captiion, draftwatermark, seqsplit
 % cleveref: load \crefname definitions after \begin{document}
 
 %%% ===== Enable the red color for comments (Remove before submission) =====
 \usepackage{xcolor}
 \usepackage{comment}
+
 % Command for red comments
-\newcommand{\commentred}[1]{\textcolor{red}{#1}}
+\newcommand{\commentRed}[1]{\textcolor{red}{#1}}
+
+% Command for orange comments
+\newcommand{\commentVP}[1]{\textcolor{orange}{\textbf{VP:} #1}}
+
+% Command for blue comments
+\newcommand{\commentNK}[1]{\textcolor{blue}{\textbf{NK:} #1}}
+
+% Command for green comments
+\newcommand{\commentTD}[1]{\textcolor{green}{\textbf{TD:} #1}}
+
 %=================================================================
 % Please use the following mathematics environments: Theorem, Lemma, Corollary, Proposition, Characterization, Property, Problem, Example, ExamplesandDefinitions, Hypothesis, Remark, Definition, Notation, Assumption
 %% For proofs, please use the proof environment (the amsthm package is loaded by the MDPI class).
@@ -84,10 +95,10 @@
 %=================================================================
 % Full title of the paper (Capitalized)
 %\Title{Benchmarking Local LLMs with LM Studio for Research Abstract Generation}
-\Title{A Retrieval-Augmented Generation Framework for Secure Knowledge Management with Local Large Language Models}
+\Title{A Retrieval-Augmented Generation Framework for Knowledge Management Using Local Large Language Models}
 
 % MDPI internal command: Title for citation in the left column
-\TitleCitation{A Retrieval-Augmented Generation Framework for Secure Knowledge Management with Local Large Language Models}
+\TitleCitation{A Retrieval-Augmented Generation Framework for Knowledge Management Using Local Large Language Models}
 
 % Author Orchid ID: enter ID or remove command
 \newcommand{\orcidauthorA}{0000-0000-0000-000X} % Add \orcidA{} behind the author's name
@@ -127,7 +138,7 @@
 \address{%
 $^{1}$ \quad Institute of Technology and Engineering, Forschungszentrum Jülich, Germany; o.hamed@fz-juelich.de\\
 $^{2}$ \quad Computer Systems Engineering Department, Palestine Technical University - Kadoorie, Palestine; osama.hamed@ptuk.edu.ps \\
-$^{3}$ \quad Department of Computer Science, Alzaytona University of Science and Technology; nadeem.kilani@zust.edu.ps\\
+$^{3}$ \quad Department of Computer Science, Alzaytona University of Science \& Technology; nadeem.kilani@zust.edu.ps\\
 $^{4}$ \quad Department of Computer Science, Palestine Technical University - Kadoorie; tasneem.duridi@ptuk.edu.ps\\
 $^{5}$ \quad Institute of Technology and Engineering, Forschungszentrum Jülich, Germany; g.natour@fz-juelich.de
 }
@@ -215,10 +226,10 @@ $^{5}$ \quad Institute of Technology and Engineering, Forschungszentrum Jülich,
 
 \section{Introduction}
 
-%\commentred{Guidelines:} The introduction should briefly place the study in a broad context \commentred{Done: P1} and highlight why it is important \commentred{Done: P2}. It should define the purpose of the work and its significance.  The current state of the research field should be reviewed carefully and key publications cited. Finally, briefly mention the main aim of the work and highlight the principal conclusions. As far as possible, please keep the introduction comprehensible to scientists outside your particular field of research.
+%\commentRed{Guidelines:} The introduction should briefly place the study in a broad context \commentRed{Done: P1} and highlight why it is important \commentRed{Done: P2}. It should define the purpose of the work and its significance.  The current state of the research field should be reviewed carefully and key publications cited. Finally, briefly mention the main aim of the work and highlight the principal conclusions. As far as possible, please keep the introduction comprehensible to scientists outside your particular field of research.
 
 LLMs have been described in the text by \citet{brousseau2025llms}  as "the most promising technology to come along since, well, the printing press." However, they have some limitations, such as knowledge cutoffs or outdated information, hallucinations, and a lack of access to private institutional data \cite{bratanic2025essential}. LLMs fall into two main categories: (i) closed-source LLMs, which are hosted on the cloud; and (ii)
-open-source LLMs, which are hosted on local machines. Although cloud-based LLMs dominate today, but they disclose our private documentation. Recently, several trends have emerged to make local inference possible. LM Studio and Ollama are parts of this trend. This paper investigates the use of lightweight and locally deployed LLMs to create a RAG-based knowledge base (KB) system from academic institutional archives. %\commentred{One more supporting sentence!} We split this further into two steps: abstract generation, and RAG-based KB system.
+open-source LLMs, which are hosted on local machines. Although cloud-based LLMs dominate today, but they disclose our private documentation. Recently, several trends have emerged to make local inference possible. LM Studio and Ollama are parts of this trend. This paper investigates the use of lightweight and locally deployed LLMs to create a RAG-based knowledge base (KB) system from academic institutional archives. %\commentRed{One more supporting sentence!} We split this further into two steps: abstract generation, and RAG-based KB system.
 
 At the Institute of Technology and Engineering (ITE), at Forschungszentrum Jülich (Eng.: Jülich Research Center). We participate in, oversee, and manage long-term research projects. As a result, in some cases, we have project's folder containing few thousands of files in various formats. This equates to a large number of files in total (approx. 219k in PDF format only), but without any search criteria applied. Furthermore, most of the files do not have a documentation summary (or abstract), which hinders methods like abstract-first retrieval \cite{aytar2024retrieval}. Consequently, this makes the search for documents from past projects like searching a needle in a haystack. To fix this issue, we are not interested in solutions that alleviate the problem like the ones base on Relational Database Management Systems (DBMS). We are rather interested in creating solution based on the emerging Artificial Intelligence (AI) techniques, in particular Retrieval-Augmented Generation (RAG) and  vector databases (VDB). This paper simulates this case and proposes a RAG-based solution to address the different perspectives of this issue. We split this further into two steps: abstract generation, and RAG-based KB system.
 
@@ -232,7 +243,7 @@ Addressing abstract generation raises the question, "How to generate an abstract
 
 To evaluate our work, we follow the principle provided by \citet{brousseau2025llms}, who said that ``when evaluating a model, you need two things: a metric and a dataset.'' Following this principle, in this paper we evaluate local LLMs for automatic abstract generation using a carefully selected sub-dataset of the arXiv Dataset \citep{arxivdataset2024}. We apply standard evaluation metrics to assess the quality of the generated abstracts and their effectiveness in enabling semantic search within a VDB. By embedding the summaries in a vector database, we create a RAG–based KB that allows users to find relevant documents based on textual similarity. %This study thus demonstrates a practical application of the evaluation framework suggested by  \citet{brousseau2025llms}, linking model performance to measurable outcomes in a real-world institutional repository.
 
-Overall, this study demonstrates a practical application of the evaluation framework presented in \cite{brousseau2025llms}. This has the advantage of linking model performance to measurable outcomes in a real-world institutional repository. The findings show that locally deployed LLMs can generate coherent and informative summaries that significantly improve semantic search criteria, which is also superior to traditional keyword-based approaches. As inspired by \citet{aytar2024retrieval}, the use of automatically generated abstracts enables faster and more accurate retrieval of relevant project documents. It also demonstrates the potential of local LLMs for privacy-preserving knowledge management. The key findings of this paper can be summarized as follows:
+Overall, this study demonstrates a practical application of the evaluation framework presented in \cite{brousseau2025llms}. This has the advantage of linking model performance to measurable outcomes in a real-world institutional repository. The findings show that locally deployed LLMs can generate coherent and informative summaries that support semantic search within the proposed RAG-based knowledge base, which is also superior to traditional keyword-based approaches. As inspired by \citet{aytar2024retrieval}, the use of automatically generated abstracts enables faster and more accurate retrieval of relevant project documents. It also demonstrates the potential of local LLMs for privacy-preserving knowledge management. The key findings of this paper can be summarized as follows:
 
 \begin{itemize}[labelsep=2.5mm,topsep=-3pt]
  
@@ -334,7 +345,7 @@ The most closely related evaluation is~\citet{kim2025exploring}, who tested six 
 
 Across this body of work, three limitations recur. First, every prior study relies on \emph{cloud-hosted} models, which are poorly suited to institutional settings where data privacy is a hard requirement. Second, all of them assume the prior existence of human-written abstracts, sidestepping the harder problem of generating summaries for documents that have none. Third, none evaluate how abstract generation quality propagates into a downstream retrieval pipeline.
 
-This study addresses all three gaps by deploying three quantized open-source LLMs: LLaMA-3.1-8B, Qwen3-VL-8B, and Mixtral-8x7B, on a local machine through LM Studio. Experiments use 200 CS/ML papers drawn from the arXiv dataset (Subsection~\ref{sec:dataset}), which preserves full data privacy while still allowing evaluation against ground-truth abstracts via BLEU, ROUGE-1, ROUGE-L, and BERTScore. We further build a RAG-based vector knowledge base on top of the generated abstracts to demonstrate practical retrieval utility. Table~\ref{tab:comparison_recent} summarizes how this positions the present study against the closest prior work.
+This study addresses all three gaps by deploying three quantized open-source LLMs: LLaMA-3.1-8B, Qwen3-VL-8B, and Mixtral-8x7B, on a local machine through LM Studio. Our experiments use 200 technical papers like CS/ML drawn from the arXiv dataset (Subsection~\ref{sec:dataset}), which preserves full data privacy while still allowing evaluation against ground-truth abstracts via BLEU, ROUGE-1, ROUGE-L, and BERTScore. We further build a RAG-based vector knowledge base on top of the generated abstracts to demonstrate practical retrieval utility. Table~\ref{tab:comparison_recent} summarizes how this positions the present study against the closest prior work.
 
 \begin{table}[H]
 \centering
@@ -444,8 +455,8 @@ These models are summarized in Table~\ref{tab:local_LLMs} for quick reference.
 
 \begin{itemize}
 \item	Mixtral-8x7B-Instruct: This is a 7-B parameters model that belongs to Mixtral 8×7B family. This model is treated as a baseline. Mixtral-8x7B represents the technical name.
-\item	Qwen3-VL-8B-Instruct: This is an 8-B parameters model, which belongs to Qwen3-VL family, from Alibaba’s AI. Note that Qwen3-VL-8B and Qwen3-VL:8B refers to the same model. Qwen3-VL:8B refers to the format used by local deployment tools like LM Studio and Ollama
-\item	Meta-Llama-3.1-8B-Instruct: This An 8-B parameters model that belongs to LLaMA-3.1 family. Llama-3.1-8B is the official technical name, where as Llama3.1:8B  format is typically used by LM Studio and Ollama. 
+\item	Qwen3-VL-8B-Instruct: This is an 8-B parameters model, which belongs to Qwen3-VL family, from Alibaba’s AI. Note that Qwen3-VL-8B and Qwen3-VL:8B refers to the same model. Qwen3-VL:8B refers to the format used by local deployment tools like LM Studio and Ollama. Other Qwen models will be used during the RAG evaluation stage. 
+\item	Meta-Llama-3.1-8B-Instruct: This An 8-B parameters model that belongs to LLaMA-3.1 family. Llama-3.1-8B is the official technical name, where as Llama3.1:8B  format is typically used by LM Studio and Ollama. Other Llama models will be used during the RAG evaluation stage.
 \end{itemize}
 
 %
@@ -552,7 +563,7 @@ Next, we will evaluate the different LLMs. We will report our findings as part o
 \section{Results}
 \label{sec:results}
 
-%\commentred{Provide a concise and precise description of the experimental results, their interpretation as well as the experimental conclusions that can be drawn.} -- raw average
+%\commentRed{Provide a concise and precise description of the experimental results, their interpretation as well as the experimental conclusions that can be drawn.} -- raw average
 
 In this section, we present a quantitative evaluations of the local 
 LLMs on the technical papers CS-ML dataset and using the BLEU, ROUGE, and BERTScore metrics. Our evaluation considers both long and short prompting strategies. It additionally shows the average raw and cleaned length for the ground truth and generated abstracts. We divided this into two dimensions: (i) a comparative study, and (ii) an ablation study.
@@ -600,7 +611,7 @@ This part was established using the default settings of LM Studio (see Figure~\r
 % \end{table}
 
 \begin{table}[H]
-\caption{Performance comparison of article summarization using small LLMs across prompts and iterations. Each iteration is evaluated using a subset of 50 articles..\label{tab:Iter-Results}}
+\caption{Performance comparison of article summarization using small LLMs across prompts and iterations. Each iteration is evaluated using a subset of 50 articles.\label{tab:Iter-Results}}
 %\isPreprints{\centering}{% This command is only used for ``preprints''.
 	\begin{adjustwidth}{-\extralength}{0cm}
 %} % If the paper is ``preprints'', please uncomment this parenthesis.
@@ -642,10 +653,10 @@ This part was established using the default settings of LM Studio (see Figure~\r
 
 
 Table~\ref{tab:Iter-Results} compares the performance of the three local LLMs (Mixtral-8x7B, Qwen3-VL-8B, and Llama-3.1-8B) in article summarization across different prompts and iterations. Given that Mixtral-8x7B model cannot be instructed using a "Short" prompt. Mixtral-8x7B model shows a notable increase in BLEU score from 6.74 to 9.21 over three iterations with the "Long" prompt. Initially after the first iteration, the Bleu score drops from 6.74 to 4.94 and then again after the third iteration it goes up to 9.21. Llama-3.1-8B achieves the highest ROUGE-L scores of 45.07 and BERTScore of 86.70 across all prompts and iterations. These results suggest it's superior summarization capabilities compared to Qwen3-VL-8B. Furthermore, the average length of generated abstracts also varied noticeably between the three models. Mixtral-8x7B generating substantially longer abstracts (approximately 230 words) than the other two models (approximately 150 - 160 words). Overall, the shorter abstracts \textbf{(150 words)} generated by Llama-3.1-8B were associated with higher automatic evaluation scores, closer to the  average length of gold-standard abstracts (125 words), while longer outputs (230 words) from Mixtral-8x7B did not consistently translate into better performance. 
-%\commentred {Repeated Sentence} However, the longer abstracts from Mixtral-8x7B did not consistently translate into better performance.
+%\commentRed {Repeated Sentence} However, the longer abstracts from Mixtral-8x7B did not consistently translate into better performance.
 
 
-Similar to Table~\ref{tab:Iter-Results}, Table~\ref{tab:allresults} compares the performance of the three local LLMs but it uses the entire sub-dataset of 200 articles. Table~\ref{tab:allresults} shows clear performance differences among the evaluated small LLMs for article summarization. Table~\ref{tab:allresults} demonstrates clear performance differences among the three small evaluated LLMs for abstracts generation. Llama-3.1-8B achieves the highest overall results, producing the highest scores across all evaluation metrics and generating the shortest abstracts. \commentred{Qwen3-VL-8B shows moderate performance for all metrics except for the BLEU and slighlty in ROUGE-L, where it is the lowest.} Qwen3-VL-8B provides competitive semantic similarity scores but remains behind Llama-3.1-8B model in overall summarization quality. The Mixtral-8x7B model generates substantially longer abstracts, and does not adhere to the given prompt. Consequently, we consider it out of the competition. Overall, the results suggest that higher abstract length alone does not necessarily lead to improved quality. Llama-3.1-8B offers the best balance between concise abstracts generation and strong evaluation performance.  
+Similar to Table~\ref{tab:Iter-Results}, Table~\ref{tab:allresults} compares the performance of the three local LLMs but it uses the entire sub-dataset of 200 articles. Table~\ref{tab:allresults} shows clear performance differences among the evaluated small LLMs for article summarization. Table~\ref{tab:allresults} demonstrates clear performance differences among the three small evaluated LLMs for abstracts generation. Llama-3.1-8B achieves the highest overall results, producing the highest scores across all evaluation metrics and generating the shortest abstracts. Qwen3-VL-8B shows moderate performance for all metrics except for the BLEU and slighlty in ROUGE-L, where it is the lowest. Qwen3-VL-8B provides competitive semantic similarity scores but remains behind Llama-3.1-8B model in overall summarization quality. The Mixtral-8x7B model generates substantially longer abstracts, and does not adhere to the given prompt. Consequently, we consider it out of the competition. Overall, the results suggest that higher abstract length alone does not necessarily lead to improved quality. Llama-3.1-8B offers the best balance between concise abstracts generation and strong evaluation performance.  
 
 %\begin{listing}[H]
 %\caption{Title of the listing}
@@ -701,7 +712,7 @@ The data has been lemmatized, and standard English stop-words have been removed.
 
 \begin{figure*}[ht]
 \centering
-\includegraphics[width=0.95\textwidth, height=0.27\textheight]{img/nltk_word_freq.png}
+\includegraphics[width=0.95\textwidth, height=0.52\textheight]{pdf/nltk_word_frequency_vertical.pdf}
 \caption{The top word embedded clusters found by BERTopic.}
 \label{fig:BERTopic}
 \end{figure*}
@@ -787,7 +798,6 @@ Table~\ref{tab:prompt_ablation} reports the results of evaluating the different 
 & \textbf{50} & \textbf{100}
 & \textbf{50} & \textbf{100} \\
 \midrule
-%P1 & Plain         & Non                  & 204 & 199 & 11.92 & 11.43 & Xx.Xx & --.-- &  Xx.Xx & --.-- & Xx.Xx & --.-- \\
 P1 & Plain         & None                  & 204 & 199 & 11.92 & 11.43 & 44.32 & 43.28 & 25.79 & 24.87 & 86.72 & 86.37 \\
 P2 & Semi-struct.  & Paragraph format      & 161 & 171 & 15.70 & 14.97 & 48.01 & 46.13 & 28.39 & 27.84 & 87.21 & 86.98 \\
 P3 & Semi-struct.  & Length (120--130 W.)  & 156 & 154 & 13.70 & 13.24 & 45.00 & 44.84 & 26.20 & 26.03 & 86.69 & 86.61 \\
@@ -803,10 +813,10 @@ P5 & Fully struct. & LSCSR                 & 154 & 150 & 13.76 & 12.31 & 44.93 &
 
 
 \subsubsection{Decoding Parameters}
-Following the work by \citet{Hamed2026IC}, we consider three decoding parameters, particularly temperature (denoted as temp), \text{top-p} (aka nucleus sampling), and \text{top-k} sampling. \commentred{What is the relation between temperature and generated text quality? + Add a def and a ref!}. The following text describes these parameters in LLMs context based on the work provided by ~\citet{nguyen2025turningheatminpsampling,chang2023kldivergenceguidedtemperaturesampling}.
+Following the work by \citet{Hamed2026IC}, we consider three decoding parameters, particularly temperature (denoted as temp), \text{top-p} (aka nucleus sampling), and \text{top-k} sampling. The following text describes these parameters in LLMs context based on the work provided by ~\citet{nguyen2025turningheatminpsampling,chang2023kldivergenceguidedtemperaturesampling}.
 
 \begin{itemize}
-    \item Temperature or temp: This setting controls the level of randomness with which a model selects words during text generation. In our case, it refers to the creation of caption text. Thus, it determines the degree of freedom that the model has when selecting the next word in a sequence of words that represent the image caption.
+    \item Temperature or temp: This setting controls the level of randomness with which a model selects words during text generation. In our case, it refers to the generation of abstract text. Thus, it determines the degree of freedom that the model has when selecting the next word in a sequence of words that represent the generated abstract text.
     \item Top-p or top\_p (aka nucleus sampling): This setting determines how many possible words the model considers before making a selection. Thus, it filters the potential word pool based on a cumulative probability threshold.
     \item Top-k or top\_k sampling: This setting represents another sampling parameter that used to control word selection. While top-p selects a dynamic number of words based on a cumulative probability threshold, the top-k limits the model to a fixed number of the most probable subsequent words.
 \end{itemize}
@@ -860,7 +870,7 @@ We utilized the LangChain \cite{chase2022langchain} Python library to implement 
 
     \item Embed the Chunks: After splitting the abstracts into smaller chunks, the system must convert each chunk into a format that the LLM can understand mathematically.
    
-    \item Store in a Vector Database: As defined in \cite{brousseau2025llms}, vector databases are a special type of database designed specifically for storing vectors and the metadata that describes them. This makes them highly effective for storing embeddings. Thus, they are unlike an RDBMS that operates search using keywords matching. An LLM needs the VDBs to employ semantic search (search by meaning). Furthermore, "they make RAG so much easier to implement" \cite{brousseau2025llms}.  That's why we need to use a VDB with the RAG-KBS.
+    \item Store in a Vector Database: As defined in \cite{brousseau2025llms}, vector databases are a special type of database designed specifically for storing vectors and the metadata that describes them. This makes them highly effective for storing embeddings. Thus, they are unlike an RDBMS that operates search using keywords matching. An LLM needs the VDBs to employ semantic search (search by meaning). Furthermore, "they make RAG so much easier to implement" \cite{brousseau2025llms}.  That's why we need to use a VDB with the RAG-KBS. The text by  \citet{brousseau2025llms} described several VDBs, including Pinecone, Milvus, Redis and Elastic, FAISS (Facebook AI Similarity Search), USearch, and Elasticsearch.
     
     \item Embed the User Query: This should be done using the same embedding model in the previous sub-step. Thus, when an end user asks a question or searches for a document, the system must also convert the query into a vector embedding with the same formatting.
     
@@ -879,60 +889,91 @@ We utilized the LangChain \cite{chase2022langchain} Python library to implement 
 \end{figure*}
 
 \subsection{System Evaluation}
-%Figure~\ref{fig:RAG-Pro} depicts the whole retrieval process. 
+ 
 Being done with the system description and implementation details. It is the time to validate the effectiveness of our RAG-KBS. For this purpose, we utilize the Retrieval
-Augmented Generation Assessment (RAGAS) framework \cite{es2024ragas}. As shown in Figure~\ref{fig:RAG-Pro}, the end user sends a query via the FastAPI \cite{lathkar2023getting} web interface. The user query is embedded to vector representation. The remaining sub-steps continue in the background. Finally, the LLM replies with a grounded responses based on the most relevant documents. The RAGAS framework enables us to evaluate the quality of retrieved documents (i.e. the Abstracts in our case), and the grounded LLM response. In our application, rather than implementing Ragas from scratch, we utilize the Ragas open-source Python library \cite{ragas2024}. Ragas offers reference-free evaluation metrics for RAG and LLM applications. These metrics fall into two categories: generation and retrieval metrics.
+Augmented Generation Assessment (RAGAS) framework \cite{es2024ragas}. As shown in Figure~\ref{fig:RAG-Eval}, the end user sends a query via the FastAPI \cite{lathkar2023getting} web interface. The user query is embedded to vector representation. The remaining sub-steps continue in the background. Finally, the LLM replies with a grounded responses based on the most relevant documents. The RAGAS framework enables us to evaluate the quality of retrieved documents (i.e. the Abstracts in our case), and the grounded LLM response. In our application, rather than implementing Ragas from scratch, we utilize the Ragas open-source Python library \cite{ragas2024}. Ragas offers reference-free evaluation metrics for RAG and LLM applications. These metrics fall into two categories: generation and retrieval metrics.
 
 \begin{figure*}[ht]
 \centering
 \includegraphics[width=0.95\textwidth, height=0.45\textheight]{img/RAG-KBS.png}
-\caption{The retrieval and generation part (online) from user query to grounded response.}
-\label{fig:RAG-Pro}
+\caption{The retrieval and generation part (online) from user query to grounded response. Note that the model names are subjective to change.}
+\label{fig:RAG-Eval}
 \end{figure*}
 
 \begin{itemize}
-    \item Generation Metrics: Those metrics include faithfulness and answer relevancy. Faithfulness refers to how factually accurate is the generated response. Whereas answer relevancy refers to how relevant is the generated response to the raised question.
+    \item Generation Metrics: Those metrics include faithfulness and answer relevance. Faithfulness refers to how factually accurate is the generated response. Whereas answer relevance refers to how relevant is the generated response to the raised question.
     
-    \item Retrieval Metrics: Those metrics include context relevancy (aka context precision) and context recall. Context relevancy refers to the signal to noise ration of retrieved context. Whereas context recall is meant to answer weather the LLM question can retrieve all ... \commentred{What?} 
+    \item Retrieval Metrics: Those metrics include context relevance (aka context precision) and context recall. Context relevance refers to the signal to noise ratio of retrieved context. Whereas context recall is meant to answer weather the LLM's retriever can retrieve all the necessary information (or ground-truth evidence) needed to answer a given question.
 \end{itemize}
 
-In addition, Ragas can automatically generate the questions and their corresponding ground truth answers (QA dataset). We investigated this step based on the abstracts generated by the Llama-3.1-8b model and found it to a very time-consuming process. For instance, generating 10 questions took hours on a development laptop. As an alternative, we first prompted an LLM to generate the questions and answers (i.e., QA dataset). Then, we used the LLM-as-a-judge \cite{gu2026survey} approach to evaluate the quality of the resulting QA dataset. Another alternative for generating the QA dataset is to use Evidently AI platform \cite{evidentlyai}.
-Having this QA dataset ready, we can evaluate our RAG pipeline, when it generates a response and provides a context for this response. Table~\ref{tab:Ragas} reports the different Ragas scores for our RAG-KBS.
+In addition, Ragas can automatically generate the questions and their corresponding ground truth answers (Q\&A dataset). We investigated this step based on the abstracts generated by the Llama-3.1-8b model and found it to a very time-consuming process. For instance, generating 10 questions took hours on a development laptop. As an alternative, we first prompted an LLM to generate the questions and answers (i.e., Q\&A). Then, we used the LLM-as-a-judge \cite{gu2026survey} approach to evaluate the quality of the resulting Q\&A. Another alternative for generating the Q\&A is to use Evidently AI platform \cite{evidentlyai}.
+Having this Q\&A ready, we can evaluate our RAG-KBS using RAGAS framework, when it generates a response and provides a context for this response. 
+
+\begin{figure*}[ht]
+\centering
+\includegraphics[width=0.95\textwidth, height=0.23\textheight]{img/Ragas}
+\caption{The RAGAS implementation pipeline.}
+\label{fig:Ragas}
+\end{figure*}
+
+Following the approach provided by  \citet{aytar2024retrieval} who focused on ''Context Relevance''. We can also focus on the same metric because the other metrics asses the quality of answers generated using the retrieved context. In our case, we consider RAGAS metrics complementary to each other and report four RAGAS metrics. We conducted our experiments in three settings: (i) a pilot study that uses 50 questions, where the \textit{Qwen2.5-7B-Instruct} and \textit{Llama3.2:3b-Instruct} local models were used for generating the Q\&A dataset and grounded answer responses respectively; (ii) the same number of questions, where where the \textit{Qwen2.5-14B-Instruct} and \textit{Llama3.2:8b-Instruct} local models were used for generating the Q\&A dataset and grounded answer responses respectively; and (iii) a pilot study that uses 20 questions, where the \textit{GPT-4o mini} model was used for generating both Q\&A dataset and grounded answer responses. For the two settings, a sample of 50 questions was generated from 100 randomly selected  abstracts. 
+
+Tables~\ref{tab:RagasL} and ~\ref{tab:RagasC} show the four different Ragas scores for our RAG-KBS using two samples that have 50 and 20 questions respectively. All of the reported metrics were obtained using an implementation similar to that in Figure~\ref{fig:Ragas}.
 
 \begin{table}[H]
 \centering
-\caption{The reported Ragas scores.}
-\label{tab:Ragas}
+\caption{The reported Ragas scores (n=50).}
+\label{tab:RagasL}
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{lcc}
+\toprule
+\textbf{Metrics} & \multicolumn{2}{c}{\textbf{Score (\%)}} \\
+\cmidrule(lr){2-3}
+& \textbf{Qwen2.5:7b} & \textbf{Qwen2.5:14b} \\
+\midrule
+Faithfulness & 71.67 & 74.94\\
+Answer Relevance & 52.22 & 69.81\\
+Context Relevance/ Precision & 52.50 & 37.90\\
+Context Recall & 62.00 & 52.78\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The reported results in Table~\ref{tab:RagasL} relate to two models \textit{Qwen2.5:7b} and \textit{Qwen2.5:14b} respectively. For the \textit{Qwen2.5:7b} implementation, we used retriever BM25. Thus, keyword matching was performed effectively hence we observe a solid context relevance/precision and context recall. Faithfulness was moderate,  showing that it was sometimes hallucinated, which costed it the metric score. LLAMA3.2:3b struggled on answer relevancy because of its smaller capabilities. Overall answer correctness is still solid because retrieved answer context helped the system to provide more factually correct answers. For the \textit{Qwen2.5:4b} implementation, we used a dense vector retriever, which added a huge amount of additional noise and irrelevant chunks. Consequently, we observed comparatively lower context relevance/precision and context recall. Since the model's capabilities were increased to \textit{LLAMA3.1:8b}, we noticed a marginal difference in faithfulness and answer relevance. It directly answered the question without any additional or unnecessary statements. Although the LLM was faithful and relevant, it was affected more by the context relevance and recall of the retrieval layer capping the overall answer correctness to just 43.25 \%.
+
+Whereas the reported results in Table~\ref{tab:RagasC} indicate strong grounding quality, with high faithfulness 95.83\% and context recall 90.00\%. These scores suggest that the generated answers are largely supported by the retrieved evidence. Moreover, the scores for context precision 85.35\% and answer relevance 80.70\% are slightly lower. This indicates that the system retrieves useful information. However, some responses contain minor irrelevances or excess context. Overall, the results confirm effective grounding, with the remaining limitations primarily in answer focus and conciseness. In this context, we want to mention that our RAG evaluation was conducted as a proof-of-concept using only 20 automatically generated questions and answers. Therefore, the RAGAS results should be interpreted as an initial validation rather than a comprehensive retrieval benchmark.
+
+\begin{table}[H]
+\centering
+\caption{The reported Ragas scores (n=20).}
+\label{tab:RagasC}
 \renewcommand{\arraystretch}{1.2}
 \begin{tabular*}{0.55\textwidth}{@{\extracolsep{\fill}}lr}
 \toprule
 \textbf{Metric} & \textbf{Score (\%)} \\
+\cmidrule(lr){2-2}
+& \textbf{GPT-4o mini} \\
 \midrule
-Faithfulness &  \\
+Faithfulness & 95.83\\
 \midrule
-Answer Relevancy &  \\
+Answer Relevance & 80.70\\
 \midrule
-Context Precision &  \\
+Context Relevance/ Precision & 85.35\\
 \midrule
-Context Recall &  \\
-\midrule
-Correctness &  \\
+Context Recall & 90.00\\
 \bottomrule
 \end{tabular*}
-%\noindent{\footnotesize{\textsuperscript{1} It stands ...}}
 \end{table}
-
-\commentred{TODO:} Scores interpretation for Table 8.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Conclusion}
 \label{sec:conclusion}
-%\commentred{Following IMRaD structure, the Conclusions can be merged with the Discussion!}
+%\commentRed{Following IMRaD structure, the Conclusions can be merged with the Discussion!}
 This study examined the implementation of a secure, RAG framework for institutional knowledge management using locally deployed LLMs. This research aimed at automating the generation of abstracts to enable semantic search within large, unstructured document repositories while maintaining data privacy. We utilized the LM Studio platform to evaluate three small models: Mixtral-8x7B, Qwen3-VL-8B, and Meta-Llama-3.1-8B on a subset of 200 technical papers from the arXiv dataset. Our methodology involved two-steps: (i) a comparative evaluation of model performance, and (ii) the development of a KB system employing Ollama, Chroma VDB and an abstract-first retrieval approach.
 
-Our experimental findings showed that Meta-Llama-3.1-8B consistently outperformed the other small LLMs across standard lexical and semantic metrics, including BLEU, ROUGE, and BERTScore. Furthermore, the ablation studies revealed that decoding parameters, such as temperature and sampling thresholds just have a limited impact on the quality of the generated abstracts. However, fully structured, instruction-based zero-shot prompts are essential for generating coherent and concise summaries. Overall, these results indicate that small, quantized models deployed on local hardware offer robust, privacy-preserving solution for managing institutional technical documentation. \commentred{In analogy to ITE: Future research should explore the scalability of this framework across diverse academic domains beyond computer science. Additionally, validating the system with larger datasets could further refine the relationship between automated abstract quality and downstream retrieval accuracy in real-world institutional settings.}
+Our experimental findings showed that Meta-Llama-3.1-8B consistently outperformed the other small LLMs across standard lexical and semantic metrics, including BLEU, ROUGE, and BERTScore. Furthermore, the ablation studies revealed that decoding parameters, such as temperature and sampling thresholds just have a limited impact on the quality of the generated abstracts. However, fully structured, instruction-based zero-shot prompts are essential for generating coherent and concise summaries. Overall, these results indicate that small, quantized models deployed on local hardware offer robust, privacy-preserving solution for managing institutional technical documentation. With regards to ITE, following the theoretical and experimental results. The near-term future work will involve transitioning the RAG-KBS from a demonstration phase to a functional implementation on the ITE infrastructure. This implementation will be specifically tailored to automate knowledge management for secure, long-term research projects.
 
-%Small locally deployed LLMs can support text summarization and abstracts generation for institutional archives when prompts and decoding settings are carefully controlled.
+%In analogy to ITE Small locally deployed LLMs can support text summarization and abstracts generation for institutional archives when prompts and decoding settings are carefully controlled.
 %This section is not mandatory, but can be added to the manuscript if the discussion is unusually long or complex.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Further Details}
@@ -971,7 +1012,7 @@ Our experimental findings showed that Meta-Llama-3.1-8B consistently outperforme
 \authorcontributions{Conceptualization, O.H.; methodology, O.H.; Literature review and related work analysis T.D. ; software and implementation, O.H. and N.K.; validation, O.H. and Z.K.; formal analysis, O.H. and N.K.; investigation, O.H.; resources, G.N. and O.H.; data curation, O.H.; original draft preparation, O.H.; writing---review and editing, O.H., T.D. and N.K.; visualization, O.H. and N.K.; supervision, O.H. and G.N.; administration, G.N.; funding acquisition, G.N.; all authors have read and agreed to the submitted version of the manuscript.}
 %published -- Please turn to the  \href{http://img.mdpi.org/data/contributor-role-instruction.pdf}{CRediT taxonomy} 
 
-\funding{This research is funded by Forschungszentrum Jülich, Germany.
+\funding{This research received no external funding.
 }
 
 % \institutionalreview{In this section, you should add the Institutional Review Board Statement and approval number, if relevant to your study. You might choose to exclude this statement if the study did not require ethical approval. Please note that the Editorial Office might ask you for further information. Please add “The study was conducted in accordance with the Declaration of Helsinki, and approved by the Institutional Review Board (or Ethics Committee) of NAME OF INSTITUTE (protocol code XXX and date of approval).” for studies involving humans. OR “The animal study protocol was approved by the Institutional Review Board (or Ethics Committee) of NAME OF INSTITUTE (protocol code XXX and date of approval).” for studies involving animals. OR “Ethical review and approval were waived for this study due to REASON (please provide a detailed justification).” OR “Not applicable” for studies not involving humans or animals.}
@@ -979,7 +1020,7 @@ Our experimental findings showed that Meta-Llama-3.1-8B consistently outperforme
 %\informedconsent{Any research article describing a study involving humans should contain this statement. Please add ``Informed consent was obtained from all subjects involved in the study.'' OR ``Patient consent was waived due to REASON (please provide a detailed justification).'' OR ``Not applicable'' for studies not involving humans. You might also choose to exclude this statement if the study did not involve humans.}
 
 \dataavailability{The data presented in this study is a subset of the arXiv dataset. It is  available upon request from the
-corresponding author. 
+corresponding author. It will also be made available in the published version. The GitHub code repository and the artifacts will be also made available.
 %Suggested Data Availability Statements are available in section ``MDPI Research Data Policies'' at \url{https://www.mdpi.com/ethics}.
 } 
 
@@ -995,11 +1036,18 @@ corresponding author.
 %% Only for journal Nursing Reports
 %\useofartificialintelligence{Please describe in detail any and all uses of artificial intelligence (AI) or AI-assisted tools used in the preparation of the manuscript. This may include, but is not limited to, language translation, language editing and grammar, or generating text. Alternatively, please state that “AI or AI-assisted tools were not used in drafting any aspect of this manuscript”.}
 
-\acknowledgments{The authors confirm that all scientific content, methodology, analysis, and conclusions are their own and take full responsibility for the integrity of the work.}
-
-\noindent\textbf{Generative AI Usage Disclosure.}
-During the preparation of this manuscript, the authors used some generative artificial intelligence (GenAI) tools for limited and non-substantive purposes. ChatGPT were used to assist English language editing and grammar refinement in Section~\ref{sec:related_work}. DeepL was also used elsewhere to refine and sometimes restructure the English text. Napkin AI was used to create the data pre-processing workflow diagram shown in Figure~\ref{fig:Prep-prep}. Furthermore, Nano Banana was used to create the diagrams in Figure~\ref{fig:system_architecture} and Figure~\ref{fig:RAG}. In addition, ChatGPT and Perplexity AI were consulted to assist in outlining aspects of the experimental design related to the ablation studies.
+% \noindent\textbf{Generative AI Usage Disclosure.}
+% During the preparation of this manuscript, the authors used some generative artificial intelligence (GenAI) tools for limited and non-substantive purposes. ChatGPT were used to assist English language editing and grammar refinement in Section~\ref{sec:related_work}. DeepL was also used elsewhere to refine and sometimes restructure the English text. Napkin AI was used to create the data pre-processing workflow diagram shown in Figure~\ref{fig:Prep-prep}. Furthermore, Nano Banana was used to create the diagrams in Figure~\ref{fig:system_architecture} and Figure~\ref{fig:RAG}. In addition, ChatGPT and Perplexity AI were consulted to assist in outlining aspects of the experimental design related to the ablation studies.
 %DeepL was used to help restructure the English in different sections.
+
+\acknowledgments{
+During the preparation of this manuscript, the authors used some generative artificial intelligence (GenAI) tools for limited and non-substantive purposes. ChatGPT were used to assist English language editing and grammar refinement in Section~\ref{sec:related_work}. DeepL Pro was also used elsewhere to refine and sometimes restructure the English text, and to translate reference \cite{bektacs2025academic} from Turkish to English. Napkin AI was used to create the data pre-processing workflow diagram shown in Figure~\ref{fig:Prep-prep}. Furthermore, Nano Banana was used to create the diagrams in Figure~\ref{fig:system_architecture} and Figure~\ref{fig:RAG}. In addition, ChatGPT and Perplexity AI were consulted to assist in outlining aspects of the experimental design related to the ablation studies.
+%DeepL was used to help restructure the English in different sections.
+
+The authors also confirm that all scientific content, methodology, analysis, and conclusions are their own and take full responsibility for the integrity of the work. 
+
+The authors would like to thank \textbf{Mr. Vibhav Patil}, our student and research assistant for taking part in implementing the RAGAS results, particularly those  in Table 8.}
+
 
 \conflictsofinterest{The authors declare no conflicts of interest. 
 %Authors must identify and declare any personal circumstances or interest that may be perceived as inappropriately influencing the representation or interpretation of reported research results. Any role of the funders in the design of the study; in the collection, analyses or interpretation of data; in the writing of the manuscript; or in the decision to publish the results must be declared in this section. If there is no role, please state ``The funders had no role in the design of the study; in the collection, analyses, or interpretation of data; in the writing of the manuscript; or in the decision to publish the results''.
@@ -1034,7 +1082,8 @@ During the preparation of this manuscript, the authors used some generative arti
 
 This appendix is meant to provide further details that are crucial to understanding, and reproducing the research shown in this paper.
 
-\begin{table}[H] 
+\begin{table}[H]
+%\centering
 \caption{The prompt designs used for the ablation  study in LLM.\label{tab:prompts-design}}
 \resizebox{\textwidth}{!}{
 %\newcolumntype{C}{>{\centering\arraybackslash}X}
