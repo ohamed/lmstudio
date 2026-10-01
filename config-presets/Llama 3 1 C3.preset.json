@@ -1,0 +1,27 @@
+{
+  "identifier": "@local:llama-3.1c3",
+  "name": "Llama-3.1:C3",
+  "changed": false,
+  "operation": {
+    "fields": [
+      {
+        "key": "llm.prediction.temperature",
+        "value": 0.65
+      },
+      {
+        "key": "llm.prediction.topPSampling",
+        "value": {
+          "checked": true,
+          "value": 0.85
+        }
+      },
+      {
+        "key": "llm.prediction.topKSampling",
+        "value": 30
+      }
+    ]
+  },
+  "load": {
+    "fields": []
+  }
+}
