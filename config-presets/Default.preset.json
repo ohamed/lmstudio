@@ -1,0 +1,11 @@
+{
+  "identifier": "@local:default",
+  "name": "Default",
+  "changed": false,
+  "operation": {
+    "fields": []
+  },
+  "load": {
+    "fields": []
+  }
+}
