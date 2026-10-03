@@ -59,96 +59,30 @@ def _normalize_text(s: str) -> str:
     return s
 
 
-_BOILERPLATE_PREFIX = "Here is a combined abstract that focuses on motivation, methods, and main results:"
-
-
 def _clean_generated_abstract(s: str) -> str:
     """
-    Remove introductory/preamble boilerplate from generated abstracts.
+    Remove introductory boilerplate from generated abstracts.
 
-    Order within this function:
-    1. If None/empty, return normalized/empty form consistent with normalization.
-    2. Apply existing normalization to ensure consistent whitespace.
-    3. Remove introductory boilerplate using colon-based heuristic.
-    4. Normalize whitespace again and return.
-
-    Colon-based rule:
-    - If the text contains a colon, remove everything from the beginning
-      through the first colon, including the colon itself, but only when
-      the text before the first colon appears to be an introductory/preamble
-      statement. The heuristic below preserves the complete abstract when
-      the first colon is clearly part of the actual abstract content.
-
-    Heuristic conditions to treat as boilerplate (all must hold):
-    - There is at least one colon.
-    - The prefix before the first colon is relatively short (<= 120 chars).
-    - The prefix starts with common introductory phrases (case-insensitive):
-      'here is', 'this is', 'the following', 'below is', 'we present',
-      'we propose', 'i will', 'let me', 'here are'
-    - OR more generally, the prefix is clearly a preamble: it contains words
-      like 'combined abstract', 'abstract that', 'summary', 'generated',
-      'output', 'response', 'answer', or ends with typical preamble markers
-      ('focuses on', 'integrates', 'provides').
-    - The body after the colon (stripped) is non-empty.
+    1. Apply _normalize_text() first.
+    2. Check if normalized text starts with 'Here is a' or 'Here's a' (case-insensitive).
+    3. If so and a colon exists, remove everything from beginning through first colon.
+    4. Normalize whitespace after removal.
+    5. If no match or no colon, return unchanged (or normalized).
     """
     if s is None:
         return ""
-    text = str(s)
 
-    # Step 1 & 2: normalize
-    text = text.replace("\r\n", "\n").replace("\r", "\n").strip()
-    text = " ".join(text.split())
-
+    text = _normalize_text(s)
     if not text:
         return text
 
-    # Step 3: colon-based boilerplate removal with heuristic
-    if ":" in text:
+    lower_text = text.lower()
+    if lower_text.startswith("here is a ") or lower_text.startswith("here's a "):
         colon_idx = text.find(":")
-        prefix = text[:colon_idx]
-        body = text[colon_idx + 1 :].strip()
+        if colon_idx != -1:
+            text = text[colon_idx + 1 :]
+            text = _normalize_text(text)
 
-        if body:  # don't split if nothing follows
-            prefix_lower = prefix.lower()
-            short_prefix = len(prefix) <= 120
-
-            is_intro = False
-            if short_prefix:
-                intro_patterns = [
-                    "here is",
-                    "here are",
-                    "this is",
-                    "the following",
-                    "below is",
-                    "we present",
-                    "we propose",
-                    "i will",
-                    "let me",
-                ]
-                if any(p in prefix_lower for p in intro_patterns):
-                    is_intro = True
-                preamble_markers = [
-                    "combined abstract",
-                    "abstract that",
-                    "summary",
-                    "generated",
-                    "output",
-                    "response",
-                    "answer",
-                    "focuses on",
-                    "integrates",
-                    "provides",
-                ]
-                if any(m in prefix_lower for m in preamble_markers):
-                    is_intro = True
-
-            if is_intro:
-                # Treat prefix+colon as boilerplate
-                text = body
-
-    # Step 4: normalize again
-    text = text.replace("\r\n", "\n").replace("\r", "\n").strip()
-    text = " ".join(text.split())
     return text
 
 
