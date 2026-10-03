@@ -64,17 +64,91 @@ _BOILERPLATE_PREFIX = "Here is a combined abstract that focuses on motivation, m
 
 def _clean_generated_abstract(s: str) -> str:
     """
-    Remove known LLM introductory boilerplate if present. This prefix is not
-    part of the generated abstract and must not contribute to word_len or metrics.
-    Dedicated function for easy modification later.
+    Remove introductory/preamble boilerplate from generated abstracts.
+
+    Order within this function:
+    1. If None/empty, return normalized/empty form consistent with normalization.
+    2. Apply existing normalization to ensure consistent whitespace.
+    3. Remove introductory boilerplate using colon-based heuristic.
+    4. Normalize whitespace again and return.
+
+    Colon-based rule:
+    - If the text contains a colon, remove everything from the beginning
+      through the first colon, including the colon itself, but only when
+      the text before the first colon appears to be an introductory/preamble
+      statement. The heuristic below preserves the complete abstract when
+      the first colon is clearly part of the actual abstract content.
+
+    Heuristic conditions to treat as boilerplate (all must hold):
+    - There is at least one colon.
+    - The prefix before the first colon is relatively short (<= 120 chars).
+    - The prefix starts with common introductory phrases (case-insensitive):
+      'here is', 'this is', 'the following', 'below is', 'we present',
+      'we propose', 'i will', 'let me', 'here are'
+    - OR more generally, the prefix is clearly a preamble: it contains words
+      like 'combined abstract', 'abstract that', 'summary', 'generated',
+      'output', 'response', 'answer', or ends with typical preamble markers
+      ('focuses on', 'integrates', 'provides').
+    - The body after the colon (stripped) is non-empty.
     """
-    if not s:
-        return s
-    text = s
-    # Remove exact boilerplate (case-sensitive as written)
-    if text.startswith(_BOILERPLATE_PREFIX):
-        text = text[len(_BOILERPLATE_PREFIX) :].strip()
-    # Also handle common variants with newline immediately after
+    if s is None:
+        return ""
+    text = str(s)
+
+    # Step 1 & 2: normalize
+    text = text.replace("\r\n", "\n").replace("\r", "\n").strip()
+    text = " ".join(text.split())
+
+    if not text:
+        return text
+
+    # Step 3: colon-based boilerplate removal with heuristic
+    if ":" in text:
+        colon_idx = text.find(":")
+        prefix = text[:colon_idx]
+        body = text[colon_idx + 1 :].strip()
+
+        if body:  # don't split if nothing follows
+            prefix_lower = prefix.lower()
+            short_prefix = len(prefix) <= 120
+
+            is_intro = False
+            if short_prefix:
+                intro_patterns = [
+                    "here is",
+                    "here are",
+                    "this is",
+                    "the following",
+                    "below is",
+                    "we present",
+                    "we propose",
+                    "i will",
+                    "let me",
+                ]
+                if any(p in prefix_lower for p in intro_patterns):
+                    is_intro = True
+                preamble_markers = [
+                    "combined abstract",
+                    "abstract that",
+                    "summary",
+                    "generated",
+                    "output",
+                    "response",
+                    "answer",
+                    "focuses on",
+                    "integrates",
+                    "provides",
+                ]
+                if any(m in prefix_lower for m in preamble_markers):
+                    is_intro = True
+
+            if is_intro:
+                # Treat prefix+colon as boilerplate
+                text = body
+
+    # Step 4: normalize again
+    text = text.replace("\r\n", "\n").replace("\r", "\n").strip()
+    text = " ".join(text.split())
     return text
 
 
@@ -216,7 +290,7 @@ def main() -> None:
     gen_df["gen_abstract"] = gen_df["gen_abstract"].map(_normalize_text)
     gold_df["abstract"] = gold_df["abstract"].map(_normalize_text)
 
-    # Clean boilerplate from generated abstracts
+    # Clean boilerplate from generated abstracts (normalize + colon-based removal)
     gen_df["gen_abstract_clean"] = gen_df["gen_abstract"].map(_clean_generated_abstract)
 
     # Merge
