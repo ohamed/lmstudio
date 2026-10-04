@@ -117,6 +117,7 @@ def _merge_on_paper_id(gen_df: pd.DataFrame, gold_df: pd.DataFrame) -> Tuple[pd.
 def _word_len(text: str) -> int:
     if not text:
         return 0
+    ## It removes extra empty spaces automatically.
     return len(text.split())
 
 
