@@ -15,6 +15,15 @@ Output format:
   Gen_Abstracts_Mixtral_Instruct_7B_S1.csv -> stats/Gen_Abstracts_Mixtral_Instruct_7B_S1_Stats.csv
 - DataFrame stats_df with columns in order: paper_id, word_len, BLEU, ROUGE-1, ROUGE-L, BERTScore
 
+Usage examples:
+- python abstracts_stats.py --gen output/gen/Gen_Abstracts_Mixtral_Instruct_7B_S1.csv --gold data/arxiv_csml_body_abstract_S1.csv
+
+- python abstracts_stats.py --gen output/gen/Gen_Abstracts_Mixtral_Instruct_7B.csv --gold data/arxiv_csml_body_abstract.csv
+
+- python abstracts_stats.py --gen output/gen/Gen_Abstracts_Qwen3_8B_Instruct.csv --gold data/arxiv_csml_body_abstract.csv
+
+- python abstracts_stats.py --gen output/gen/Gen_Abstracts_LLaMA3_8B_Instruct.csv --gold data/arxiv_csml_body_abstract.csv
+
 Preprocessing:
 - Reuse existing light normalization from evaluate_abstracts._normalize_text:
   1. Convert None to empty string.
