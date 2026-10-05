@@ -13,25 +13,29 @@ except Exception:
         # fallback estimate
         return max(1, len((text or "").split()) // 0.75)
 
+
 """
 GEN_PROMPT = (
     "Write a formal academic abstract (~200 words) as one paragraph. "
     "Cover motivation, method, and key results clearly.\n\n{}"
 )
+"""
 
-GEN_PROMPT = (
+GEN_PROMPT = ""
+
+SHORT_PROMPT = (
     "Write a formal academic abstract of about 120–130 words as one paragraph. "
     "Cover background, methods, main results, and conclusions clearly.\n\n{}"
 )
 
 
-GEN_PROMPT = (
+LONG_PROMPT = (
     "Write ONLY a new formal academic abstract of exactly 120-130 words in one continuous paragraph. "
     "Strictly cover: 1) background/motivation, 2) methods/approach, 3) main results, 4) conclusions/implications. "
     "Do NOT include feedback, suggestions, critiques, numbered lists, or references to 'your abstract.' "
     "Base it solely on this paper content: \n\n{} \n\nWord count: "
 )
-"""
+
 
 PROMPTS = {
     "P1": (
@@ -69,7 +73,10 @@ PROMPTS = {
     ),
 }
 
-GEN_PROMPT = PROMPTS["P5"]
+#GEN_PROMPT = SHORT_PROMPT
+GEN_PROMPT = LONG_PROMPT
+#GEN_PROMPT = PROMPTS["P5"]
+
 print(GEN_PROMPT)
 
 def chunk_text(text: str, max_input_tokens: int = 2500, overlap_tokens: int = 200):
