@@ -1,0 +1,11 @@
+:: The 50 gold articles (the same as S1, S2 and S3)
+arxiv_csml_body_abstract_50
+
+:: Found in output\gen, this is a random batch of 50 generated articles (b50), gold file is not available because the system allows for dynamic evaluation!
+arxiv_csml_body_abstract_b50
+
+:: 100 articles batch
+arxiv_csml_body_abstract_100
+
+:: 200 articles batch (all articles)
+arxiv_csml_body_abstract
