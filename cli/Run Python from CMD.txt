@@ -1,7 +1,8 @@
 ::=====
-::# Stats for gold-standard and generated abstracts
+::# Stats for gold-standard and generated abstracts: Highlevl and per-abstract statistics.
 ::=====
 
+:: 1- Highlevl
 ### Prompt design (100 atrticles: P1 to P5)
 python avg_word_length.py --csv output/gen/Gen_Abstracts_LLaMA3_8B_Instruct_100_P1.csv --column gen_abstract
 
@@ -11,6 +12,8 @@ python avg_word_length.py --csv output/gen/Gen_Abstracts_LLaMA3_8B_Instruct_S3_P
 ### Decoding parameters (C1 to C5)
 python avg_word_length.py --csv output/gen/Gen_Abstracts_LLaMA3_8B_Instruct_50_C1.csv --column gen_abstract
 
+:: 2- Per-abstract statistics.
+
 ::=====
 :: ******::****** Generate Abstract using Qwen3-VL-8B-Instruct !!! ******::******
 ::=====
@@ -19,6 +22,9 @@ python avg_word_length.py --csv output/gen/Gen_Abstracts_LLaMA3_8B_Instruct_50_C
 python run_qwen.py --in data/arxiv_csml_body_abstract.csv --out output/Gen_Abstracts_Qwen3_8B_Instruct.csv
 
 python run_qwen.py --in data/arxiv_csml_body_abstract.csv --out output/Gen_Abstracts_Qwen3_8B_Instruct.csv --limit 50
+
+::TODO 1: 52206.52  seconds
+python run_qwen.py --in data/arxiv_csml_body_abstract_S1.csv --out output/Gen_Abstracts_Qwen3_8B_Instruct_S1.csv
 
 :: 1683.36/ 1683,36 seconds
 python run_qwen.py --in data/arxiv_csml_body_abstract_S2.csv --out output/Gen_Abstracts_Qwen3_8B_Instruct_S2.csv
@@ -33,6 +39,9 @@ python run_qwen.py --in data/arxiv_csml_body_abstract_S3.csv --out output/Gen_Ab
 python run_llama.py --in data/arxiv_csml_body_abstract.csv --out output/Gen_Abstracts_LLaMA3_8B_Instruct.csv
 
 python run_llama.py --in data/arxiv_csml_body_abstract.csv --out output/Gen_Abstracts_LLaMA3_8B_Instruct_b50.csv --limit 50
+
+:: OH 2026-10-02, TODO 2: 21525.78 seconds wo GPU offload / with GPU offload
+python run_llama.py --in data/arxiv_csml_body_abstract_S1.csv --out output/Gen_Abstracts_LLaMA3_8B_Instruct_S1.csv
 
 :: 1472.22/ 1472,22 seconds
 python run_llama.py --in data/arxiv_csml_body_abstract_S2.csv --out output/Gen_Abstracts_LLaMA3_8B_Instruct_S2.csv
@@ -53,6 +62,9 @@ python run_mixtral.py --in data/arxiv_csml_body_abstract.csv --out output/Gen_Ab
 python run_mixtral.py --in data/arxiv_csml_body_abstract.csv --out output/Gen_Abstracts_Mixtral_Instruct_7B_b50.csv --limit 50
 
 1893.10 seconds 31.55 Min
+python run_mixtral.py --in data/arxiv_csml_body_abstract_S1.csv --out output/Gen_Abstracts_Mixtral_Instruct_7B_S1.csv
+
+:: OH 2026-10-02: TODO 3 2237.82
 python run_mixtral.py --in data/arxiv_csml_body_abstract_S1.csv --out output/Gen_Abstracts_Mixtral_Instruct_7B_S1.csv
 
 :: 2745.58/2745,58 seconds
