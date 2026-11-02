@@ -1,6 +1,6 @@
 # A Retrieval-Augmented Generation Framework for Knowledge Management Using Local Large Language Models
 
-This project builds a private, local retrieval system for scientific papers. It uses three locally served language models (Mixtral-8×7B, Qwen3-VL-8B, and Llama-3.1-8B) to generate abstracts for arXiv papers, and Llama-3.1-8B performed best, so it powers the knowledge base. Abstracts are stored in a vector database and searched semantically, so documents can be found without sending them to cloud services. On 52 validated synthetic questions, the system ranked the correct abstract first 94.2% of the time, showing that abstract-first retrieval with local models works well for finding documents.
+This project builds a private, local retrieval system for scientific papers. It uses three locally served language models (Mixtral-8×7B, Qwen3-VL-8B, and Llama-3.1-8B) to generate abstracts for arXiv papers, and Llama-3.1-8B performed best, so it powers the knowledge base. Abstracts are stored in a vector database and searched semantically, so documents can be found without sending them to cloud services.
 
 ## Overview
 
@@ -32,7 +32,7 @@ This codebase is designed for experimentation on academic abstract generation an
 
 ### Core implementation files
 - `lm_client.py` - OpenAI-compatible client wrapper for LM Studio requests.
-- `summarizer.py` - chunking, generation prompting, and map-reduce summary merging logic.
+- `summarizer.py` - generation prompting, and map-reduce summary merging logic.
 - `data_io.py` - input/output CSV utilities, validation, and run logging.
 - `evaluate.py` - lightweight evaluation stub file for BLEU/ROUGE/BERTScore placeholders.
 - `evaluate_abstracts.py` - full evaluation script that computes BLEU, ROUGE-1, ROUGE-L, and BERTScore against gold abstracts.
@@ -108,19 +108,15 @@ The LLaMA runner sets the model name internally to `meta-llama-3.1-8b-instruct` 
 python run_mixtral.py --in data/arxiv_csml_body_abstract.csv --out data/output.csv
 ```
 
-The Mixtral runner sets the model name internally to `Mixtral_Instruct_7b` unless changed in the script. This is the default local model configuration used for the Mixtral pipeline in this project.
+The Mixtral runner sets the model name internally to `Mixtral_Instruct_8x7b` unless changed in the script. This is the default local model configuration used for the Mixtral pipeline in this project.
 
 ## Implementation details
 
 ### Client layer
 `lm_client.py` defines a thin wrapper around the OpenAI Python SDK. It creates a client pointed at the LM Studio endpoint and sends chat-completion requests with a system prompt instructing the model to write a formal academic abstract.
 
-### Chunking and summarization
+### Summarization
 `summarizer.py` handles long-document processing:
-
-- It splits large paper bodies into token-aware chunks.
-- It asks the model to generate a summary from each chunk.
-- It combines chunk-level summaries using a reduction step to produce a final coherent abstract.
 
 This approach helps keep prompts within model context limits while preserving the main ideas from the document.
 
