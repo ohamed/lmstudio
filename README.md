@@ -6,11 +6,11 @@ This project builds a private, local retrieval system for scientific papers. It 
 
 The general workflow is:
 
-1.  Load a dataset of paper records from CSV.
-2.  Extract the catogories to keep
+1.  Load a dataset of paper records from a metadata file.
+2.  Extract the categories to keep
 3.  Validate required fields such as `paper_id`, `title`, `abstract`, and `body`.
 4.  Pass through the filtering conditions and keep the first 200 obtained papers
-5.  Load configurations and set path
+5.  Load configurations and set the path
 6.  Load CSV and index abstracts.
 7.  Initialize local models.
 8.  Generate a test set.
@@ -18,7 +18,7 @@ The general workflow is:
 10. Generate answers.
 11. Run RAGAS evaluation.
 12. Validate the questions.
-13. Finally export metrics to csv.
+13. Finally, export metrics to CSV.
 
 
 This codebase is designed for experimentation on academic abstract generation and model comparison using local LLMs.
