@@ -32,13 +32,14 @@ This codebase is designed for experimentation on academic abstract generation an
 
 ### Core implementation files
 - `lm_client.py` - OpenAI-compatible client wrapper for LM Studio requests.
-- `summarizer.py` - generation prompting, and map-reduce summary merging logic.
+- `summarizer.py` - generation prompting and map-reduce summary merging logic.
 - `data_io.py` - input/output CSV utilities, validation, and run logging.
 - `evaluate.py` - lightweight evaluation stub file for BLEU/ROUGE/BERTScore placeholders.
 - `evaluate_abstracts.py` - full evaluation script that computes BLEU, ROUGE-1, ROUGE-L, and BERTScore against gold abstracts.
 - `abstracts_stats.py` - per-paper statistics script for generated abstracts and scoring by article.
 - `avg_word_length.py` - utility to compute average generated abstract length.
 - `prep_arxiv_csml_pairs.py` and `prep_arxiv_csml_pairs_S2ORC.py` - data preparation scripts for building sampled paper datasets.
+- `RAGAS_Pipeline.ipynb` - implements and reports RAGAS evaluation metrics: faithfulness, answer correctness, context precision, context recall.
 
 ### Data and outputs
 - `data/` - sample CSV datasets and generated output files.
